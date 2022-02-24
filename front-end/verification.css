@@ -1,0 +1,159 @@
+
+div1{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 48px 40px;
+
+  position: absolute ;
+  width: 380px;
+  height: 358px;
+  left: 70%;
+  top:30%;
+
+  background: #FFFFFF;
+  /* Grey / T4 */
+
+  border: 2px solid #ECECEC;
+  box-sizing: border-box;
+  border-radius: 16px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 10px 0px;
+}
+
+.labelp1{
+  position: static;
+  width: 324px;
+  height: 36px;
+  left: 0px;
+  top: 0px;
+
+  /* H2 */
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  /* or 133% */
+
+
+  color: #212429;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 4px 0px;
+}
+
+.labelp2 {
+  position: static;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  /* Black */
+
+  color: #212429;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+.complete{
+  position: static;
+  width: 300px;
+  height: 48px;
+  left: 0px;
+  top: 0px;
+
+
+  /* Inside auto layout */
+  text-align: center;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 16px 0px;
+  border: 1px solid white;
+
+  background: rgba(255, 49, 234, 0.45);
+  border-radius: 24px; /* H4 */
+
+  /* identical to box height, or 125% */
+
+
+  /* White */
+
+  color: #FFFFFF;
+}
+.num{
+  /* input */
+  position: static;
+  width: 300px;
+  height: 40px;
+  left: 0px;
+  top: 4px;
+
+  padding-left:13%;
+  /* Inside auto layout */
+  border: 1px solid #D8D8D8;
+  box-sizing: border-box;
+  border-radius: 24px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 8px 0px;
+  font-size:15px;
+  background:url(ICONvertify.png)no-repeat;background-position: 5% 50%;background-size: 6%;
+}
+p2{
+  font-size: 13px;
+  bottom:0px;
+}
+p4{
+  color:#FFFFFF
+}
+p1{
+  position: static;
+width: 250px;
+height: 29px;
+left: 0px;
+top: 0px;
+
+/* H2 */
+
+font-family: normal;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 25px;
+/* or 133% */
+
+
+color: #212429;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 4px 0px;
+}
