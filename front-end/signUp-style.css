@@ -257,7 +257,7 @@
   flex-grow: 0;
   margin: 8px 0px;
   font-size:15px;
-  background:url(username.png)no-repeat;background-position: 5% 50%;background-size: 6%;
+  background:url(ICONusername.png)no-repeat;background-position: 5% 50%;background-size: 6%;
 }
 
 .divEmailInput{
@@ -323,7 +323,7 @@
   flex-grow: 0;
   margin: 8px 0px;
   font-size:15px;
-  background:url(email.png) no-repeat;background-position: 5% 35%;background-size: 5%;
+  background:url(ICONemail.png) no-repeat;background-position: 5% 35%;background-size: 5%;
 }
 
 .divPasswordInput{
@@ -389,7 +389,7 @@ align-self: stretch;
 flex-grow: 0;
 margin: 8px 0px;
 font-size:15px;
-background:url(password.png) no-repeat;background-position: 5% 35%;background-size: 5%;
+background:url(ICONpassword.png) no-repeat;background-position: 5% 35%;background-size: 5%;
 }
 
 .divComPasswordInput{
@@ -449,7 +449,7 @@ align-self: stretch;
 flex-grow: 0;
 margin: 8px 0px;
 font-size:15px;
-background:url(comfirm-password.png)no-repeat;background-position: 5% 50%;background-size: 6%;
+background:url(ICONcomfirm-password.png)no-repeat;background-position: 5% 50%;background-size: 6%;
 }
 
 
