@@ -1,9 +1,9 @@
 .match{
     position: absolute;
-width: 646px;
-height: 843px;
-left: 640px;
-top: 50px;
+width: 36%;
+height: 90%;
+left: 33%;
+top: 5%;
 
 background: rgba(255, 49, 234, 0.29);
 border: 1px solid #000000;
@@ -12,10 +12,10 @@ border-radius: 150px;
 }
 .circle{
     position: absolute;
-width: 62px;
-height: 64px;
-left: 895px;
-top: 138px;
+width: 4%;
+height: 2%;
+left: 46%;
+top: 16.3%;
     background:url(circle.png)no-repeat;background-position: 50% 41%;background-size: 16%;
 }
 .image{
@@ -89,19 +89,28 @@ background:url(round.png)no-repeat;background-position: 50% 41%;background-size:
 }
 .go{
     position: absolute;
-width: 276px;
+width: 50%;
 height: 115px;
-left: 300px;
+left: 42%;
 top: 720px;
 
+
+color: #000000;
+background:url(arrow.png)no-repeat;background-position: 95% 51%;background-size: 10%;
+}
+.location{
+    width: 80%;
+height: 106%;
+left: 90%;
+top: 80%;
 font-family: Futura;
 font-style: normal;
 font-weight: 500;
 font-size: 20px;
-line-height: 27px;
+line-height: 25px;
 display: flex;
 align-items: center;
 
-color: #000000;
-background:url(arrow.png)no-repeat;background-position: 95% 51%;background-size: 10%;
+border:none;
+background-color: rgba(247, 202, 242, 0.29);
 }

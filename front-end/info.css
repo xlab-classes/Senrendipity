@@ -43,7 +43,7 @@ p{
     color: #001329;
      
 }
-.Done{
+.location{
     position: absolute;
     width: 196.53px;
     height: 60px;
@@ -273,4 +273,13 @@ align-items: center;
 color: #000000;
 transform:translateX(70px);
 
+}
+.leftarrow{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    left: 16%;
+    top: 80%;
+    border:none;
+    background:url(left.png)no-repeat;background-position: 10% 101%;background-size: 50%;    
 }
