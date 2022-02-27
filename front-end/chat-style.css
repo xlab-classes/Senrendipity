@@ -64,8 +64,8 @@
     border: none;
 
     font-family: Inter;
-    padding-left:8%;
-    font-size: 11px;
+    padding-left:10%;
+    font-size: 8px;
 }
 
 .div_search_box{
@@ -130,13 +130,13 @@
 .text_CHATNAME_FriendUsername{
     position: absolute;
     left: 13%;
-    top: 28%;
+    top: 25%;
     border-radius: 50%;
 
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
-    font-weight: bold;
+
     line-height: 17px;
     display: flex;
     align-items: center;
@@ -245,10 +245,10 @@
 
 .div_selfPic {
     position: absolute;
-    width: 17%;
-    height: 80%;
+    width: 13%;
+    height: 60%;
     left: 5%;
-    top: 10%;
+    top: 20%;
     border-radius: 50%;
     background: pink;
 }
@@ -256,7 +256,9 @@
 .text_username{
     position: absolute;
     font-family: Inter;
-    margin: 7.5% 28%;
+    font-size: 12px;
+    text-align: center;
+    margin: 8% 23%;
 }
 .button_setting{
     position: absolute;
@@ -282,9 +284,9 @@
 
 .div_friend_Hobbies_info {
     position: absolute;
-    width: 94%;
+    width: 90%;
     height: 35%;
-    left: 3%;
+    left: 5%;
     top: 2%;
 
     border: 1px solid rgba(152, 152, 158, 0.3);
@@ -294,19 +296,34 @@
 
 .div_habitFriendPIC {
     position: absolute;
-    width: 40%;
-    height: 52%;
-    left: 30%;
+    width: 35%;
+    height: 45%;
+    left: 32%;
     top: 15%;
     border-radius: 50%;
     background:hotpink ;
 }
-.text_friendUsername{
+.div_Text_FRIEND_USERNAME{
     position: absolute;
-    left: 30%;
+    justify-content: center;
+    width: 100%;
     top: 70%;
     font-family: Inter;
-    font-size: 14px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    white-space:nowrap;
+}
+.text_friendUsername{
+    justify-content: center;
+    position: absolute;
+    padding-left: 25%;
+    top: 70%;
+    font-family: Inter;
+    font-size: 12px;
     font-style: normal;
     font-weight: bold;
     line-height: 17px;
@@ -316,17 +333,18 @@
 }
 .text_Habbies{
     position: absolute;
-    left: 30%;
+    justify-content: center;
+    width: 100%;
     top: 37%;
-
     font-family: Galdeano;
     font-style: normal;
     font-weight: normal;
-    font-size: 40px;
+    font-size: 30px;
     line-height: 42px;
     display: flex;
     align-items: center;
     color: #000000;
+    text-align: center;
 }
 
 .div_Habbies_Friend_label{
