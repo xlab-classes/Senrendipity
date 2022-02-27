@@ -5,6 +5,8 @@
 
 .div_word_logo{
     /* words/logo */
+    font-family: Inter;
+    color: #98989E;
     position: absolute;
     width: 742px;
     height: 485px;
