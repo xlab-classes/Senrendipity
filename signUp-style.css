@@ -1,0 +1,455 @@
+@font-face {
+  font-family:Inter;
+  src: url(Inter-VariableFont_slnt,wght.ttf);
+}
+
+.div_word_logo{
+  /* words/logo */
+
+
+  position: absolute;
+  width: 742px;
+  height: 485px;
+  left: 158px;
+  top: 252px;
+}
+
+
+.signUp_Container {
+  /* container */
+
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 48px 40px;
+
+  position: absolute;
+  width: 380px;
+  height: 624px;
+  left: 900px;
+  top: 199px;
+
+  background: #FFFFFF;
+  /* Grey / T4 */
+
+  border: 2px solid #ECECEC;
+  box-sizing: border-box;
+  border-radius: 16px;
+
+}
+
+.Join_The_Community{
+  /* Join the Community */
+
+
+  position: static;
+  width: 307px;
+  height: 36px;
+  left: 0px;
+  top: 36px;
+
+  /* H2 */
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  /* or 133% */
+
+
+  color: #212429;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 4px 0px;
+}
+
+.Lable_Username{
+  /* Username */
+
+
+  position: static;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+
+  /* Black */
+
+  color: #212429;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+.usernameInput{
+  /* input */
+
+
+  position: static;
+  width: 310px;
+  height: 40px;
+  left: 0px;
+  top: 24px;
+
+
+  /* Inside auto layout */
+  padding-left:13%;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 8px 0px;
+  align-self: stretch;
+  border: 1px solid #D8D8D8;
+  box-sizing: border-box;
+  border-radius: 24px;
+  font-size:15px;
+  background:url(ICONusername.png)no-repeat;background-position: 5% 45%;background-size: 6%;
+}
+
+.Lable_Email {
+  /* E-Mail or Username */
+
+
+  position: static;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+
+  /* Black */
+
+  color: #212429;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+.emailInput {
+  /* input */
+
+
+  position: static;
+  width: 310px;
+  height: 40px;
+  left: 0px;
+  top: 24px;
+
+
+  /* Inside auto layout */
+  align-self: stretch;
+  padding-left:13%;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 8px 0px;
+  border: 1px solid #D8D8D8;
+  box-sizing: border-box;
+  border-radius: 24px;
+  font-size:15px;
+  background:url(ICONemail.png) no-repeat;background-position: 5% 40%;background-size: 6%;
+}
+
+.Lable_Password {
+  /* Password */
+
+
+  position: static;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+
+  /* Black */
+
+  color: #212429;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 8px 0px;
+
+}
+
+.passwordInput {
+  /* input */
+
+
+  position: static;
+  width: 310px;
+  height: 40px;
+  left: 0px;
+  top: 24px;
+
+
+  /* Inside auto layout */
+  padding-left:13%;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 8px 0px;
+  border: 1px solid #D8D8D8;
+  box-sizing: border-box;
+  border-radius: 24px;
+  font-size:15px;
+  background:url(ICONpassword.png) no-repeat;background-position: 5% 35%;background-size: 5%;
+}
+
+.Lable_ConfirmPassword {
+  /* Confirm Password */
+
+
+  position: static;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+
+  /* Black */
+
+  color: #212429;
+
+}
+
+.confirmPasswordInput {
+  /* input */
+
+
+  position: static;
+  width: 310px;
+  height: 40px;
+  left: 0px;
+  top: 24px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 8px 0px;
+  font-size:15px;
+  border: 1px solid #D8D8D8;
+  box-sizing: border-box;
+  border-radius: 24px;
+
+  background:url(ICONcomfirm-password.png) no-repeat;background-position: 4% 45%;background-size: 7.5%;
+}
+
+.button_signUp {
+  position: static;
+  width: 300px;
+  height: 48px;
+  left: 0px;
+  top: 0px;
+  
+  /* Inside auto layout */
+  text-align: center;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 16px 0px;
+  border: 1px solid white;
+
+  background: rgba(255, 49, 234, 0.45);
+  border-radius: 24px; /* H4 */
+
+  /* identical to box height, or 125% */
+
+  /* White */
+
+  color: #FFFFFF;
+}
+
+.divALLINPUT {
+  /* input-module */
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: 314px;
+  height: 304px;
+  left: 40px;
+  top: 160px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 40px 0px;
+
+}
+
+.divUserInput{
+
+  /* Username */
+
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: 310px;
+  height: 64px;
+  left: 0px;
+  top: 0px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 8px 0px;
+
+  
+}
+.divEmailInput{
+  /* Email */
+
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: 310px;
+  height: 67px;
+  left: 0px;
+  top: 68px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 8px 0px;
+
+}
+
+.divPasswordInput{
+  /* password */
+
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: 310px;
+  height: 68px;
+  left: 0px;
+  top: 144px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 8px 0px;
+
+}
+
+.divConfirmPasswordInput{
+  /* confirm password */
+
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: 310px;
+  height: 68px;
+  left: 0px;
+  top: 224px;
+
+
+  
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+.divButton {
+  /* button-module */
+
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: 300px;
+  height: 48px;
+  left: 40px;
+  top: 504px;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 40px 0px;
+
+}
