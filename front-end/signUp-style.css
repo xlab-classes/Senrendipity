@@ -458,4 +458,22 @@ font-size:15px;
 background:url(ICONcomfirm-password.png)no-repeat;background-position: 5% 50%;background-size: 6%;
 }
 
+.button_back{
+    position: absolute;
+    background: url("ICON_back.png")no-repeat;background-position:50% 50%;background-size:55%;
+    height: 7%;
+    margin: 140% -10%;
+    width:15%;
+    border:none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 25%;
 
+}
+
+.button_back1:hover {
+    background-color: #f5f5f5;;
+    color: white;
+}

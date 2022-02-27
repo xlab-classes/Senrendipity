@@ -184,3 +184,24 @@ order: 0;
 flex-grow: 0;
 margin: 4px 0px;
 }
+
+.button_back{
+  position: absolute;
+  background: url("ICON_back.png")no-repeat;background-position:50% 50%;background-size:55%;
+  height: 12%;
+  margin: 2% -8%;
+  width:15%;
+  border:none;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25%;
+
+}
+
+.button_back1:hover {
+  background-color: #f5f5f5;;
+  color: white;
+}
+
