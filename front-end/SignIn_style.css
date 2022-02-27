@@ -1,6 +1,6 @@
 @font-face {
     font-family:Inter;
-    src: url(Inter-VariableFont_slnt,wght.ttf);
+    src: url(https://fonts.google.com/specimen/Inter?query=inter#standard-styles);
 }
 
 .div_word_logo{
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
+    padding: 0;
 
     position: static;
     width: 300px;
@@ -34,7 +34,7 @@
     order: 0;
     align-self: stretch;
     flex-grow: 0;
-    margin: 40px 0px;
+    margin: 40px 0;
 }
 
 
@@ -62,7 +62,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
+    padding: 0;
 
     position: static;
     width: 300px;
@@ -77,7 +77,7 @@
     order: 0;
     align-self: stretch;
     flex-grow: 0;
-    margin: 40px 0px;
+    margin: 40px 0;
 }
 
 .Find_your_Serendipity{
@@ -85,9 +85,9 @@
 
     position: static;
     width: 324px;
-    height: px;
-    left: 0px;
-    top: 0px;
+    height: 36px;
+    left: 0;
+    top: 0;
 
     /* H2 */
 
@@ -107,7 +107,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 4px 0px;
+    margin: 4px 0;
 }
 
 .label_email_or_username{
@@ -129,7 +129,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 8px 0px;
+    margin: 8px 0;
 }
 
 .username_input{
@@ -138,7 +138,7 @@
     position: static;
     width: 300px;
     height: 40px;
-    left: 0px;
+    left: 0;
     top: 24px;
 
     padding-left:13%;
@@ -341,7 +341,7 @@
 .Label_Link_CreateAccount{
     /* Create Account → */
 
-
+    white-space:nowrap;
     position: static;
     width: 105px;
     height: 16px;
@@ -377,7 +377,7 @@
 .LableLink_ForgetPassword {
     /* Forgot password? */
 
-
+    white-space:nowrap;
     position: static;
     width: 105px;
     height: 16px;
@@ -405,5 +405,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 8x 0px;;}
+    margin: 8px 0px;
+
+}
 

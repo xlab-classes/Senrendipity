@@ -1,4 +1,10 @@
-  words-logo{
+@font-face {
+    font-family:Inter;
+    src: url(https://fonts.google.com/specimen/Inter?query=inter#standard-styles);
+}
+
+
+.words-logo{
     /* words/logo */
     position: absolute;
     width: 742px;
@@ -9,7 +15,7 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
 
-  word{
+.word{
     /* Words */
     position: absolute;
     width: 475px;
@@ -31,7 +37,7 @@
     color: #000000;
   }
 
-  logo{
+.logo{
     /* Logo */
     position: absolute;
     width: 363px;
@@ -53,7 +59,7 @@
     color: #000000;
   }
 
-  signUp_Container{
+.signUp_Container{
     /* container */
     /* Auto layout */
 
@@ -77,7 +83,7 @@
 
   }
 
-  t1{
+.t1{
     /* Welcome! */
     position: static;
     width: 300px;
@@ -107,7 +113,7 @@
     margin: 4px 0px;
   }
 
-  t2{
+.t2{
     /* Join the Community */
     position: static;
     width: 307px;
