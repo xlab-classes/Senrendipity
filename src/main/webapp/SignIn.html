@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="SignIn_style.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://layui.itze.cn/layui-v2.6.8/layui/layui.js"></script>
+    <link rel="stylesheet" href="https://layui.itze.cn/layui-v2.6.8/layui/css/layui.css">
+    <script src="script.js"> </script>
+    <meta charset="UTF-8">
+    <title>Serendipity</title>
+</head>
+
+<body >
+<div class="div_word_logo">
+    <h1>Make Friends with Hobbies, Interests, and Serendipity. </h1>
+</div>
+
+
+<div class="signIn_Container">
+
+        <label class="Find_your_Serendipity"> Find Your Serendipity... </label>
+
+        <div class="divALLINPUT">
+
+            <div class="divUserInput">
+                <label class="label_email_or_username">
+                    Email or Username
+                    <input type="text" class="username_input" id="username" required >
+                </label>
+
+            </div>
+
+            <div class="divPasswordInput">
+                <label class="Lable_Password"> Password
+                    <input Password="pass" type = "password" class="passwordInput" id="password" required ></label>
+            </div>
+        </div>
+
+    <div class="divButton">
+        <button onclick="login()" class="button_signIn" type="submit" value="SignIn">Sign In</button>
+        <a  href="signUp.html" class="Label_Link_CreateAccount "> Create Account -></a>
+        <a  href="forgot_password.html" class="LableLink_ForgetPassword">Forget password </a>
+    </div>
+
+
+
+</div>
+
+
+</body>
+</html>

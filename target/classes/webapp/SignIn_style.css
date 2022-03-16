@@ -1,0 +1,428 @@
+@font-face {
+    font-family:Inter;
+    src: url(https://fonts.google.com/specimen/Inter?query=inter#standard-styles);
+}
+
+.div_word_logo{
+    /* words/logo */
+    font-family: Inter;
+    color: #98989E;
+    position: absolute;
+    width: 742px;
+    height: 485px;
+    left: 150px;
+    top: 296px;
+}
+
+.resetpassword{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 48px 40px;
+
+    position: absolute;
+    width: 380px;
+    height: 520px;
+    left: 70%;
+    top: 13%;
+
+    background: #FFFFFF;
+    /* Grey / T4 */
+
+    border: 2px solid #ECECEC;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.signIn_Container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 48px 40px;
+
+    position: absolute;
+    width: 380px;
+    height: 560px;
+    left: 70%;
+    top: 13%;
+
+    background: #FFFFFF;
+    /* Grey / T4 */
+
+    border: 2px solid #ECECEC;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.textModule{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+
+    position: static;
+    width: 300px;
+    height: 36px;
+    left: 40px;
+    top: 48px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 40px 0;
+}
+
+.Find_your_Serendipity{
+    /* Find Your Serendipity... */
+
+    position: static;
+    width: 324px;
+    height: 36px;
+    left: 0;
+    top: 0;
+
+    /* H2 */
+
+    font-family:Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    /* or 133% */
+
+
+    color: #212429;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 4px 0;
+}
+
+.label_email_or_username{
+    position: static;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    /* Black */
+
+    color: #212429;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 8px 0;
+}
+
+.username_input{
+    /* input */
+
+    position: static;
+    width: 300px;
+    height: 40px;
+    left: 0;
+    top: 24px;
+
+    padding-left:13%;
+    /* Inside auto layout */
+    border: 1px solid #D8D8D8;
+    box-sizing: border-box;
+    border-radius: 24px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 8px 0px;
+    font-size:15px;
+    background:url(image/ICONemail_or_username.png)no-repeat;background-position: 5% 50%;background-size: 6%;
+}
+
+.Lable_Password {
+    /* Password */
+
+
+    position: static;
+    width: 57px;
+    height:16px;
+    left: 0px;
+    top: 0px;
+
+    /* Body 2 */
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+    /* Black */
+    color: #212429;
+
+}
+
+.passwordInput {
+    position: static;
+    width: 300px;
+    height: 40px;
+    left: 0px;
+    top: 24px;
+    border: 1px solid #D8D8D8;
+    box-sizing: border-box;
+    border-radius: 24px;
+
+    /* Inside auto layout */
+    padding-left:68%;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 8px 0px;
+    font-size:15px;
+    background:url(image/ICONpassword.png) no-repeat;background-position: 5% 35%;background-size: 5%;
+}
+
+.button_signIn {
+    position: static;
+    width: 300px;
+    height: 48px;
+    left: 0px;
+    top: 0px;
+
+
+    /* Inside auto layout */
+    text-align: center;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 16px 0px;
+    border: 1px solid white;
+
+    background: rgba(255, 49, 234, 0.45);
+    border-radius: 24px; /* H4 */
+
+    /* identical to box height, or 125% */
+
+
+    /* White */
+
+    color: #FFFFFF;
+}
+
+.divInput{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    width: 300px;
+    height: 152px;
+    left: 40px;
+    top: 124px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 40px 0px;
+}
+.divALLINPUT {
+    /* input-module */
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    width: 300px;
+    height: 152px;
+    left: 40px;
+    top: 124px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 40px 0px;}
+.divUserInput{
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    width: 300px;
+    height: 64px;
+    left: 0px;
+    top: 0px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 24px 0px;
+}
+.divPasswordInput{
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    width: 300px;
+    height: 64px;
+    left: 0px;
+    top: 88px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 24px 0px;
+}
+.divButton {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    width: 300px;
+    height: 112px;
+    left: 40px;
+    top: 316px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 40px 0px;
+}
+
+.Label_Link_CreateAccount{
+    /* Create Account → */
+
+    white-space:nowrap;
+    position: static;
+    width: 105px;
+    height: 16px;
+    left: calc(50% - 105px/2 - 97.5px);
+    top: calc(50% - 16px/2 + 16px);
+
+    /* Body 2 */
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Black */
+
+    color: #212429;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order:0;
+    flex-grow: 0;
+    margin: 16px 0px;
+}
+
+.LableLink_ForgetPassword {
+    /* Forgot password? */
+
+    white-space:nowrap;
+    position: static;
+    width: 105px;
+    height: 16px;
+    left: calc(50% - 105px/2);
+    top: calc(50% - 16px/2);
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Grey / T2 */
+
+    color: #98989E;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 8px 0px;
+
+}
+
+
+.button_back{
+    position: absolute;
+    background: url("image/ICON_back.png")no-repeat;background-position:50% 50%;background-size:55%;
+    height: 8%;
+    margin: 110% -8%;
+    width:13%;
+    border:none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 25%;
+
+}
+
+.button_back1:hover {
+    background-color: #f5f5f5;;
+    color: white;
+}
+
