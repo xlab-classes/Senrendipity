@@ -171,6 +171,7 @@ function resend_code(){
 }
 
 function forgot_password(){
+
     var email = $('#forgot_email').val();
 
     $.get("forgot_password", {
@@ -190,10 +191,12 @@ function forgot_password(){
 function forgot_verity(){
     var email = getURLVariable("email")
     var num = $('#forgot_verityNum').val();
-    var pass_word =$('#password1').val();
-    var pass_word2 =$('#password2').val();
+    var pass_word =$('#Fpassword1').val();
+    var pass_word2 =$('#Fpassword2').val();
 
-
+    if (pass_word2 !==pass_word){
+        alert('The password and confirmation password do not match please enter again')
+    }
     $.get("forgot_verify", {
             "email":email,
             "num": num,
