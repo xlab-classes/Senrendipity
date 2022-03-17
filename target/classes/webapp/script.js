@@ -170,3 +170,58 @@ function resend_code(){
 
 }
 
+function forgot_password(){
+    var email = $('#forgot_email').val();
+
+    $.get("forgot_password", {
+            "email":$('#forgot_email').val(),
+        }, function (java_response){
+            if(java_response==="1"){
+                location.href ="ForgotPass_verification.html"+"?email="+email
+            }
+            else{
+                alert("Emails does not exist ")
+            }
+        }
+    )
+}
+
+
+function forgot_verity(){
+    var email = getURLVariable("email")
+    var num = $('#forgot_verityNum').val();
+    var pass_word =$('#password1').val();
+    var pass_word2 =$('#password2').val();
+
+
+    $.get("forgot_verify", {
+            "email":email,
+            "num": num,
+            "password" : pass_word,
+            "resend":"0"
+        }, function (java_response){
+            if(java_response==="1"){
+                alert("Your password has been changed successfully")
+                location.href ="SignIn.html"
+            }
+        }
+    )
+}
+function forgot_resend_code() {
+    var email = getURLVariable("email")
+
+    $.get("forgot_verify", {
+            "email":email,
+            "num": "0",
+            "password" : "0",
+            "resend":"1"
+        }, function (java_response){
+            if(java_response==='1'){
+                alert("Resend code successful")
+            }
+            else{
+                alert("Resend code fail")
+            }
+        }
+    )
+}

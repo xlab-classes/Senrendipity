@@ -5,7 +5,10 @@
   <title>Serendipity</title>
   <meta charset = "utf-8">
   <meta name ="viewport" content="width=device - width">
-  <link href="verification.css" rel="stylesheet" type="text/css"/>
+  <link href="Forgot_verification.css" rel="stylesheet" type="text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>\
+
   <script src="script.js">
 
   </script>
@@ -16,9 +19,15 @@
 <body>
 <div1>
   <p1 class="labelp1">Find your Serendipity...</p1> </br></br>
+
+  <label  class = "labelp2"> New password:</label><input id="password1" type = "password" class = "new_password">
+  <label  class = "labelp2">Confirmed password:</label><input id="password2" type = "password" class = "password2">
   <p2 class = "labelp2">Verification Code:</p2>
-  <input Verification= "verify" type = "text" class = "num">
-  <button onclick="window.location.href ='SignIn.html'" type = "submit" value="submit" class="complete"> Complete </button>
+  <button onclick="forgot_resend_code()" class = "labelp4 button_back2" >Resend Code</button>
+  <input id="forgot_verityNum" type = "tel" class = "num">
+
+
+  <button onclick=forgot_verity() type = "submit" value="submit" class="complete"> Complete </button>
   <a href= "forgot_password.html" ><button class= "button_back button_back1"  ></button></a>
 </div1>
 </body>

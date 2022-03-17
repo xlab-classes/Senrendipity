@@ -11,7 +11,7 @@ div1{
 
   position: absolute ;
   width: 380px;
-  height: 358px;
+  height: 370px;
   left: 70%;
   top:30%;
 
@@ -159,30 +159,30 @@ div1{
 }
 .p1{
   position: static;
-width: 250px;
-height: 29px;
-left: 0px;
-top: 0px;
+  width: 250px;
+  height: 29px;
+  left: 0px;
+  top: 0px;
 
-/* H2 */
+  /* H2 */
 
-font-family: normal;
-font-style: normal;
-font-weight: bold;
-font-size: 18px;
-line-height: 25px;
-/* or 133% */
-
-
-color: #212429;
+  font-family: normal;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  /* or 133% */
 
 
-/* Inside auto layout */
+  color: #212429;
 
-flex: none;
-order: 0;
-flex-grow: 0;
-margin: 4px 0px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 4px 0px;
 }
 
 .button_back{
@@ -235,5 +235,3 @@ margin: 4px 0px;
   background-color: #f5f5f5;;
   color: #a4a4a4;
 }
-
-
