@@ -11,7 +11,7 @@
 
   <name>web Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://www-student.cse.buffalo.edu/CSE442-542/2022-Spring/cse-442m/cse442-spring2022-team-heart/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
