@@ -20,6 +20,7 @@ public class DButil {
         }
     }
 
+
     public static Connection getConnection(){
         System.out.print("connect");
         return conn;

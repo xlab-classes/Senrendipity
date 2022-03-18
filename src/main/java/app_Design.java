@@ -27,4 +27,5 @@ public interface app_Design{
     public String getRandom();
 
     public void sendEmail(String email, User user) throws Exception;
+
 }

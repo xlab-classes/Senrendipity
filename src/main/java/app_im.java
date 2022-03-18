@@ -26,6 +26,7 @@ public class app_im implements app_Design {
 
         psmt.execute();
         psmt.close();
+
     }
 
     //没有问题
