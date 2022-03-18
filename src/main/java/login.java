@@ -20,6 +20,8 @@ public class login extends HttpServlet {
         doPost(request,response);
     }
 
+
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         response.setCharacterEncoding("UTF-8");
         response.setContentType("cse442-spring2022-team-heart/front-end/script.js;charset=UTF-8");
@@ -31,6 +33,8 @@ public class login extends HttpServlet {
             e.printStackTrace();
         } 
     }
+
+
 
     public void userLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException{
         app_im serv = new app_im();

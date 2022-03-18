@@ -13,11 +13,14 @@ function login(){
         $("#username"). css("border","1px solid #D8D8D8");
 
     }
+
+
     if (pass_word==null||pass_word===''|| pass_word.length===0){
         $("#password"). css("box-shadow","0 0px 4px 0 red");
         $("#password"). css("border-color","white");
         alert('please enter your password')
     }
+    
     else{
         $("#password"). css("box-shadow","none");
         $("#password"). css("border","1px solid #D8D8D8");
