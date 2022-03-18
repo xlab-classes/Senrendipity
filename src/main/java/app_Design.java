@@ -3,7 +3,6 @@ import java.sql.SQLException;
 
 
 public interface app_Design{
-
     public void addUser(User user) throws Exception;
 
     public void updatePassword(User user, String password) throws SQLException;

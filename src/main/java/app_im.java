@@ -3,7 +3,6 @@ import java.util.Random;
 
 
 public class app_im implements app_Design {
-
     //没有问题
     public void addUser(User user) throws Exception{
         //连接数据库

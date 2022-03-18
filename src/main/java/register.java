@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(name = "register", urlPatterns =  "/register")
-
 public class register extends HttpServlet{
     private static final long  serialVersionUID = 1L;
 

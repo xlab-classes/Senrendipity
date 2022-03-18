@@ -1,6 +1,7 @@
 import java.sql.*;
 
 public class DButil {
+
     //128.205.36.4
     private static final String URL = "jdbc:mysql://oceanus.cse.buffalo.edu:3306/cse442_2022_spring_team_m_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimeZone=UTC";
     private static final String NAME = "jweng6";
