@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +40,8 @@ public class register extends HttpServlet{
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+
+
         PrintWriter check = response.getWriter();
 
         app_im serv = new app_im();
@@ -49,31 +53,45 @@ public class register extends HttpServlet{
         user.setEmail(email);
         //check.println(user.getUsername())；
 
+        boolean email_check = serv.UserExist_email(email);
+        boolean username_check = serv.UserExist_name(username);
+        System.out.print("email:"+ email_check + "username:"+username_check);
+
+        String output = "fail";
         //流程
+        boolean e  = false;
+        boolean u = false;
+        List<User> users = new ArrayList<User>();
 
-        if(serv.UserExist_email(email) == true){
-            User user2 = serv.getUser_email(email);
-            //System.out.print(user2.getCheck());
-            if (user2.getCheck()){
-                check.write("0");
+        if (email_check || username_check){
+            if (serv.UserExist_email(email)){ // email exist
+                User user2 = serv.getUser_email(email);
+                if (user2.getCheck()){
+                    e = true;
+                    output= "exist email";
+                }
+                //serv.deleteUser(user2.getId());
             }
-            serv.deleteUser(user2.getId());
+
+            if(serv.UserExist_name(username)) { // user exist
+                User user2 = serv.getUser_name(username);
+                //System.out.print(user2.getCheck());
+                if (user2.getCheck()){
+                    u = true;
+                    output= "exist username";
+                }
+            }
+            if(u && e){
+                output= "exist email and username";
+            }
         }
 
-        if(serv.UserExist_name(username) == true){
-            User user2 = serv.getUser_name(username);
-            System.out.print(user2.getCheck());
-            if (user2.getCheck()){
-                check.write("1");
-            }
-            serv.deleteUser(user2.getId());
-        }
-
-        else{
+        if(!e && !u){
             serv.sendEmail(email,user);
             serv.addUser(user);
-            check.write("2");
+            output= "0";
         }
+        check.write(output);
         check.close();
     }
 }
