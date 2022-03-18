@@ -1,6 +1,5 @@
 
 function login(){
-
     var user_name = $("#username").val();
     var pass_word = $("#password").val();
     if (user_name ==null|| user_name===''||user_name.length===0){

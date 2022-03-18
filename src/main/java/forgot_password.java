@@ -11,6 +11,7 @@ import java.sql.SQLException;
 @WebServlet(name = "forgot_password", urlPatterns =  "/forgot_password")
 
 public class forgot_password extends HttpServlet{
+
     private static final long  serialVersionUID = 1L;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
