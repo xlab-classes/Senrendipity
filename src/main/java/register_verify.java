@@ -17,7 +17,6 @@ public class register_verify extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         doPost(request, response);
     }
-
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
@@ -30,8 +29,6 @@ public class register_verify extends HttpServlet{
         }
 
     }
-
-
 
     public void verify(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
         app_im serv = new app_im();

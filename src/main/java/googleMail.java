@@ -11,9 +11,7 @@ public class googleMail {
         p.put("mail.smtp.host","smtp.gmail.com");
         p.put("mail.smtp.port","587");
     }
-
     public boolean getMimeMessage(String email, String v_code) throws Exception{
-
         Properties p = new Properties();
         gmailtls(p);
         final String username = "serendipity.cse442@gmail.com";
@@ -24,6 +22,7 @@ public class googleMail {
                 return new PasswordAuthentication(username,password);
             }
         });
+
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(email));
         msg.setRecipient(MimeMessage.RecipientType.TO,new InternetAddress(email));

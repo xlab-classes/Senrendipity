@@ -19,7 +19,6 @@ public class register extends HttpServlet{
         doPost(request, response);
 
     }
-
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         //doGet(request,response);
         response.setCharacterEncoding("UTF-8");
@@ -33,7 +32,6 @@ public class register extends HttpServlet{
         }
 
     }
-
     public void registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
