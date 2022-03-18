@@ -20,12 +20,13 @@ function login(){
         $("#password"). css("border-color","white");
         alert('please enter your password')
     }
-    
+
     else{
         $("#password"). css("box-shadow","none");
         $("#password"). css("border","1px solid #D8D8D8");
 
     }
+
     $.get("./register", {
             "username":$("#username").val(),
             "password":$("#password").val(),

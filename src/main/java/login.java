@@ -55,6 +55,7 @@ public class login extends HttpServlet {
                 check.write("0");
         }
         }
+        
         check.close();
     
     }
