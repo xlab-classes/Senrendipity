@@ -9,6 +9,7 @@ public class User {
     private String email;
     private String password;
     private String v_Code;
+    private String passKey;
 
     //Constructor 
     public User(){
@@ -24,6 +25,14 @@ public class User {
     }
 
     //getter and setter
+    public String getPassKey(){
+        return passKey;
+    }
+
+    public void setPassKey(String passKey){
+        this.passKey = passKey;
+    }
+
     public int getId(){
         return id;
     }

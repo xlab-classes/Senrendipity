@@ -27,4 +27,8 @@ public interface app_Design{
     public String getRandom();
 
     public void sendEmail(String email, User user) throws Exception;
+
+    public String encrypt(String ukey,String password) throws Exception;
+
+    public String decode(String ukey, String code) throws Exception;
 }

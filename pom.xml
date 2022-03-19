@@ -27,10 +27,12 @@
       <scope>test</scope>
     </dependency>
 
-
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.6</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-
-
 
 
 

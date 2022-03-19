@@ -1,9 +1,23 @@
+import java.sql.SQLException;
 import java.util.Random;
 
 public class test {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws SQLException, Exception{
         User a = new User();
         app_im serv = new app_im();
+        String key = serv.generateKey();
+        String key2 = serv.generateKey();
+        String en = serv.encrypt(key ,"s");
+        System.out.println(key);
+        String en2 = serv.encrypt(key2 ,"1232312313");
+        System.out.println(key2);
+
+        serv.deleteUser(4);
+        System.out.println(serv.id_Count());
+        System.out.println(en);
+        System.out.println(en2);
+        System.out.println(serv.decode(key,en));
+        System.out.println(serv.decode(key2,en2));
 
         /*
         if(username.contains("@")){

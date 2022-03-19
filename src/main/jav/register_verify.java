@@ -57,11 +57,10 @@ public class register_verify extends HttpServlet{
                 check.write("0");
             }
         }
-        if (Objects.equals(resend, "1")){ // is resent code button
+        else if (Objects.equals(resend, "1")){ // is resent code button
             serv.sendEmail(user.getEmail(),user);
             serv.updateVCode(user,user.getV_Code());
             //System.out.print("code="+user.getV_Code());
-
             check.write("1");
         }
         check.close();

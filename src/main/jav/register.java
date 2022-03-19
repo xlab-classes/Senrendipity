@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(name = "register", urlPatterns =  "/register")
-
 public class register extends HttpServlet{
     private static final long  serialVersionUID = 1L;
 
@@ -33,7 +32,6 @@ public class register extends HttpServlet{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
@@ -48,49 +46,40 @@ public class register extends HttpServlet{
         User user = new User();
         user.setId(serv.id_Count());
         user.setUsername(username);
-        user.setPassword(password);
+
+        String key = serv.generateKey();//生成key
+        user.setPassKey(key);
+        String en_password = serv.encrypt(key,password);//加密
+        user.setPassword(en_password);
         user.setCheck(false);
         user.setEmail(email);
         //check.println(user.getUsername())；
 
         boolean email_check = serv.UserExist_email(email);
         boolean username_check = serv.UserExist_name(username);
-        System.out.print("email:"+ email_check + "username:"+username_check);
+        //System.out.print("email:"+ email_check + "username:"+username_check);
 
         String output = "fail";
         //流程
-        boolean e  = false;
-        boolean u = false;
-        List<User> users = new ArrayList<User>();
-
-        if (email_check || username_check){
-            if (serv.UserExist_email(email)){ // email exist
+            if (email_check){ // email exist
                 User user2 = serv.getUser_email(email);
                 if (user2.getCheck()){
-                    e = true;
                     output= "exist email";
                 }
                 //serv.deleteUser(user2.getId());
             }
-
-            if(serv.UserExist_name(username)) { // user exist
+            else if(username_check) { // user exist
                 User user2 = serv.getUser_name(username);
                 //System.out.print(user2.getCheck());
                 if (user2.getCheck()){
-                    u = true;
                     output= "exist username";
                 }
+            }else{
+                serv.sendEmail(email,user);
+                serv.addUser(user);
+                output = "0";
             }
-            if(u && e){
-                output= "exist email and username";
-            }
-        }
 
-        if(!e && !u){
-            serv.sendEmail(email,user);
-            serv.addUser(user);
-            output= "0";
-        }
         check.write(output);
         check.close();
     }
