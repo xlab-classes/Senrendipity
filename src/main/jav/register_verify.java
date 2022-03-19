@@ -70,8 +70,8 @@ public class register_verify extends HttpServlet{
                         }
                     }
                 };
-                time.schedule(task,10*1000); //3分钟输入验证码时间
-                check.write("0");
+                time.schedule(task,3*60*1000); //3分钟输入验证码时间
+                check.write("2");
             }
         }
         else if (Objects.equals(resend, "1")){ // is resent code button
