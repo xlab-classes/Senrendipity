@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -47,9 +46,6 @@ public class register_verify extends HttpServlet{
         String vcode = user.getV_Code();
         final int uid = user.getId();
 
-        //System.out.print("vode="+vcode);
-        //System.out.print("myvode="+number);
-        //System.out.print("resend="+resend);
 
         if (Objects.equals(resend, "0")) {  // is verified button
             if(Objects.equals(number, vcode)){
@@ -81,8 +77,5 @@ public class register_verify extends HttpServlet{
             check.write("1");
         }
         check.close();
-
-
-
     }
 }

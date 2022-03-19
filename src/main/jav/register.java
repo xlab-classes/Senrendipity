@@ -58,28 +58,24 @@ public class register extends HttpServlet{
         boolean email_check = serv.UserExist_email(email);
         boolean username_check = serv.UserExist_name(username);
         //System.out.print("email:"+ email_check + "username:"+username_check);
-
         String output = "fail";
         //流程
-            if (email_check){ // email exist
-                User user2 = serv.getUser_email(email);
-                if (user2.getCheck()){
-                    output= "exist email";
-                }
+            if(email_check && username_check){
+                output = "exit email and exit username";
+            }
+            else if (email_check){ // email exist
+                output= "exist email";
                 //serv.deleteUser(user2.getId());
             }
             else if(username_check) { // user exist
-                User user2 = serv.getUser_name(username);
                 //System.out.print(user2.getCheck());
-                if (user2.getCheck()){
-                    output= "exist username";
-                }
+                output= "exist username";
+
             }else{
                 serv.sendEmail(email,user);
                 serv.addUser(user);
                 output = "0";
             }
-
         check.write(output);
         check.close();
     }
