@@ -7,15 +7,19 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 @WebServlet(name = "register_verify", urlPatterns =  "/register_verify")
+
 public class register_verify extends HttpServlet{
     private static final long  serialVersionUID = 1L;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         doPost(request, response);
     }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
@@ -29,40 +33,43 @@ public class register_verify extends HttpServlet{
 
     }
 
+
+
     public void verify(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
-        app_im serv = new app_im();
-        String number = request.getParameter("num");
+
+
         String username = request.getParameter("username");
         String resend = request.getParameter("resend");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
         PrintWriter check = response.getWriter();
-        User user = serv.getUser_name(username);
-        String vcode = user.getV_Code();
 
-        //System.out.print("vode="+vcode);
-        //System.out.print("myvode="+number);
-        //System.out.print("resend="+resend);
+        final app_im serv = new app_im();
+        User user = new User();
+        user.setId(serv.id_Count());
+        user.setUsername(username);
+
+        String key = serv.generateKey();//生成key
+        user.setPassKey(key);
+        String en_password = serv.encrypt(key,password);//加密
+        user.setPassword(en_password);
+        user.setCheck(true);
+        user.setEmail(email);
 
 
         if (Objects.equals(resend, "0")) {  // is verified button
-            if(Objects.equals(number, vcode)){
-                serv.updateStatus(user,true);
+                serv.addUser(user);
                 check.write("1");
-            }
-            else {
-                check.write("0");
-            }
         }
-        if (Objects.equals(resend, "1")){ // is resent code button
-            serv.sendEmail(user.getEmail(),user);
-            serv.updateVCode(user,user.getV_Code());
+
+        else if (Objects.equals(resend, "1")){ // is resent code button
+            //serv.sendEmail(user.getEmail(),user);
+            //serv.updateVCode(user,user.getV_Code());
             //System.out.print("code="+user.getV_Code());
-
-            check.write("1");
+            check.write(serv.sendEmailR(email));
         }
+
         check.close();
-
-
-
     }
 }

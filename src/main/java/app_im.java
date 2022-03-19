@@ -1,16 +1,26 @@
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.sql.*;
+import org.apache.commons.codec.binary.Hex;
 import java.util.Random;
 
 
 public class app_im implements app_Design {
+
     //没有问题
     public void addUser(User user) throws Exception{
         //连接数据库
         Connection conn = DButil.getConnection();
         String sql = ""+
                 "INSERT INTO user_table" +
-                "(id,checks,username,email,password,verification)"+
-                "values(?,?,?,?,?,?)";
+                "(id,checks,username,email,password,verification,passkey)"+
+                "values(?,?,?,?,?,?,?)";
 
         //编译sql
         PreparedStatement psmt = conn.prepareStatement(sql);
@@ -22,6 +32,7 @@ public class app_im implements app_Design {
         psmt.setString(4, user.getEmail());
         psmt.setString(5, user.getPassword());
         psmt.setString(6, user.getV_Code());
+        psmt.setString(7,user.getPassKey());
 
         psmt.execute();
         psmt.close();
@@ -107,6 +118,7 @@ public class app_im implements app_Design {
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setV_Code(rs.getString("verification"));
+            user.setPassKey(rs.getString("passkey"));
         }
         psmt.close();
         return user;
@@ -136,6 +148,7 @@ public class app_im implements app_Design {
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setV_Code(rs.getString("verification"));
+            user.setPassKey(rs.getString("passkey"));
         }
         psmt.close();
         return user;
@@ -196,19 +209,19 @@ public class app_im implements app_Design {
     }
 
     //没有问题
-    //获取ID = row + 1
+    //获取ID
     public int id_Count() throws SQLException{
         Connection conn = DButil.getConnection();
-        String sql = ""+"SELECT COUNT(*) totalCount FROM user_table";
+        String sql = ""+"SELECT * FROM user_table where id = (select max(id) from user_table)";
         PreparedStatement psmt = conn.prepareStatement(sql);
         ResultSet rs = psmt.executeQuery(sql);
-        int rowCount = 0;
-        if(rs.next()) {
-            rowCount = rs.getInt("totalCount");
+        int id = 0;
+        while (rs.next()) {
+            id = rs.getInt("id");
         }
         psmt.close();
         rs.close();
-        return rowCount + 1;
+        return id+1;
     }
 
     //获取随机数
@@ -229,5 +242,52 @@ public class app_im implements app_Design {
         String temp = serv.getRandom();
         user.setV_Code(temp);
         mail.getMimeMessage(email,temp);
+    }
+
+    public String sendEmailR(String email) throws Exception {
+        googleMail mail = new googleMail();
+        app_im serv = new app_im();
+        String temp = serv.getRandom();
+        mail.getMimeMessage(email,temp);
+        return temp;
+    }
+
+    public String generateKey() throws NoSuchAlgorithmException {
+
+            KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+            keyGenerator.init(new SecureRandom());
+            SecretKey secretKey = keyGenerator.generateKey();
+            byte[] byteKey = secretKey.getEncoded();
+            return Hex.encodeHexString(byteKey);
+
+    }
+
+    @Override
+    public String encrypt(String ukey, String password) throws Exception {
+        try {
+            Key key = new SecretKeySpec(Hex.decodeHex(ukey.toCharArray()),"AES");
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(Cipher.ENCRYPT_MODE,key);
+            byte[] res = cipher.doFinal(password.getBytes(StandardCharsets.UTF_8));
+            return Hex.encodeHexString(res);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public String decode(String ukey, String code) throws Exception {
+        try {
+            Key key = new SecretKeySpec(Hex.decodeHex(ukey),"AES");
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(Cipher.DECRYPT_MODE,key);
+            byte[] res = cipher.doFinal(Hex.decodeHex(code));
+            return  new String(res);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }
