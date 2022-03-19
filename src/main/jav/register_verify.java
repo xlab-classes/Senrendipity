@@ -6,7 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 @WebServlet(name = "register_verify", urlPatterns =  "/register_verify")
@@ -34,7 +37,7 @@ public class register_verify extends HttpServlet{
 
 
     public void verify(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
-        app_im serv = new app_im();
+        final app_im serv = new app_im();
         String number = request.getParameter("num");
         String username = request.getParameter("username");
         String resend = request.getParameter("resend");
@@ -42,18 +45,32 @@ public class register_verify extends HttpServlet{
         PrintWriter check = response.getWriter();
         User user = serv.getUser_name(username);
         String vcode = user.getV_Code();
+        final int uid = user.getId();
 
         //System.out.print("vode="+vcode);
         //System.out.print("myvode="+number);
         //System.out.print("resend="+resend);
-
 
         if (Objects.equals(resend, "0")) {  // is verified button
             if(Objects.equals(number, vcode)){
                 serv.updateStatus(user,true);
                 check.write("1");
             }
-            else {
+            else {//time out
+                final Timer time = new Timer();
+                TimerTask task = new TimerTask() {
+                    @Override
+                    public void run() {
+                        try {
+                            serv.deleteUser(uid);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        } finally {
+                            time.cancel();
+                        }
+                    }
+                };
+                time.schedule(task,10*1000); //3分钟输入验证码时间
                 check.write("0");
             }
         }

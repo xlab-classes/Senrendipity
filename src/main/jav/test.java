@@ -1,5 +1,7 @@
 import java.sql.SQLException;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class test {
     public static void main(String[] args) throws SQLException, Exception{
@@ -12,12 +14,13 @@ public class test {
         String en2 = serv.encrypt(key2 ,"1232312313");
         System.out.println(key2);
 
-        serv.deleteUser(4);
+        serv.deleteUser(8);
         System.out.println(serv.id_Count());
         System.out.println(en);
         System.out.println(en2);
         System.out.println(serv.decode(key,en));
         System.out.println(serv.decode(key2,en2));
+
 
         /*
         if(username.contains("@")){
