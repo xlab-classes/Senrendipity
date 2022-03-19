@@ -241,6 +241,9 @@ function forgot_verity(){
                     alert("Your password has been changed successfully")
                     location.href ="SignIn.html"
                 }
+                else {
+                    alert("incorrect ")
+                }
             }
         )
     }
