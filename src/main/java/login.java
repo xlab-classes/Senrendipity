@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.sql.SQLException;
 import java.io.PrintWriter;
+import java.util.Objects;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,29 +33,41 @@ public class login extends HttpServlet {
         } 
     }
 
-    public void userLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException{
+    public void userLogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
         app_im serv = new app_im();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         PrintWriter check = response.getWriter();
 
-        if(username.contains("@")){
-            if(serv.UserExist_email(username)==true && (serv.getUser_email(username).getPassword().equals(password))){
-            check.write("1");
-            }else{
+        if (username.contains("@")) {
+            if (serv.UserExist_email(username)) {
+                User user = serv.getUser_email(username);
+                System.out.print("key="+user.getPassKey());
+
+                String de_password = serv.decode(user.getPassKey(), user.getPassword());//解密
+                System.out.print("decode="+de_password);
+
+                if (Objects.equals(de_password, password)) {
+                    check.write("1");
+                }
+
+            } else {
                 check.write("0");
             }
-        }else{
-            if(serv.UserExist_name(username)==true && (serv.getUser_name(username).getPassword().equals(password))){
-                check.write("1");
-            }else{
-                check.write("0");
+        } else {
+            if (serv.UserExist_name(username)) {
+                if (serv.UserExist_name(username)) {
+                    User user = serv.getUser_name(username);
+                    String de_password = serv.decode(user.getPassKey(), user.getPassword());//解密
+                    System.out.print(de_password);
+                    if (Objects.equals(de_password, password)) {
+                        check.write("1");
+                    }
+                } else {
+                    check.write("0");
+                }
+            }
+            check.close();
         }
-        }
-        check.close();
-    
     }
-
-    
-    
 }
