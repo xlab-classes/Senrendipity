@@ -49,8 +49,7 @@ function login(){
     var pass_word = $("#password").val();
     var ucheck= input_check("username","Please enter your username");
     var pcheck = input_check("password","Please enter your password");
-    ucheck;
-    pcheck;
+
     if(ucheck && pcheck) {
         $.get("login", {
                 "username":$("#username").val(),
@@ -82,35 +81,33 @@ function register (){
     var ucheck = input_check("username","Please enter your username");
     var echeck = input_check("email","Please enter your email");
     var pcheck = input_check("password","Please enter your password");
-    var p2check = input_check("password2","Please enter your password2");
-    var psamecheck =password_same_check("password","password2");
+    var p2check = input_check("password2","Please enter your confirm password");
 
-    ucheck;
-    echeck;
-    pcheck;
-    p2check;
-    psamecheck;
-    if(ucheck && echeck && pcheck && p2check && psamecheck){
-        $.ajax({
-            url: "register",  // **back-end files name
-            method: "get",
-            data:{
-                "username":$("#username").val(),
-                "password":$("#password").val(),
-                "email":$("#email").val()
-            },
-            success:function(java_response){
-                console.log(java_response);
-                if(java_response[0]==="e"){
-                    //console.log(java_response);
-                    alert(java_response);
-                }
-                else {
-                    location.href ="SignUP_verification.html"+ "?u="+window.btoa(user_name)+"&p="+window.btoa(pass_word)+"&e="+window.btoa(email)+"&v="+window.btoa(java_response);
-                }
+    if(ucheck && echeck && pcheck && p2check){
+        if(pass_word2===pass_word){
+            $.ajax({
+                url: "register",  // **back-end files name
+                method: "get",
+                data:{
+                    "username":$("#username").val(),
+                    "password":$("#password").val(),
+                    "email":$("#email").val()
+                },
+                success:function(java_response){
+                    console.log(java_response);
+                    if(java_response[0]==="e"){
+                        //console.log(java_response);
+                        alert(java_response);
+                    }
+                    else {
+                        location.href ="SignUP_verification.html"+ "?u="+window.btoa(user_name)+"&p="+window.btoa(pass_word)+"&e="+window.btoa(email)+"&v="+window.btoa(java_response);
+                    }
 
-            }
-        })
+                }
+            })
+        }
+        else {alert("password need to be same")}
+
     }
 
 
@@ -220,32 +217,32 @@ function forgot_verity(){
     var pass_word =$('#Fpassword1').val();
     var pass_word2 =$('#Fpassword2').val();
 
-    var same_check = password_same_check("Fpassword1","Fpassword2");
     var vcheck = input_check("forgot_verityNum","Please enter your verify code");
     var pcheck = input_check("Fpassword1","Please enter your password");
     var pcheck2 = input_check("Fpassword2","Please enter your password");
-
-    vcheck;
-    pcheck;
-    pcheck2;
-    same_check;
-
-    if(vcheck && pcheck && pcheck2 && same_check){
-        $.get("forgot_verify", {
-                "email":email,
-                "num": num,
-                "password" : pass_word,
-                "resend":"0"
-            }, function (java_response){
-                if(java_response==="1"){
-                    alert("Your password has been changed successfully")
-                    location.href ="SignIn.html"
+    
+    if(vcheck && pcheck && pcheck2 ){
+        if (pass_word2===pass_word){
+            $.get("forgot_verify", {
+                    "email":email,
+                    "num": num,
+                    "password" : pass_word,
+                    "resend":"0"
+                }, function (java_response){
+                    if(java_response==="1"){
+                        alert("Your password has been changed successfully")
+                        location.href ="SignIn.html"
+                    }
+                    else {
+                        alert("incorrect ")
+                    }
                 }
-                else {
-                    alert("incorrect ")
-                }
-            }
-        )
+            )
+        }
+        else {
+            alert("password need to be same")
+        }
+
     }
 
 }
