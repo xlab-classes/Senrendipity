@@ -219,8 +219,8 @@ function forgot_verity(){
 
     var vcheck = input_check("forgot_verityNum","Please enter your verify code");
     var pcheck = input_check("Fpassword1","Please enter your password");
-    var pcheck2 = input_check("Fpassword2","Please enter your password");
-    
+    var pcheck2 = input_check("Fpassword2","Please enter your confirm password");
+
     if(vcheck && pcheck && pcheck2 ){
         if (pass_word2===pass_word){
             $.get("forgot_verify", {
@@ -247,7 +247,7 @@ function forgot_verity(){
 
 }
 function forgot_resend_code() {
-    var email = getURLVariable("email")
+    var email =  window.atob(getURLVariable("e"));
 
     $.get("forgot_verify", {
             "email":email,
@@ -255,7 +255,7 @@ function forgot_resend_code() {
             "password" : "0",
             "resend":"1"
         }, function (java_response){
-            if(java_response==='1'){
+            if(java_response==="1"){
                 alert("Resend code successful")
             }
             else{

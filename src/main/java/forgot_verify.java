@@ -58,14 +58,15 @@ public class forgot_verify extends HttpServlet{
             }
         }
 
-
         if (Objects.equals(resend, "1")){ // is resent code button
+
             serv.sendEmail(email,user);
             serv.updateVCode(user,user.getV_Code());
-            //System.out.print("code="+user.getV_Code());
+
 
             check.write("1");
         }
+
         check.close();
 
 

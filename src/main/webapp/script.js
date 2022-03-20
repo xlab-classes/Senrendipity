@@ -247,7 +247,7 @@ function forgot_verity(){
 
 }
 function forgot_resend_code() {
-    var email = getURLVariable("email")
+    var email =  window.atob(getURLVariable("e"));
 
     $.get("forgot_verify", {
             "email":email,
@@ -255,7 +255,7 @@ function forgot_resend_code() {
             "password" : "0",
             "resend":"1"
         }, function (java_response){
-            if(java_response==='1'){
+            if(java_response==="1"){
                 alert("Resend code successful")
             }
             else{
