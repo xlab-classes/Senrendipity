@@ -2,8 +2,12 @@ import java.util.Random;
 
 public class test {
     public static void main(String[] args) throws Exception{
-        User a = new User();
-        app_im serv = new app_im();
+        User b = new User();
+        app_Design serv = new app_im();
+        info_im a = new info_im();
+        String num = "1,2,3,4,5,6,7,8,9,10";
+
+        a.addInfo(2,num,1);
 
         /*
         if(username.contains("@")){

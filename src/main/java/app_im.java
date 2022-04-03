@@ -99,6 +99,7 @@ public class app_im implements app_Design {
         return user;
     }
 
+
     //没有问题
     //通过邮箱查找用户
     public User getUser_email(String email) throws SQLException{
@@ -198,7 +199,7 @@ public class app_im implements app_Design {
 
     //没有问题
     //从数据库中删除用户
-    public void deleteUser(int id) throws SQLException{
+    public void delete(int id) throws SQLException{
         Connection conn = DButil.getConnection();
         String sql = "" +
                 "delete from user_table where id=?";
@@ -223,6 +224,7 @@ public class app_im implements app_Design {
         rs.close();
         return id+1;
     }
+
 
     //获取随机数
     public String getRandom() {
@@ -290,4 +292,7 @@ public class app_im implements app_Design {
 
         return null;
     }
+
+
+
 }

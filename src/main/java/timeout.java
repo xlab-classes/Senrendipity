@@ -41,7 +41,7 @@ public class timeout extends HttpServlet{
         User user = serv.getUser_name(username);
 
         if (!user.getCheck()){
-            serv.deleteUser(user.getId());
+            serv.delete(user.getId());
             output="1";
         }
         check.write(output);

@@ -34,7 +34,7 @@ public class login extends HttpServlet {
     }
 
     public void userLogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        app_im serv = new app_im();
+        app_Design serv = new app_im();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         PrintWriter check = response.getWriter();

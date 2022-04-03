@@ -32,7 +32,6 @@ public class forgot_password extends HttpServlet{
         }
 
     }
-
     public void forgot(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception {
 
         String email = request.getParameter("email");

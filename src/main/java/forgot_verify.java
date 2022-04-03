@@ -70,6 +70,5 @@ public class forgot_verify extends HttpServlet{
         check.close();
 
 
-
     }
 }
