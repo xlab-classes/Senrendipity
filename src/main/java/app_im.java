@@ -99,6 +99,20 @@ public class app_im implements app_Design {
         return user;
     }
 
+    @Override
+    public int getId(String name) throws SQLException {
+        int id = 0;
+        Connection conn = DButil.getConnection();
+        String sql = "" +
+                "SELECT * FROM user_table WHERE username=?";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        psmt.setString(1,name);
+        ResultSet rs = psmt.executeQuery();
+        while(rs.next()){
+            id = rs.getInt("id");
+        }
+        return id;
+    }
 
     //没有问题
     //通过邮箱查找用户

@@ -60,18 +60,55 @@ public class info_im extends app_im implements app_Design {
     }
 
     //更新info
-    public void update(int id,char[] label) throws SQLException {
+    public void update(int id,String label) throws SQLException {
         Connection conn = DButil.getConnection();
         String sql = "" +
-                "update user_info set lable = "+label+" where id ="+id;
+                "update user_info set label =" + "'"+label+"'"
+                +" where id ="+id;
         PreparedStatement psmt = conn.prepareStatement(sql);
         psmt.executeUpdate(sql);
         psmt.close();
     }
 
-    public boolean check(String label) throws SQLException{
-
-        return false;
+    public String getLabel(int id) throws SQLException{
+        String label = null;
+        Connection conn = DButil.getConnection();
+        String sql = "select * from user_info where id =" + id;
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        ResultSet rs = psmt.executeQuery();
+        while (rs.next()){
+            label = rs.getString("label");
+        }
+        return label;
     }
+
+    public int interest_num(String label) throws SQLException{
+        int count = 1 ;
+        if(label.trim().isEmpty()){
+            return 0;
+        }
+        for(int i = 0; i<label.length(); i++ ){
+            if(label.charAt(i) == ','){
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public int search_id(String label) throws SQLException{
+        int id = 0;
+        Connection conn= DButil.getConnection();
+        String sql = "" +
+                "select * from label_table where label = ?";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        psmt.setString(1,label);
+        ResultSet rs = psmt.executeQuery();
+        while (rs.next()){
+            id = rs.getInt("id");
+        }
+        return id;
+    }
+
 
 }

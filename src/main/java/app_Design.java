@@ -12,6 +12,8 @@ public interface app_Design{
 
     public User getUser_id(int id) throws SQLException;
 
+    public int getId(String name) throws SQLException;
+
     public User getUser_email(String email) throws SQLException;
 
     public User getUser_name(String name) throws SQLException;
