@@ -31,6 +31,16 @@ public class interest {
 
     }
 
+    private static boolean is_id(String label) {
+        boolean ret = false;
+        try{
+            Integer.parseInt(label);
+            ret = true;
+        }catch(Exception e) {
+        }
+        return ret;
+    }
+
     public void getInfo(HttpServletRequest request, HttpServletResponse response) throws Exception {
         /*
            1.拿到wjj传输过来的数据
@@ -60,49 +70,87 @@ public class interest {
         int user_id = serv.getId(username);
         String label_id;
 
-        if(info.getLabel(user_id).contains(interest)) {
-            label_id = interest;
-            check.print("0");
+
+        if(is_id(interest) == true) {
+            if(info.getLabel(user_id) == null) {
+                info.addInfo(user_id, interest + "," , 0);
+                check.write("1");  // 用户没有interest，并更新用户的interest
+            }
+            else if(info.getLabel(user_id).contains(interest)) {
+                check.write("0");  // label已存在
+            }
+            else if(info.interest_num(info.getLabel(user_id)) == 10) {
+                check.write("-1"); // label满了
+            }
+            else {
+                info.update(user_id, info.getLabel(user_id) + interest + ",");
+                check.write("2");  // 用户已有interest, 并更新用户的interest
+            }
         }
         else {
-            info.addLabel();
-            label_id = Integer.toString(info.search_id());
+            info.addLabel(interest);
+            label_id = info.search_id(interest) + ",";
+            if(info.getLabel(user_id) == null) {
+                info.addInfo(user_id, interest + "," , 0);
+                check.write("1");  // 用户没有interest，并更新用户的interest
+            }
+            if(info.interest_num(info.getLabel(user_id)) == 10) {
+                check.write("-1"); // label已满
+            }
+            else{
+                info.update(user_id, info.getLabel(user_id) + label_id);
+                check.write("2"); // 用户已有interest, 并更新用户的interest
+            }
         }
 
-        if(info.interest_num(info.getLabel(user_id)) == 10) {
-            check.write("-1");
-        }
-        else if(info.interest_num(info.getLabel(user_id)) == 0) {
-            info.addInfo(user_id, interest, 0);
-            check.write("1");
-        }
-        else {
-            check.write("1");
+
         }
 
 
-    }
-    public static void main(String[] args) throws Exception {
-        String username = "hx2029";
-        String interest = "6";
+//    public static void main(String[] args) throws Exception {
+//        String username = "hx";
+//        String interest = "Painting";
+//
+//
+//        app_im serv = new app_im();
+//        info_im info = new info_im();
+//        int user_id = serv.getId(username);
+//        String label_id;
+//
+//        if(is_id(interest) == true) {
+//            if(info.getLabel(user_id) == null) {
+//                info.addInfo(user_id, interest + "," , 0);
+//                System.out.println("1");  // 用户没有interest，并更新用户的interest
+//            }
+//            else if(info.getLabel(user_id).contains(interest)) {
+//                System.out.println("0");  // label已存在
+//            }
+//            else if(info.interest_num(info.getLabel(user_id)) == 10) {
+//                System.out.println("-1"); // label满了
+//            }
+//            else {
+//                info.update(user_id, info.getLabel(user_id) + interest + ",");
+//                System.out.println("2");  // 用户已有interest, 并更新用户的interest
+//            }
+//        }
+//        else {
+//            info.addLabel(interest);
+//            label_id = info.search_id(interest) + ",";
+//            if(info.getLabel(user_id) == null) {
+//                info.addInfo(user_id, interest + "," , 0);
+//                System.out.println("1");  // 用户没有interest，并更新用户的interest
+//            }
+//            if(info.interest_num(info.getLabel(user_id)) == 10) {
+//                System.out.println("-1"); // label已满
+//            }
+//            else{
+//                info.update(user_id, info.getLabel(user_id) + label_id);
+//                System.out.println("2"); // 用户已有interest, 并更新用户的interest
+//            }
+//        }
+//
+//
+//    }
 
-        app_im serv = new app_im();
-        info_im info = new info_im();
-        int user_id = serv.getId(username);
-        String label_id;
-
-        if(info.getLabel(user_id).contains(interest)) {
-            label_id = interest;
-            System.out.println("exited");
-        }
-        else {
-            info.addLabel();
-            info.addInfo(user_id, interest, 0);
-            label_id = Integer.toString(info.search_id(interest));
-        }
-        System.out.println(info.getLabel(user_id));
-
-
-    }
 
 }
