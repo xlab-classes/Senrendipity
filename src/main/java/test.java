@@ -1,15 +1,40 @@
-import java.util.Random;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
 
 public class test {
     public static void main(String[] args) throws Exception{
         User b = new User();
         app_Design serv = new app_im();
         info_im a = new info_im();
-        String num = "1,2,3,4,5,6,7,8,9,10";
-        int id = a.getId("1444");
-        a.update(3,"1，3，3");
+        /*int id = a.getId("1444");
         System.out.println(a.interest_num(a.getLabel(3)));
         System.out.println(a.interest_num(a.getLabel(id)));
+        System.out.println(a.search_id("Piano"));
+        */
+
+        /*
+        Connection conn = DButil.getConnection();
+        String sql = "" + "select * from user_info";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        ResultSet rs = psmt.executeQuery();
+        int i = 0;
+        List<String> list = new ArrayList<String>();
+        while (rs.next()){
+            if (rs.getInt("id") == 5){
+                continue;
+            }else {
+              String label =  rs.getString("label");
+              list.add(label);
+            }
+            i++;
+        }
+        for (int j = 0; j < list.size(); j++){
+            System.out.println(list.get(j));
+        }
+         */
+
 
         /*
         if(username.contains("@")){
@@ -35,4 +60,40 @@ public class test {
          */
 
     }
+    /*
+    public static int w(String username) throws Exception{
+
+        info_im serv = new info_im();
+        int id = serv.getId(username);
+        String str1 = serv.getLabel(id);
+
+        Connection conn = DButil.getConnection();
+        String sql = "" + "select * from user_info";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        ResultSet rs = psmt.executeQuery();
+
+        int count =0;
+        //List<String> list = new ArrayList<String>();
+        List<Integer> user_id = new ArrayList<Integer>();
+        List<Double> res = new ArrayList<Double>();
+        while (rs.next()){
+            if (rs.getInt("id") == id){
+                continue;
+            }else {
+                user_id.add(rs.getInt("id"));
+                String str2 =  rs.getString("label");
+                //list.add(str2);
+                res.add(serv.getSimilar(str1,str2));
+                System.out.println(user_id.get(count)+"="+res.get(count++));
+            }
+        }
+        int index = res.indexOf(Collections.max(res));
+
+        return user_id.get(index);
+        //list.get(index);
+        //return user_id[index];
+
+    }
+
+     */
 }

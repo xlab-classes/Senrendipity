@@ -1,4 +1,7 @@
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class info_im extends app_im implements app_Design {
 
@@ -59,6 +62,16 @@ public class info_im extends app_im implements app_Design {
         psmt.close();
     }
 
+    public void deleteInfo(int id) throws SQLException{
+        Connection conn = DButil.getConnection();
+        String sql = "" +
+                "delete from user_info where id=?";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        psmt.setInt(1, id);
+        psmt.executeUpdate();
+        psmt.close();
+    }
+
     //更新info
     public void update(int id,String label) throws SQLException {
         Connection conn = DButil.getConnection();
@@ -100,7 +113,7 @@ public class info_im extends app_im implements app_Design {
         int id = 0;
         Connection conn= DButil.getConnection();
         String sql = "" +
-                "select * from label_table where label = ?";
+                "select * from label_table where name = ?";
         PreparedStatement psmt = conn.prepareStatement(sql);
         psmt.setString(1,label);
         ResultSet rs = psmt.executeQuery();
@@ -108,6 +121,55 @@ public class info_im extends app_im implements app_Design {
             id = rs.getInt("id");
         }
         return id;
+    }
+
+    public double getSimilar(String str1, String str2){
+        Map<String, int[]> vec = new HashMap<String, int[]>();
+        int[] item = null;
+
+        String strArray[] = str1.split(",");
+        for (int i = 0; i<strArray.length; ++i){
+            if (vec.containsKey(strArray[i])){
+                ++(vec.get(strArray[i])[0]);
+            }
+            else{
+                item = new int[2];
+                item[0] = 1;
+                item[1] = 0;
+                vec.put(strArray[i],item);
+            }
+        }
+
+        strArray = str2.split(",");
+        for (int i = 0; i<strArray.length; ++i){
+            if (vec.containsKey(strArray[i])){
+                ++(vec.get(strArray[i])[1]);
+            }
+            else{
+                item = new int[2];
+                item[0] = 0;
+                item[1] = 1;
+                vec.put(strArray[i],item);
+            }
+        }
+
+        double vecM1 = 0.00;
+        double vecM2 = 0.00;
+        double vecPro = 0.00;
+        Iterator iter = vec.entrySet().iterator();
+        while (iter.hasNext()){
+            Map.Entry entry = (Map.Entry) iter.next();
+            item = (int[]) entry.getValue();
+
+            vecM1 += item[0]* item[0];
+            vecM2 += item[1] * item[1];
+
+            vecPro += item[0] * item[1];
+        }
+        vecM1 = Math.sqrt(vecM1);
+        vecM2 = Math.sqrt(vecM2);
+
+        return (vecPro/(vecM1*vecM2));
     }
 
 
