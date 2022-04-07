@@ -62,8 +62,8 @@ p{
     position: absolute;
     width: 196.53px;
     height: 60px;
-    left: 62%;
-    top:10%;
+    left: 78%;
+    top:30%;
 
     background: rgba(255, 0, 0, 0.4);
     border: 4px solid #000000;
@@ -256,8 +256,7 @@ p7{
     position: absolute;
     left: 58.47%;
     height:60px;
-    bottom:15.64%;
-    width:140px;
+    width:120%;
 
     background: rgba(131, 122, 122, 0.2);
     border: 4px solid #000000;
@@ -267,10 +266,10 @@ p7{
     position: absolute;
     width: 10%;
     height: 10%;
-    left:16%;
-    top: 75%;
+    left:6%;
+    top: 85%;
     border:none;
-    background:url(image/left.png)no-repeat;background-position: 10% 101%;background-size: 70%;
+    background:url(image/left.png)no-repeat;background-position: 10% 101%;background-size: 80%;
 }
 .More{
     position: absolute;
@@ -320,4 +319,10 @@ p10{
 }
 .dropped::before{
     z-index: -1;
+}
+
+.Write{
+    position: relative;
+    top: 140%;
+
 }
