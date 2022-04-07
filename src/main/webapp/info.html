@@ -9,10 +9,10 @@
 </head>
 <body>
 <div class="whole">
+  <button onclick="window.location.href ='match.html'" class="location"><p1>Done</p1></button>
   <div class = "title">
     <p>Edit Your Interests</p>
     <button type = "submit" value="submit" class="image"><p9>Image</p9><br/></button>
-      <button onclick="window.location.href ='match.html'"class="location"><p1>Done</p1></button>
   </div>
   <div class = "interest">
     <div id = "earth" class = "earth"></div>
@@ -35,17 +35,17 @@
       </li>
     </ul>
     <button class="More"><p10>More</p10><br/></button>
-      <input id = "999" class="create" placeholder="Create Your Own Tags">
   </div>
   <button onclick="window.location.href ='SignIn.html'"class="leftarrow"></button>
 
 </div>
+<input id = "999" class="create" placeholder="Create Your Own Tags">
 </body>
 <script type="module" >
 
   const swimming = document.getElementById("hoppy");
   const hoppy = document.getElementById("earth");
-  var store = new Array();
+  var list = new Array();
   swimming.ondragstart = function(event){
     console.log('元素开始被拖动');
     event.dataTransfer.setData("text", event.target.id);
@@ -72,9 +72,9 @@
   hoppy.ondrop = function(event){
     console.log('被拖拽元素在目标元素里放下是触发');
     var data = event.dataTransfer.getData("text");
-    store.push(data)
+    list.push(data)
     event.preventDefault();
-    console.log(store)
+    console.log(list)
   }
 </script>
 
