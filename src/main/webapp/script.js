@@ -264,3 +264,20 @@ function forgot_resend_code() {
         }
     )
 }
+function match(){
+    var username=  window.atob(getURLVariable("u"));
+    $.get("match", {
+            "username":username
+        }, function (java_response){
+            if (java_response==="0"){
+                alert("No one can match right now")
+            }
+            else{
+                match_notice(java_response)
+            }
+
+        }
+    )
+}
+
+

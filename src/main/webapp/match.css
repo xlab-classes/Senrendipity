@@ -28,12 +28,19 @@ background:url(image/image.png)no-repeat;background-position: 50% 41%;background
 }
 .rocket{
     position: absolute;
-width: 30%;
-height: 50%;
-left: 37%;
-top: 25%;
-background:url(image/rocket.png)no-repeat;background-position: 50% 41%;background-size: 100%;
+    width: 30%;
+    height: 55%;
+    left: 37%;
+    margin: 9% 0%;
+    border:none;
+    background:url(image/rocket.png)no-repeat;background-position: 50% 50%;background-size: 100%;
 }
+
+.rocket:hover,.rocket:focus{
+    background: url("image/rocket.png")no-repeat;background-position:50% 50%;background-size:110%;
+
+}
+
 .arrow{
     position: absolute;
     width: 8%;
@@ -113,4 +120,20 @@ align-items: center;
 
 border:none;
 background-color: rgba(247, 202, 242, 0.29);
+}
+
+.layer-pop {
+    display: none;
+    z-index: 100000;
+    position: fixed;
+    top: 0;/*居中显示*/
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 300px;
+    height: 300px;
+    background: #FFFFFF;
+
 }
