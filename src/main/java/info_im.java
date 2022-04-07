@@ -171,6 +171,19 @@ public class info_im extends app_im implements app_Design {
 
         return (vecPro/(vecM1*vecM2));
     }
+    
+    public boolean label_exited(String label) throws SQLException {
+        boolean ret = false;
+        Connection conn= DButil.getConnection();
+        String sql = "" +
+                "select * from label_table where name = ?";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        psmt.setString(1, label);
+        ResultSet rs = psmt.executeQuery();
+        while(rs.next()) {
+            if(rs.getString("name").equals(label))  ret = true;
+        }
+        return ret;
 
 
 }
