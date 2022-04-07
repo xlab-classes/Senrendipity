@@ -94,8 +94,11 @@ public class interest {
                 info.addInfo(user_id, interest + "," , 0);
                 check.write("1");  // 用户没有interest，并更新用户的interest
             }
-            if(info.interest_num(info.getLabel(user_id)) == 10) {
+            else if(info.interest_num(info.getLabel(user_id)) == 10) {
                 check.write("-1"); // label已满
+            }
+            else if(info.label_exited(interest) == true) {
+                check.write("3");  // label在数据库中已存在, 请用户重新输入爱好
             }
             else{
                 info.update(user_id, info.getLabel(user_id) + label_id);
@@ -103,20 +106,19 @@ public class interest {
             }
         }
 
-
         }
 
 
-//    public static void main(String[] args) throws Exception {
-//        String username = "hx";
-//        String interest = "Painting";
-//
-//
-//        app_im serv = new app_im();
-//        info_im info = new info_im();
-//        int user_id = serv.getId(username);
-//        String label_id;
-//
+    public static void main(String[] args) throws Exception {
+        String username = "hx";
+        String interest = "Painting";
+
+
+        app_im serv = new app_im();
+        info_im info = new info_im();
+        int user_id = serv.getId(username);
+        String label_id;
+
 //        if(is_id(interest) == true) {
 //            if(info.getLabel(user_id) == null) {
 //                info.addInfo(user_id, interest + "," , 0);
@@ -148,9 +150,11 @@ public class interest {
 //                System.out.println("2"); // 用户已有interest, 并更新用户的interest
 //            }
 //        }
-//
-//
-//    }
+
+        System.out.println(info.search_id(interest));
+
+
+    }
 
 
 }
