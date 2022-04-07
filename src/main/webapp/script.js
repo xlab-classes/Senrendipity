@@ -264,3 +264,26 @@ function forgot_resend_code() {
         }
     )
 }
+
+function Create(){
+    $(".create").keyup(function (e) {
+        if(e.keyCode == 13){
+            $.get("interest",{
+                "interests":store
+            }), function (java_response) {
+                if (java_response === "1") {
+                    alert("Create Successfully.")
+                }
+                else if(java_response === "-1"){
+                    alert("Label is full.")
+                }
+                else if(java_response === "2"){
+                    alert("Update Successfully.")
+                }
+                else  if(java_response === '3'){
+                    alert("Label has existed, enter a new interest please.")
+                }
+            }
+        }
+    })
+}

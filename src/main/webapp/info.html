@@ -1,32 +1,83 @@
 <!DOCTYPE html>
-<html lang = "zh-EN">
-  <head>
-    <meta charset = "utf-8">
-    <meta name ="viewport" content="width=device - width">
-    <link href="info.css" rel="stylesheet" type="text/css"/>
 
-    </script>
-  </head>
-  <body>
-      <div class = "title">
-        <p>Edit Your Interests</p>
-        <button type = "submit" value="submit" class="image"><p9>Image</p9><br/>
-      </div>
-      <div class = "interest">
-        <p2>Pick your tags here!!!</p2><br/>
-        <button type = "submit" value="submit", class="Swimming"><p3>Swimming</p3><br/>
-        <button type = "submit" value="submit", class="Games"><p4>Video Games</p4><br/>
-        <button type = "submit" value="submit", class="travel"><p5>Travel</p5><br/>
-        <button type = "submit" value="submit", class="reading"><p6>Reading</p6><br/>
-        <button type = "submit" value="submit", class="piano"><p7>Piano</p7><br/>
-        <button type = "submit" value="submit", class="create"><p8>Create Your Own Tages</p8><br/>
-    </div>
-    <div class="left">
-      <button onclick="window.location.href ='SignIn.html'"class="leftarrow"></button>
-    </div>
-    <button onclick="window.location.href ='match.html'" class="location"><p1>Done</p1></button>
-  </body>
-  
-  
+<html lang = "zh-EN">
+<head>
+  <meta charset = "utf-8">
+  <meta name ="viewport" content="width=device - width">
+  <link href="info.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+<div class="whole">
+  <div class = "title">
+    <p>Edit Your Interests</p>
+    <button type = "submit" value="submit" class="image"><p9>Image</p9><br/></button>
+      <button onclick="window.location.href ='match.html'"class="location"><p1>Done</p1></button>
+  </div>
+  <div class = "interest">
+    <div id = "earth" class = "earth"></div>
+    <p2>Pick your tags here!!!</p2><br/>
+    <ul id = "hoppy" class = "hoppy">
+      <li>
+        <div id = "123" class="Swimming" draggable="true"><p3>Swimming</p3><br/></div>
+      </li>
+      <li>
+        <div id = "456" class="Games" draggable="true"><p4>Video Games</p4><br/></div>
+      </li>
+      <li>
+        <div id = "789" class="travel" draggable = "true"><p5>Travel</p5><br/></div>
+      </li>
+      <li>
+        <div id = "234" class="reading" draggable="true"><p6>Reading</p6><br/></div>
+      </li>
+      <li>
+        <div id = "567" class="piano" draggable="true"><p7>Piano</p7><br/></div>
+      </li>
+    </ul>
+    <button class="More"><p10>More</p10><br/></button>
+      <input id = "999" class="create" placeholder="Create Your Own Tags">
+  </div>
+  <button onclick="window.location.href ='SignIn.html'"class="leftarrow"></button>
+
+</div>
+</body>
+<script type="module" >
+
+  const swimming = document.getElementById("hoppy");
+  const hoppy = document.getElementById("earth");
+  var store = new Array();
+  swimming.ondragstart = function(event){
+    console.log('元素开始被拖动');
+    event.dataTransfer.setData("text", event.target.id);
+    console.log(event.target.id);
+  }
+  swimming.ondrag = function(e){
+    // console.log('一直被拖拽着');
+  }
+  swimming.ondragend = function(e){
+    console.log('拖拽操作完成时触发');
+  }
+  hoppy.ondragenter = function(e){
+    console.log('进入了所要的目标对象中');
+    e.preventDefault()
+  }
+  hoppy.ondragover = function(e){
+    console.log('在目标元素内触发');
+    e.preventDefault();
+  }
+  hoppy.ondragleave = function(e){
+    console.log('拖拽着元素没有放下，并离开目标对象时');
+    // e.preventDefault();
+  }
+  hoppy.ondrop = function(event){
+    console.log('被拖拽元素在目标元素里放下是触发');
+    var data = event.dataTransfer.getData("text");
+    store.push(data)
+    event.preventDefault();
+    console.log(store)
+  }
+</script>
+
+
 
 </html>
