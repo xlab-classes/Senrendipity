@@ -5,14 +5,16 @@
   <meta charset = "utf-8">
   <meta name ="viewport" content="width=device - width">
   <link href="info.css" rel="stylesheet" type="text/css"/>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="script.js"> </script>
 </head>
 <body>
 <div class="whole">
   <div class = "title">
     <p>Edit Your Interests</p>
     <button type = "submit" value="submit" class="image"><p9>Image</p9><br/></button>
-      <button onclick="window.location.href ='match.html'" class="location"><p1>Done</p1></button>
+      <button onclick="Create()"  class="location"><p1>Done</p1></button>
   </div>
   <div class = "interest">
     <div id = "earth" class = "earth"></div>
@@ -36,7 +38,7 @@
     </ul>
     <button class="More"><p10>More</p10><br/></button>
         <input id = "999" class="create" placeholder="Create Your Own Tags">
-      <button onclick="window.location.href ='SignIn.html'"class="leftarrow"></button>
+      <button onclick="window.location.href='SignIn.html'" class="leftarrow"></button>
   </div>
 </div>
 </body>
@@ -44,7 +46,7 @@
 
   const swimming = document.getElementById("hoppy");
   const hoppy = document.getElementById("earth");
-  var list = new Array();
+  var store = new Array();
   swimming.ondragstart = function(event){
     console.log('元素开始被拖动');
     event.dataTransfer.setData("text", event.target.id);
@@ -71,9 +73,9 @@
   hoppy.ondrop = function(event){
     console.log('被拖拽元素在目标元素里放下是触发');
     var data = event.dataTransfer.getData("text");
-    list.push(data)
+    store.push(data)
     event.preventDefault();
-    console.log(list)
+    console.log(store)
   }
 </script>
 
