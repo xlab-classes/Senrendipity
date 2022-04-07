@@ -40,6 +40,15 @@
     left:100px;
     background:url(image/earth.png)no-repeat;background-position: 10% 70%;background-size: 100%;
 }
+.leftarrow{
+    position: fixed;
+    width: 10%;
+    height: 10%;
+    left: 15%;
+    top:78%;
+    border:none;
+    background:url(image/left.png)no-repeat;background-position: 10% 101%;background-size: 60%;
+}
 p{
     position: absolute;
     width: 562px;
@@ -235,6 +244,17 @@ p6{
     background: rgba(0, 0, 255, 0.2);
     border: 4px solid #000000;
 }
+.create{
+    position: relative;
+    left: 58.47%;
+    height:60px;
+    width:7.4%;
+    bottom: 20%;
+
+    background: rgba(131, 122, 122, 0.2);
+    border: 4px solid #000000;
+
+}
 p7{
     position: absolute;
     top:15px;
@@ -252,26 +272,8 @@ p7{
     transform:translateX(30px);
 
 }
-.create{
-    position: fixed;
-    left: 58.47%;
-    height:60px;
-    width:7.4%;
-    bottom: 20%;
 
-    background: rgba(131, 122, 122, 0.2);
-    border: 4px solid #000000;
 
-}
-.leftarrow{
-    position: fixed;
-    width: 10%;
-    height: 10%;
-    left: 15%;
-    top:78%;
-    border:none;
-    background:url(image/left.png)no-repeat;background-position: 10% 101%;background-size: 60%;
-}
 .More{
     position: absolute;
     left: 75.88%;
