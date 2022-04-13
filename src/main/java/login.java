@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.io.PrintWriter;
 import java.util.Objects;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -8,6 +8,46 @@ public class test {
         User b = new User();
         app_Design serv = new app_im();
         info_im a = new info_im();
+
+        String s1 = "SwiMMinG";
+        String s2 = "Video Games";
+        String s3 = "11,2,3,4,15";
+        System.out.println(a.getLabel(11));
+        String[] c = s3.split(",");
+
+        List<String> interests = new ArrayList();
+        String asd = "a";
+
+        interests = Arrays.asList(asd.split(","));
+        System.out.println(interests);
+
+//        if(a.getLabel(1) != null) {
+//            String[] buff = a.getLabel(1).split(",");
+//            for(int i=0;i<buff.length;i++){
+//                ret = ret + a.search_label(Integer.parseInt(buff[i])) + ", ";
+//            }
+//        }
+//
+//        ret = ret.substring(0, ret.length()-2);
+//        System.out.println(ret);
+//        for(int i = 0; i < c.length;i++) {
+//            System.out.println(c[i]);
+//        }
+//        if(a.getLabel(5) != null) {
+//            String[] buff = a.getLabel(5).split(",");
+//            for(int i=0;i<buff.length;i++){
+//                System.out.println(a.search_label(Integer.parseInt(buff[i])));
+//            }
+//        }
+//        String ret = "";
+//        for(int i = 0; i < a.all_labels().size(); i++) {
+//            ret = ret + a.all_labels().get(i) + ",";
+//        }
+//        ret = ret.substring(0, ret.length()-1);
+//        System.out.println(ret);
+
+
+
         /*int id = a.getId("1444");
         System.out.println(a.interest_num(a.getLabel(3)));
         System.out.println(a.interest_num(a.getLabel(id)));
