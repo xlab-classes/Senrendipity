@@ -96,6 +96,7 @@ public class app_im implements app_Design {
             user.setV_Code(rs.getString("verification"));
         }
         psmt.close();
+        rs.close();
         return user;
     }
 
@@ -111,6 +112,8 @@ public class app_im implements app_Design {
         while(rs.next()){
             id = rs.getInt("id");
         }
+        psmt.close();
+        rs.close();
         return id;
     }
 
@@ -136,6 +139,7 @@ public class app_im implements app_Design {
             user.setPassKey(rs.getString("passkey"));
         }
         psmt.close();
+        rs.close();
         return user;
     }
 
@@ -166,6 +170,7 @@ public class app_im implements app_Design {
             user.setPassKey(rs.getString("passkey"));
         }
         psmt.close();
+        rs.close();
         return user;
     }
 

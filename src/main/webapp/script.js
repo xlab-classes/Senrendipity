@@ -12,7 +12,6 @@ function input_check(id,text){
     return true;
 }
 
-
 function password_same_check(id1,id2){
     var input = $("#"+id1).val()
     var input2 = $("#"+id2).val()

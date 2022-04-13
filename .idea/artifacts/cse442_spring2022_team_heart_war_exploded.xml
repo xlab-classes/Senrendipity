@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="cse442-spring2022-team-heart:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/cse442_spring2022_team_heart_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="cse442-spring2022-team-heart" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$USER_HOME$/Desktop/javax.mail.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/mysql-connector-java-8.0.28.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/activation.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/commons-codec-1.15/commons-codec-1.15.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="cse442-spring2022-team-heart/web/Web" />
+    </root>
+  </artifact>
+</component>
