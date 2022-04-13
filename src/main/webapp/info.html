@@ -3,82 +3,155 @@
 <html lang = "zh-EN">
 <head>
   <meta charset = "utf-8">
-  <meta name ="viewport" content="width=device - width">
+  <meta name ="viewport" content="width=device-width">
   <link href="info.css" rel="stylesheet" type="text/css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="script.js"> </script>
 </head>
-<body>
-<div class="whole">
+<body window.onload=interest_list()>
   <div class = "title">
     <p>Edit Your Interests</p>
     <button type = "submit" value="submit" class="image"><p9>Image</p9><br/></button>
-      <button onclick="Create()"  class="location"><p1>Done</p1></button>
+    <button id="done"  class="location"><p1>Done</p1></button>
   </div>
   <div class = "interest">
     <div id = "earth" class = "earth"></div>
     <p2>Pick your tags here!!!</p2><br/>
     <ul id = "hoppy" class = "hoppy">
       <li>
-        <div id = "123" class="Swimming" draggable="true"><p3>Swimming</p3><br/></div>
+        <button id="Swimming"><p3>Swimming</p3><br/></button>
       </li>
       <li>
-        <div id = "456" class="Games" draggable="true"><p4>Video Games</p4><br/></div>
+        <button id ="Games"><p4>Video Games</p4><br/></button>
       </li>
       <li>
-        <div id = "789" class="travel" draggable = "true"><p5>Travel</p5><br/></div>
+        <button id ="travel"><p5>Travel</p5><br/></button>
       </li>
       <li>
-        <div id = "234" class="reading" draggable="true"><p6>Reading</p6><br/></div>
+        <button id ="reading"><p6>Reading</p6><br/></button>
       </li>
       <li>
-        <div id = "567" class="piano" draggable="true"><p7>Piano</p7><br/></div>
+        <button id ="piano"><p7>Piano</p7><br/></button>
       </li>
     </ul>
-    <button class="More"><p10>More</p10><br/></button>
-        <input id = "999" class="create" placeholder="Create Your Own Tags">
-      <button onclick="window.location.href='SignIn.html'" class="leftarrow"></button>
+    <button id="more"><p10>More</p10><br/></button>
+    <input id="create" placeholder="Create Your Own Tags">
+    <button id="submit"></button>
+<!--    <button id="submit"><p11>submit</p11></button>-->
+    <button onclick="window.location.href='SignIn.html'" class="leftarrow"></button>
   </div>
-</div>
 </body>
-<script type="module" >
+<script>
+  function arrayRemove(arr, value) {
+    for(var i = 0; i < arr.length; i++) {
+      if(arr[i] === value) {
+        arr.splice(i, 1);
+      }
+    }
+  }
 
-  const swimming = document.getElementById("hoppy");
-  const hoppy = document.getElementById("earth");
-  var store = new Array();
-  swimming.ondragstart = function(event){
-    console.log('元素开始被拖动');
-    event.dataTransfer.setData("text", event.target.id);
-    console.log(event.target.id);
+  function addTo_list(arr, id, label) {
+    const l = document.getElementById(id);
+    l.onclick=function(){
+      if(arr.includes(label)) {
+        arrayRemove(arr, label);
+      }
+      else{
+        arr.push(label);
+      }
+    };
   }
-  swimming.ondrag = function(e){
-    // console.log('一直被拖拽着');
+
+  function more_button() {
+    const more_btn = document.getElementById("more")
+    more_btn.onclick = function(){
+      $.ajax({
+        url: "more_tag",
+        method: "get",
+        success: function(java_response) {
+          alert(java_response)
+        }
+      })
+    }
   }
-  swimming.ondragend = function(e){
-    console.log('拖拽操作完成时触发');
+
+  function interest_list() {
+    var store = []
+    var create_value = document.getElementById("create").value;
+    addTo_list(store, "Swimming", "swimming");
+    addTo_list(store, "Games", "games");
+    addTo_list(store, "travel", "travel");
+    addTo_list(store, "reading", "reading");
+    addTo_list(store, "piano", "piano");
+    addTo_list(store, "submit", create_value);
+    var username = getURLVariable("u");
+    var btn = document.getElementById("done")
+    btn.onclick = function(){
+      if(store.length !== 0) {
+        $.get({
+          url: "interest",
+          method: "get",
+          data: {
+            "username":username,
+            "interest":store
+          },
+          success: function (java_response) {
+            if(java_response === "0") {
+              alert("There is a label already existed in your label list!")
+            }
+            else if(java_response === "-1") {
+              alert("Your label size is reached the maximum amount!")
+            }
+            else if(java_response === "1") {
+              window.location.href='match.html'
+            }
+            else if(java_response === "3") {
+              alert("There is a label already existed in the database!")
+            }
+          }
+        })
+      }
+      if(store.length === 0) {
+        alert("Please pick your interest")
+      }
+    }
   }
-  hoppy.ondragenter = function(e){
-    console.log('进入了所要的目标对象中');
-    e.preventDefault()
-  }
-  hoppy.ondragover = function(e){
-    console.log('在目标元素内触发');
-    e.preventDefault();
-  }
-  hoppy.ondragleave = function(e){
-    console.log('拖拽着元素没有放下，并离开目标对象时');
-    // e.preventDefault();
-  }
-  hoppy.ondrop = function(event){
-    console.log('被拖拽元素在目标元素里放下是触发');
-    var data = event.dataTransfer.getData("text");
-    store.push(data)
-    event.preventDefault();
-    console.log(store)
-  }
+more_button()
+interest_list()
+
+  // const hoppy = document.getElementById("earth");
+  // var store = new Array();
+  // swimming.ondragstart = function(event){
+  //   console.log('元素开始被拖动');
+  //   event.dataTransfer.setData("text", event.target.id);
+  //   console.log(event.target.id);
+  // }
+  // swimming.ondrag = function(e){
+  //   // console.log('一直被拖拽着');
+  // }
+  // swimming.ondragend = function(e){
+  //   console.log('拖拽操作完成时触发');
+  // }
+  // hoppy.ondragenter = function(e){
+  //   console.log('进入了所要的目标对象中');
+  //   e.preventDefault()
+  // }
+  // hoppy.ondragover = function(e){
+  //   console.log('在目标元素内触发');
+  //   e.preventDefault();
+  // }
+  // hoppy.ondragleave = function(e){
+  //   console.log('拖拽着元素没有放下，并离开目标对象时');
+  //   // e.preventDefault();
+  // }
+  // hoppy.ondrop = function(event){
+  //   console.log('被拖拽元素在目标元素里放下是触发');
+  //   var data = event.dataTransfer.getData("text");
+  //   store.push(data)
+  //   event.preventDefault();
+  //   console.log(store)
+  // }
 </script>
-
-
 
 </html>
