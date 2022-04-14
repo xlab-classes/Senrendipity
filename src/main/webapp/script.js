@@ -54,8 +54,11 @@ function login(){
                 "password":$("#password").val(),
             }, function (java_response){
                 if(java_response==='1'){
-                    location.href ="match.html"
+                    location.href ="match.html" + "?u="+window.btoa(user_name)
                 }
+                // if(java_response==='2'){
+                //     location.href ="match.html" + "?e="+window.btoa(user_name)
+                // }
                 if (user_name.length!==0 && pass_word.length!==0 ){
                     if(java_response!=='1'){
                         alert("Incorrect username/email or password")
@@ -68,6 +71,7 @@ function login(){
     }
 
 }
+
 
 
 function register (){
@@ -262,20 +266,25 @@ function forgot_resend_code() {
         }
     )
 }
-function match(){
+function matchs(){
     var username=  window.atob(getURLVariable("u"));
-    console.log(username);
+
     $.get('matchs', {
             "username":username
         }, function (java_response){
-            console.log(java_response);
-            var data = JSON.parse(java_response);
+            //console.log(java_response);
 
-            if (data.length===1){
-                alert("No one can match right now")
+            const data = JSON.parse(java_response);
+            //console.log(data);
+
+            if ( Object.keys(data).length===1){
+                alert("No one can match right now");
             }
             else{
-                match_notice(data.user1,data.user2);
+                // var spli = java_response.split('###');
+                // console(spli);
+                // match_notice(spli[0],spli[1]);
+                match_notice(data["user1"],data["user2"]);
             }
 
         }
@@ -294,82 +303,63 @@ function get_time(date){
     var s = (date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
     return Y+M+D+h+m+s;
 }
-
+function toolnum(s){
+    var str = s.toString();
+    var a = str.match(/\d+/g)[0];
+    return parseInt(a);
+}
 
 function send_message(){
     var from_username=  window.atob(getURLVariable("u"));
     var to_username=  window.atob(getURLVariable("u2"));
-    var room =  window.atob(getURLVariable("room"));
-    var message = $('#send_message_button').val()
+    var room =  toolnum(getURLVariable("r"));
+    var message = $('#message_input').val()
+    console.log(message);
     var time = get_time(new Date());
     $.get("send_response", {
             "from":from_username,
             "to": to_username,
-            "room": room,
+            "room": room.toString(),
             "message":message,
             "time" : time
         }
     )
-    $('#message_input').value = "";
-}
-
-$("#send_message_button").keypress(function(event) {
-    //用户按下回车键时，发送聊天消息
-    if (event.keyCode === 13) {
-        //获取聊天消息的内容
-        var message = $('#message_input').val();
-
-        //发送到服务器端
-        send_message()
-    }
-})
-
-function show_new_messages(){
-    const username = window.atob(getURLVariable("u"));
-    const room = window.atob(getURLVariable("room"));
-    $.get("get_check",{"user":username,"room":room},function(response){
-        var data = JSON.parse(response)
-
-        for(var i = 0; i < data.length; i++) {
-
-            var sender = data[i].sender;
-            var receiver = data[i].receiver;
-            var message = data[i].message;
-
-            if(username===sender){
-                const html_message = "<li class='message_send'>" + message + "</li>";
-                $("#chat_message").append(html_message);
-            }
-            else {
-                const html_message2 = "<li class='message_receive'>" + message + "</li>";
-                $("#chat_message").append(html_message2);
-            }
-
-        }
-
-
-
-    },"text");
-
+    $('#message_input').val('')
 }
 
 
-function detect_new_message(){
-    const username = window.atob(getURLVariable("u"));
-    const room = window.atob(getURLVariable("room"));
-    $.post("post_check",{"user":username,"room":room},function(response){
-        // response > 0, let it get the new messages
-        if(response !==0 ) {
-            // run to get new messages
-            show_new_messages();
-        }
-    },"text");
-}
-
-function chat_detector (){
-    detect_new_message();
-    setTimeout(detect_new_message, 1000);
-}
+//
+// function detect_new_message(){
+//     const username = window.atob(getURLVariable("u"));
+//     const room = toolnum(getURLVariable("r"));
+//
+//     $.post("post_check",{"user":username,"room":room},function(response){
+//         // response > 0, let it get the new messages
+//         console.log("res:"+ response);
+//         if(response !=="0" ) {
+//             // run to get new messages
+//             console.log("run show message")
+//             show_new_messages();
+//         }
+//         else {
+//             console.log("listening")
+//         }
+//     },"text");
+// }
+//
+// function chat_detector (){
+//     detect_new_message();
+//     setTimeout(detect_new_message, 1000);
+//
+//     $("#send_message_button").keypress(function(event) {
+//         //用户按下回车键时，发送聊天消息
+//         if (event.keyCode === 13) {
+//             //获取聊天消息的内容
+//             //发送到服务器端
+//             send_message()
+//         }
+//     })
+// }
 
 
 // function friend_list (){
@@ -390,3 +380,14 @@ function chat_detector (){
 //     )
 //
 // }
+
+function match_chat_create(user2){
+    const user1 = window.atob(getURLVariable("u"));
+    $.get("create_rooms",{"user1":user1,"user2":user2},function(response){
+        console.log(response);
+        if(response!=="0") {
+            //this is the room number
+            window.location.href= 'chat.html'+"?u="+window.btoa(user1)+"&r="+response+"&u2="+window.btoa(user2);
+        }
+    },);
+}

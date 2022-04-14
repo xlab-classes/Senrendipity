@@ -1,4 +1,6 @@
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -7,7 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class creat_room {
+@WebServlet(name = "create_rooms", urlPatterns =  "/create_rooms")
+public class creat_room extends HttpServlet {
     private static final long  serialVersionUID = 1L;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +42,7 @@ public class creat_room {
         chat_im serv = new chat_im();
         Connection conn = DButil.getConnection();
         String sql = "" + "select * from room_table where user1 =" + "'" + user1+"'"
-                +" or user2 = " + "'" + user2+"'";
+                +" and user2 = " + "'" + user2+"'";
         PreparedStatement psmt = conn.prepareStatement(sql);
         ResultSet rs1,rs2;
         rs1 = psmt.executeQuery();
@@ -50,10 +53,14 @@ public class creat_room {
         rs2 = psmt.executeQuery();
 
 
-        if (rs1.next() == false && rs2.next() == false ){
+        if (!rs1.next() && !rs2.next()){
             re = serv.createR(user1,user2);
+
         }
+        System.out.println("room"+re);
         check.write(re);
+
+
         psmt.close();
         rs1.close();
         rs2.close();

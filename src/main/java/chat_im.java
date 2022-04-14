@@ -19,6 +19,20 @@ public class chat_im extends app_im{
         return room+1;
     }
 
+    public int mesID_Count() throws SQLException {
+        Connection conn = DButil.getConnection();
+        String sql = ""+"SELECT * FROM chat_table where mesId = (select max(mesId) from chat_table)";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        ResultSet rs = psmt.executeQuery(sql);
+        int mesId = 0;
+        while (rs.next()){
+            mesId = rs.getInt("mesId");
+        }
+        psmt.close();
+        rs.close();
+        return mesId+1;
+    }
+
     public int createR(String user1, String user2) throws Exception{
         Connection conn = DButil.getConnection();
         String sql = "" +
@@ -36,12 +50,12 @@ public class chat_im extends app_im{
     }
 
 
-    public void addMsg(int room, int from, int to, String time, String msg) throws Exception {
+    public void addMsg(int room, int from, int to, String msg ,String time) throws Exception {
         Connection conn = DButil.getConnection();
         String sql = ""
                 +"Insert into chat_table" +
-                "(ROOM,fid,tid,message,time,user1,user2)" +
-                "values(?,?,?,?,?,?,?)";
+                "(ROOM,fid,tid,message,time,mesId)" +
+                "values(?,?,?,?,?,?)";
 
         PreparedStatement psmt = conn.prepareStatement(sql);
         psmt.setInt(1,room);
@@ -49,22 +63,34 @@ public class chat_im extends app_im{
         psmt.setInt(3,to);
         psmt.setString(4,msg);
         psmt.setString(5,time);
-        psmt.setInt(6,0);
-        psmt.setInt(7,0);
+        psmt.setInt(6,mesID_Count());
+
+
         psmt.execute();
         psmt.close();
     }
 
-    public void updateShow(int room, int from, int to) throws Exception {
-        Connection conn = DButil.getConnection();
-        String sql = ""
-                + "update chat_table set show_message =" + 1 +" where ROOM = " + room
-                +" and fid = " + from + " and tid = "+ to + " and show_message = " + 0;
-
-        PreparedStatement psmt = conn.prepareStatement(sql);
-        psmt.executeUpdate();
-        psmt.close();
-    }
+//    public void updateShow1(int room, int from, int to) throws Exception {
+//        Connection conn = DButil.getConnection();
+//        String sql = ""
+//                + "update chat_table set show1 =" + 1 +" where ROOM = " + room
+//                +" and fid = " + from + " and tid = "+ to + " and show1 = " + 0;
+//
+//        PreparedStatement psmt = conn.prepareStatement(sql);
+//        psmt.executeUpdate();
+//        psmt.close();
+//    }
+//
+//    public void updateShow2(int room, int from, int to) throws Exception {
+//        Connection conn = DButil.getConnection();
+//        String sql = ""
+//                + "update chat_table set show2 =" + 1 +" where ROOM = " + room
+//                +" and fid = " + from + " and tid = "+ to + " and show2 = " + 0;
+//
+//        PreparedStatement psmt = conn.prepareStatement(sql);
+//        psmt.executeUpdate();
+//        psmt.close();
+//    }
 
     public void delete(int room) throws SQLException{
         Connection conn = DButil.getConnection();

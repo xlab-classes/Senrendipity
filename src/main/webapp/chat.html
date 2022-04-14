@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
+
+
 <head>
     <meta charset="UTF-8">
     <link href="chat-style.css" rel="stylesheet" type="text/css"/>
@@ -7,8 +9,83 @@
     <script src="script.js"> </script>
     <title>Serendipity</title>
 
-</head>
-<body class="bodybackgound" >
+    <script>
+        $(function(){
+            var message_id=0;
+            detect_new_message();
+
+
+            $("#send_message_button").keypress(function(event) {
+                //用户按下回车键时，发送聊天消息
+                if (event.keyCode === 13) {
+                    //获取聊天消息的内容
+                    //发送到服务器端
+                    send_message()
+                }
+            })
+
+            function detect_new_message(){
+                const username = window.atob(getURLVariable("u"));
+                const room = toolnum(getURLVariable("r"));
+                const last = String(message_id);
+
+                $.post("post_check",{"user":username,"room":room,"last":last},function(response){
+                    // response > 0, let it get the new messages
+                    //console.log("res:"+ response);
+                    if(response !=="0" ) {
+                        // run to get new messages
+                        //console.log("run show message")
+                        show_new_messages();
+                    }
+                    else {
+                        //console.log("listening")
+                    }
+                },"text");
+                setTimeout(detect_new_message, 1000);
+            }
+
+
+            function show_new_messages(){
+                console.log("id="+ message_id);
+                const username = window.atob(getURLVariable("u"));
+                const room =  toolnum(getURLVariable("r"));
+                const last = String(message_id);
+                $.get("get_check",{"user":username,"room":room,"last":message_id},function(response){
+
+                    var data = JSON.parse(response)
+                    console.log(data);
+                    var sender = data["sender"];
+                    var receiver = data["receiver"]; // 加对方的名字
+                    var message = data["message"];
+
+                    for(let i = 0; i < sender.length; i++) {
+                        console.log("i="+i);
+                        if(username===sender[i]){ //右边的消息框
+                            const html_message = "<li class='message_send'>" + message[i] + "</li>";
+                            $("#chat_message").append(html_message);
+                        }
+
+                        else { // 左边的消息框
+                            const html_message2 = "<li class='message_receive'>" + message[i] + "</li>";
+                            $("#chat_message").append(html_message2);
+                        }
+                    }
+                    message_id+= sender.length;
+                },"text");
+
+            }
+        })
+
+        function word(){
+            return "dont refresh";
+        }
+
+    </script>
+
+
+</head><!--这个chat_detector () 等friend——list做出后， 在那加载chat_detector ()-->
+
+<body class="bodybackgound"  onbeforeunload="return word()">
 <div class="divALL">
     <button onclick="window.location.href ='match.html'" class="logo"></button>
     <div class="div_Notice_Friend_Box">
@@ -37,13 +114,14 @@
     <div class="div_chat" onload="chat_detector ()">
         <div class="div_chat2">   <!-- message -->
             <ul id="chat_message">
-                <li class="message_send ">hi</li>
-                <li class="message_receive ">hello</li>
+<!--                <li class="message_send ">hi</li>-->
+<!--                <li class="message_receive ">hello</li>-->
             </ul>
         </div>
 
         <div class="div_chatinput">
             <input id= "message_input" type="text" placeholder="Write a message"  class="chat_input">
+
             <button class="button_file"></button>
             <button class="button_emoji"></button>
             <button id="send_message_button" onclick="send_message()" class="button_send"></button>

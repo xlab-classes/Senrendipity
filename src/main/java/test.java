@@ -1,24 +1,26 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 public class test {
+
+    public static void delete(int room) throws SQLException {
+        Connection conn = DButil.getConnection();
+        String sql = "" +
+                "delete from room_table where ROOM=?";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        psmt.setInt(1, room);
+        psmt.executeUpdate();
+        psmt.close();
+    }
+
     public static void main(String[] args) throws Exception{
-        app_im serv = new app_im();
-        User matchPerson1 = serv.getUser_id(17);
-        System.out.println(matchPerson1.getUsername());
+        //delete(1);
 
-
-        serv.delete(4);
-        serv.delete(6);
-        serv.delete(7);
-        serv.delete(8);
-        serv.delete(9);
-        serv.delete(13);
-        serv.delete(15);
-        serv.delete(17);
-        serv.delete(18);
+        chat_im serv = new chat_im();
+        serv.delete(1);
 
 //        User b = new User();
 //        app_Design serv = new app_im();

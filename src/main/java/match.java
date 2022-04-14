@@ -29,6 +29,7 @@ public class match extends HttpServlet {
         //doGet(request,response);
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
 
         try {
@@ -41,8 +42,6 @@ public class match extends HttpServlet {
     public void getMatch(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception{
         String username = request.getParameter("username");
         PrintWriter check = response.getWriter();
-        check.write("0");
-        check.close();
 
         info_im serv = new info_im();
         int id = serv.getId(username);
@@ -76,14 +75,13 @@ public class match extends HttpServlet {
         int second = res.indexOf(sec.get(sec.size()-2));
         int best1 = user_id.get(top); // best match
         int best2 = user_id.get(second);
-        System.out.println(best1);
+        //System.out.println(best1);
         //System.out.println(best2);
 
 
         //System.out.print(top);
         //System.out.print(second);
         if (top!=-1 && second!=-1){
-
             User matchPerson1 = serv.getUser_id(best1);
             User matchPerson2 = serv.getUser_id(best2);
 
@@ -91,20 +89,21 @@ public class match extends HttpServlet {
             re.put("user1", matchPerson1.getUsername());
             re.put("user2", matchPerson2.getUsername());
 
-            //System.out.print(re.toJSONString());
-
+           //String info = matchPerson1.getUsername() + "###"+ matchPerson2.getUsername();
+            //System.out.println(info);
             check.write(re.toJSONString());
-            check.flush();
             check.close();
+
         }
-        else{
+        else {
             JSONObject re = new JSONObject();
             re.put("fail", 0);
-            //System.out.print(re.toJSONString());
+
             check.write(re.toJSONString());
-            check.flush();
             check.close();
         }
+
+
 
 
     }
