@@ -5,21 +5,36 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) throws Exception{
-        User b = new User();
-        app_Design serv = new app_im();
-        info_im a = new info_im();
+        app_im serv = new app_im();
+        User matchPerson1 = serv.getUser_id(17);
+        System.out.println(matchPerson1.getUsername());
 
-        String s1 = "SwiMMinG";
-        String s2 = "Video Games";
-        String s3 = "11,2,3,4,15";
-        System.out.println(a.getLabel(11));
-        String[] c = s3.split(",");
 
-        List<String> interests = new ArrayList();
-        String asd = "a";
+        serv.delete(4);
+        serv.delete(6);
+        serv.delete(7);
+        serv.delete(8);
+        serv.delete(9);
+        serv.delete(13);
+        serv.delete(15);
+        serv.delete(17);
+        serv.delete(18);
 
-        interests = Arrays.asList(asd.split(","));
-        System.out.println(interests);
+//        User b = new User();
+//        app_Design serv = new app_im();
+//        info_im a = new info_im();
+//
+//        String s1 = "SwiMMinG";
+//        String s2 = "Video Games";
+//        String s3 = "11,2,3,4,15";
+//        System.out.println(a.getLabel(11));
+//        String[] c = s3.split(",");
+//
+//        List<String> interests = new ArrayList();
+//        String asd = "a";
+//
+//        interests = Arrays.asList(asd.split(","));
+//        System.out.println(interests);
 
 //        if(a.getLabel(1) != null) {
 //            String[] buff = a.getLabel(1).split(",");

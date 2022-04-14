@@ -1,4 +1,8 @@
+import com.alibaba.fastjson.JSONObject;
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -6,11 +10,13 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.sql.SQLException;
+import java.util.*;
 
-public class match {
+
+@WebServlet(name = "matchs", urlPatterns =  "/matchs")
+
+public class match extends HttpServlet {
     private static final long  serialVersionUID = 1L;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,7 +29,7 @@ public class match {
         //doGet(request,response);
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
+
 
         try {
             getMatch(request, response);
@@ -32,9 +38,11 @@ public class match {
         }
 
     }
-    public void getMatch(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public void getMatch(HttpServletRequest request, HttpServletResponse response) throws SQLException, Exception{
         String username = request.getParameter("username");
         PrintWriter check = response.getWriter();
+        check.write("0");
+        check.close();
 
         info_im serv = new info_im();
         int id = serv.getId(username);
@@ -49,6 +57,7 @@ public class match {
         //List<String> list = new ArrayList<String>();
         List<Integer> user_id = new ArrayList<Integer>();
         List<Double> res = new ArrayList<Double>();
+        List<Double> sec = new ArrayList<>();
         while (rs.next()){
             if (rs.getInt("id") == id){
                 continue;
@@ -56,12 +65,48 @@ public class match {
                 user_id.add(rs.getInt("id"));
                 String str2 =  rs.getString("label");
                 //list.add(str2);
-                res.add(serv.getSimilar(str1,str2));
+                double temp = serv.getSimilar(str1,str2);
+                res.add(temp);
+                sec.add(temp);
                 //System.out.println(user_id.get(count)+"="+res.get(count++));
             }
         }
-        int index = res.indexOf(Collections.max(res));
-        check.write(user_id.get(index));
+        Collections.sort(sec);
+        int top = res.indexOf(Collections.max(res));
+        int second = res.indexOf(sec.get(sec.size()-2));
+        int best1 = user_id.get(top); // best match
+        int best2 = user_id.get(second);
+        System.out.println(best1);
+        //System.out.println(best2);
+
+
+        //System.out.print(top);
+        //System.out.print(second);
+        if (top!=-1 && second!=-1){
+
+            User matchPerson1 = serv.getUser_id(best1);
+            User matchPerson2 = serv.getUser_id(best2);
+
+            JSONObject re = new JSONObject();
+            re.put("user1", matchPerson1.getUsername());
+            re.put("user2", matchPerson2.getUsername());
+
+            //System.out.print(re.toJSONString());
+
+            check.write(re.toJSONString());
+            check.flush();
+            check.close();
+        }
+        else{
+            JSONObject re = new JSONObject();
+            re.put("fail", 0);
+            //System.out.print(re.toJSONString());
+            check.write(re.toJSONString());
+            check.flush();
+            check.close();
+        }
+
+
     }
 
 }

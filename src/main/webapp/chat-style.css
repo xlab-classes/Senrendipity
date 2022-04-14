@@ -1,5 +1,4 @@
 
-
 @font-face {
     font-family:Inter;
     src: url(https://fonts.google.com/specimen/Inter?query=inter#standard-styles);
@@ -365,3 +364,46 @@
     box-sizing: border-box;
 }
 
+
+.message_receive{
+    width: 50%;
+    height: auto;
+    float: left;
+    clear: right;
+    background: rgba(255, 49, 234, 0.3);
+    border-radius: 20px;
+
+}
+.message_send{
+    width: 286px;
+    height: auto;
+    float: right;
+    clear:both;
+    border-radius: 20px;
+    border: 1px solid #98989E;
+    margin: 3% 7%;
+
+}
+
+li {
+    padding-left:3%;
+    padding-right:3%;
+    margin: 10px 0;
+    line-height: 40px;
+    list-style: none;
+    WORD-BREAK: break-all;
+    WORD-WRAP: break-word
+
+}
+::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+
+.div_chat2{
+    position: absolute;
+    overflow: auto;
+    width:100%;
+    height: 85%;
+    border: none;
+    background: #FFFFFF;
+}

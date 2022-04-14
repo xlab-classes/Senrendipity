@@ -1,28 +1,77 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset = "utf-8">
-        <meta name ="viewport" content="width=device - width">
-        <link href="match.css" rel="stylesheet" type="text/css"/>
-        <script src="match.js">
-        </script>
-    </head>
-    <body>
-        <div class = "match">
-            <div class="friend">
-                <p1>Online</p1>
-                <button type="submit" value="submit" class="setting"></button>
-            </div>
-            <div class="go">
-                <button onclick="window.location.href= 'chat.html'" class="location"><p2>Go to chat with friends</p2> </button>
-            </div>
+<head>
+    <meta charset = "utf-8">
+    <meta name ="viewport" content="width=device - width">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="match.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://layui.itze.cn/layui-v2.6.8/layui/css/layui.css">
+    <script src="/layui/layui.js"></script>
+    <script src="script.js">
+    </script>
+</head>
+
+<body>
+<script>
+
+    /*function  m(){
+        match_notice("haha")
+    }
+     */
+    function match_notice (user1,user2) {
+
+        layer.open({
+            type: 1
+            ,title: "Pick One Your Serendipity..." //不显示标题栏
+            ,closeBtn: false
+            ,area: '300px;'
+            ,shade: 0.8
+            ,id: 'match_notice' //id，防止重复弹出
+            ,resize: false
+            ,btn: [user1, user2]
+            ,btn1: function(){
+                window.location.href= 'chat.html'
+            }
+            ,btn2: function(){
+                window.location.href= 'chat.html'
+            }
+            ,btnAlign: 'c'
+            ,moveType: 0 //拖拽模式，0或者1
+            ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300; position: center" xmlns="http://www.w3.org/1999/html">' +
+                '</div>'
+            ,success: function(response){
+
+            }
+        });
+    }
+
+
+
+
+
+</script>
+<div>   <!-- pop -->
+
+    <div id = "layer pop" class="layer-pop"> <!-- after match pop up  -->
+    </div>
+
+    <div class = "match">
+        <div class="friend">
+            <p1>Online</p1>
+            <button type="submit" value="submit" class="setting"></button>
         </div>
-        <div class="circle"></div>
-        <div class="image"></div>
-        <div class="rocket"></div>
-        <div class="return">
-            <button onclick="window.location.href ='SignIn.html'"class="arrow"></button>
+        <div class="go">
+            <button onclick="window.location.href= 'chat.html'" class="location"><p2>Go to chat with friends</p2> </button>
         </div>
-    </body>
+    </div>
+    <div class="circle"></div>
+    <div class="image"></div>
+    <button class="rocket " onclick="match()" ></button>
+    <div class="return">
+        <button onclick="window.location.href ='SignIn.html'"class="arrow"></button>
+    </div>
+</div>
+
+</body>
 </html>

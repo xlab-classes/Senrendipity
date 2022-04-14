@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="chat-style.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"> </script>
     <title>Serendipity</title>
 
 </head>
@@ -16,7 +18,12 @@
 
     <input type="text" id="search_box" class="div_search_box" placeholder="Search...">
 
-    <div class="div_Friend_List"></div>
+    <div id= friend_list class="div_Friend_List">
+        <ul>
+            <li></li>
+
+        </ul>
+    </div>
 
     <div class="div_button_three_dot">
         <button class="button_three_dot"> </button>
@@ -27,12 +34,19 @@
         <p class="text_CHATNAME_FriendUsername"> FRIEND_USERNAME </p>
     </div>
 
-    <div class="div_chat">
+    <div class="div_chat" onload="chat_detector ()">
+        <div class="div_chat2">   <!-- message -->
+            <ul id="chat_message">
+                <li class="message_send ">hi</li>
+                <li class="message_receive ">hello</li>
+            </ul>
+        </div>
+
         <div class="div_chatinput">
-          <input type="text" placeholder="Write a message"  class="chat_input">
+            <input id= "message_input" type="text" placeholder="Write a message"  class="chat_input">
             <button class="button_file"></button>
             <button class="button_emoji"></button>
-            <button class="button_send"></button>
+            <button id="send_message_button" onclick="send_message()" class="button_send"></button>
 
         </div>
     </div>

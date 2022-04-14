@@ -139,6 +139,7 @@
 
   function done_button() {
     const username = window.atob(getURLVariable("u"));
+    console.log( username)
     $.get({
       url: "done_btn",
       method: "get",
@@ -146,7 +147,7 @@
         "username":username,
       },success: function (java_response) {
         if(java_response === "1") {
-          window.location.href='match.html'
+          window.location.href='match.html'+ '?u='+ window.btoa(username)
         }
         else if(java_response === "0") {
           alert("Please choose your interest!")

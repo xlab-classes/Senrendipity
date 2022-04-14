@@ -1,4 +1,3 @@
-
 function input_check(id,text){
     var input = $("#"+id).val()
     if (input==null || input.length===0||input==""){
@@ -11,7 +10,6 @@ function input_check(id,text){
     $("#"+id). css("border","1px solid #D8D8D8");
     return true;
 }
-
 
 function password_same_check(id1,id2){
     var input = $("#"+id1).val()
@@ -264,4 +262,131 @@ function forgot_resend_code() {
         }
     )
 }
+function match(){
+    var username=  window.atob(getURLVariable("u"));
+    console.log(username);
+    $.get('matchs', {
+            "username":username
+        }, function (java_response){
+            console.log(java_response);
+            var data = JSON.parse(java_response);
 
+            if (data.length===1){
+                alert("No one can match right now")
+            }
+            else{
+                match_notice(data.user1,data.user2);
+            }
+
+        }
+    )
+}
+
+
+
+function get_time(date){
+    var date = new Date(date)
+    var Y = date.getFullYear() + '-';
+    var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    var D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
+    var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+    var m = (date.getMinutes() <10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+    var s = (date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
+    return Y+M+D+h+m+s;
+}
+
+
+function send_message(){
+    var from_username=  window.atob(getURLVariable("u"));
+    var to_username=  window.atob(getURLVariable("u2"));
+    var room =  window.atob(getURLVariable("room"));
+    var message = $('#send_message_button').val()
+    var time = get_time(new Date());
+    $.get("send_response", {
+            "from":from_username,
+            "to": to_username,
+            "room": room,
+            "message":message,
+            "time" : time
+        }
+    )
+    $('#message_input').value = "";
+}
+
+$("#send_message_button").keypress(function(event) {
+    //用户按下回车键时，发送聊天消息
+    if (event.keyCode === 13) {
+        //获取聊天消息的内容
+        var message = $('#message_input').val();
+
+        //发送到服务器端
+        send_message()
+    }
+})
+
+function show_new_messages(){
+    const username = window.atob(getURLVariable("u"));
+    const room = window.atob(getURLVariable("room"));
+    $.get("get_check",{"user":username,"room":room},function(response){
+        var data = JSON.parse(response)
+
+        for(var i = 0; i < data.length; i++) {
+
+            var sender = data[i].sender;
+            var receiver = data[i].receiver;
+            var message = data[i].message;
+
+            if(username===sender){
+                const html_message = "<li class='message_send'>" + message + "</li>";
+                $("#chat_message").append(html_message);
+            }
+            else {
+                const html_message2 = "<li class='message_receive'>" + message + "</li>";
+                $("#chat_message").append(html_message2);
+            }
+
+        }
+
+
+
+    },"text");
+
+}
+
+
+function detect_new_message(){
+    const username = window.atob(getURLVariable("u"));
+    const room = window.atob(getURLVariable("room"));
+    $.post("post_check",{"user":username,"room":room},function(response){
+        // response > 0, let it get the new messages
+        if(response !==0 ) {
+            // run to get new messages
+            show_new_messages();
+        }
+    },"text");
+}
+
+function chat_detector (){
+    detect_new_message();
+    setTimeout(detect_new_message, 1000);
+}
+
+
+// function friend_list (){
+//     var str = '<ul>'
+//     var list = [];
+//
+//     var username=  window.atob(getURLVariable("u"));
+//     $.get("friend_list", {  // get friend list
+//             "username":username
+//         }, function (java_response){
+//             var f = JSON.parse(java_response); // JSON = "friend: []"
+//             //list = f.friend;
+//             list.forEach(function(list) {
+//                 str += '<li>'+ list + '</li>';});
+//             str += '</ul>';
+//             document.getElementById("friend_list").innerHTML = str;
+//         }
+//     )
+//
+// }
