@@ -48,7 +48,6 @@ public class login extends HttpServlet {
                 //System.out.print("decode="+de_password);
 
                 if (Objects.equals(de_password, password)) {
-                    System.out.println(user.getUsername());
                     check.write(user.getUsername());
                 }
             }

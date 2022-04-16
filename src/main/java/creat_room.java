@@ -33,7 +33,6 @@ public class creat_room extends HttpServlet {
     }
 
     public void getRoom(HttpServletRequest request, HttpServletResponse response) throws Exception{
-
         String user1 = request.getParameter("user1");
         String user2 = request.getParameter("user2");
         PrintWriter check = response.getWriter();
@@ -41,26 +40,26 @@ public class creat_room extends HttpServlet {
 
         chat_im serv = new chat_im();
         Connection conn = DButil.getConnection();
+
         String sql = "" + "select * from room_table where user1 =" + "'" + user1+"'"
                 +" and user2 = " + "'" + user2+"'";
         PreparedStatement psmt = conn.prepareStatement(sql);
         ResultSet rs1,rs2;
         rs1 = psmt.executeQuery();
 
-        sql = "" + "select * from room_table where user1 =" + "'" + user2+"'"
+        String sql2 = "" + "select * from room_table where user1 =" + "'" + user2+"'"
                 +" and user2 = " + "'" + user1+"'";
-        psmt = conn.prepareStatement(sql);
-        rs2 = psmt.executeQuery();
-
+        PreparedStatement psmt2 = conn.prepareStatement(sql2);
+        rs2 = psmt2.executeQuery();
 
         if (!rs1.next() && !rs2.next()){
             re = serv.createR(user1,user2);
-
+            serv.addfriend(user1,user2);
+        } else {
+            re = rs1.getInt("room");
         }
-        System.out.println("room"+re);
-        check.write(re);
-
-
+        
+        check.write(Integer.toString(re));
         psmt.close();
         rs1.close();
         rs2.close();

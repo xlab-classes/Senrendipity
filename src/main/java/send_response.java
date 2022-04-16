@@ -35,6 +35,7 @@ public class send_response extends HttpServlet {
         String time = request.getParameter("time");
 
 
+
         chat_im serv = new chat_im();
         int user1 = serv.getUser_name(from).getId();
         int user2 = serv.getUser_name(to).getId();
