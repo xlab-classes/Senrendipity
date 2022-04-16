@@ -31,7 +31,6 @@ public class match extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 
-
         try {
             getMatch(request, response);
         } catch (Exception e) {
@@ -51,6 +50,13 @@ public class match extends HttpServlet {
         String sql = "" + "select * from user_info";
         PreparedStatement psmt = conn.prepareStatement(sql);
         ResultSet rs = psmt.executeQuery();
+        String sql2 ="" + "select * from user_info where id = "+ serv.getId(username);
+        PreparedStatement psmt1 = conn.prepareStatement(sql2);
+        ResultSet rs2 = psmt1.executeQuery();
+        String friend = "";
+        while(rs2.next()){
+            friend = rs2.getString("friend_list");
+        }
 
         /// int count =0;
         //List<String> list = new ArrayList<String>();
@@ -58,7 +64,7 @@ public class match extends HttpServlet {
         List<Double> res = new ArrayList<Double>();
         List<Double> sec = new ArrayList<>();
         while (rs.next()){
-            if (rs.getInt("id") == id){
+            if (rs.getInt("id") == id || friend.contains(Integer.toString(rs.getInt("id")))){
                 continue;
             }else {
                 user_id.add(rs.getInt("id"));
@@ -77,11 +83,10 @@ public class match extends HttpServlet {
         int best2 = user_id.get(second);
         //System.out.println(best1);
         //System.out.println(best2);
-
-
         //System.out.print(top);
         //System.out.print(second);
-        if (top!=-1 && second!=-1 && top!=second){
+
+        if(Collections.max(res) != 0){
             User matchPerson1 = serv.getUser_id(best1);
             User matchPerson2 = serv.getUser_id(best2);
 

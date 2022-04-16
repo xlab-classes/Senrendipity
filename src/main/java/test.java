@@ -1,3 +1,6 @@
+import com.alibaba.fastjson.JSONObject;
+
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +10,7 @@ import java.util.*;
 public class test {
 
     public static void delete(int room) throws SQLException {
+
         Connection conn = DButil.getConnection();
         String sql = "" +
                 "delete from room_table where ROOM=?";
@@ -16,14 +20,78 @@ public class test {
         psmt.close();
     }
 
+    public static void match(String username) throws Exception{
+        info_im serv = new info_im();
+        int id = serv.getId(username);
+        String str1 = serv.getLabel(id);
+
+        Connection conn = DButil.getConnection();
+        String sql = "" + "select * from user_info";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        ResultSet rs = psmt.executeQuery();
+        String sql2 ="" + "select * from user_info where id = "+ serv.getId(username);
+        PreparedStatement psmt1 = conn.prepareStatement(sql2);
+        ResultSet rs2 = psmt1.executeQuery();
+        String friend = "";
+        while(rs2.next()){
+            friend = rs2.getString("friend_list");
+        }
+        /// int count =0;
+        //List<String> list = new ArrayList<String>();
+        List<Integer> user_id = new ArrayList<Integer>();
+        List<Double> res = new ArrayList<Double>();
+        List<Double> sec = new ArrayList<>();
+        while (rs.next()){
+            if (rs.getInt("id") == id || friend.contains(Integer.toString(rs.getInt("id")))){
+                System.out.println(rs.getInt("id"));
+                continue;
+            }else {
+                user_id.add(rs.getInt("id"));
+                String str2 =  rs.getString("label");
+                //list.add(str2);
+                double temp = serv.getSimilar(str1,str2);
+                res.add(temp);
+                sec.add(temp);
+                //System.out.println(user_id.get(count)+"="+res.get(count++));
+            }
+        }
+        Collections.sort(sec);
+        int top = res.indexOf(Collections.max(res));
+        int second = res.indexOf(sec.get(sec.size()-2));
+        int best1 = user_id.get(top); // best match
+        int best2 = user_id.get(second);
+        //System.out.println(best1);
+        //System.out.println(best2);
+
+
+        //System.out.print(top);
+        //System.out.print(second);
+        if (top!=-1 && second!=-1 && top!=second){
+            User matchPerson1 = serv.getUser_id(best1);
+            User matchPerson2 = serv.getUser_id(best2);
+
+            JSONObject re = new JSONObject();
+            re.put("user1", matchPerson1.getUsername());
+            re.put("user2", matchPerson2.getUsername());
+
+            //String info = matchPerson1.getUsername() + "###"+ matchPerson2.getUsername();
+            //System.out.println(info);
+            System.out.println(re.toJSONString());
+
+        }
+        else {
+            JSONObject re = new JSONObject();
+            re.put("fail", 0);
+
+            System.out.println(re.toJSONString());
+        }
+    }
+
     public static void main(String[] args) throws Exception{
-        //delete room_table by room number:
-        delete(2);
+        //delete(1);
 
-        // delete chat_table: by room number
         chat_im serv = new chat_im();
-        serv.delete(0);
-
+        match("weng");
 //        User b = new User();
 //        app_Design serv = new app_im();
 //        info_im a = new info_im();

@@ -1,5 +1,3 @@
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +33,6 @@ public class creat_room extends HttpServlet {
     }
 
     public void getRoom(HttpServletRequest request, HttpServletResponse response) throws Exception{
-
         String user1 = request.getParameter("user1");
         String user2 = request.getParameter("user2");
         PrintWriter check = response.getWriter();
@@ -57,15 +54,12 @@ public class creat_room extends HttpServlet {
 
         if (!rs1.next() && !rs2.next()){
             re = serv.createR(user1,user2);
-            check.write(Integer.toString(re));
+            serv.addfriend(user1,user2);
+        } else {
+            re = rs1.getInt("room");
         }
-        else {
-            check.write(rs1.getString("room"));
-        }
-
-        System.out.println("room"+re);
-
-        psmt2.close();
+        
+        check.write(Integer.toString(re));
         psmt.close();
         rs1.close();
         rs2.close();
