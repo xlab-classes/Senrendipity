@@ -270,7 +270,7 @@ function matchs(){
     $.get('matchs', {
             "username":username
         }, function (java_response){
-            //console.log(java_response);
+            console.log(java_response);
 
             const data = JSON.parse(java_response);
             //console.log(data);

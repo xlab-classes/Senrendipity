@@ -1,3 +1,5 @@
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,26 +43,29 @@ public class creat_room extends HttpServlet {
 
         chat_im serv = new chat_im();
         Connection conn = DButil.getConnection();
+
         String sql = "" + "select * from room_table where user1 =" + "'" + user1+"'"
                 +" and user2 = " + "'" + user2+"'";
         PreparedStatement psmt = conn.prepareStatement(sql);
         ResultSet rs1,rs2;
         rs1 = psmt.executeQuery();
 
-        sql = "" + "select * from room_table where user1 =" + "'" + user2+"'"
+        String sql2 = "" + "select * from room_table where user1 =" + "'" + user2+"'"
                 +" and user2 = " + "'" + user1+"'";
-        psmt = conn.prepareStatement(sql);
-        rs2 = psmt.executeQuery();
-
+        PreparedStatement psmt2 = conn.prepareStatement(sql2);
+        rs2 = psmt2.executeQuery();
 
         if (!rs1.next() && !rs2.next()){
             re = serv.createR(user1,user2);
-
+            check.write(Integer.toString(re));
         }
+        else {
+            check.write(rs1.getString("room"));
+        }
+
         System.out.println("room"+re);
-        check.write(re);
 
-
+        psmt2.close();
         psmt.close();
         rs1.close();
         rs2.close();

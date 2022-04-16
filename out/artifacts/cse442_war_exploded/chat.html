@@ -11,7 +11,12 @@
 
     <script>
         $(function(){
+            var current_user = window.atob(getURLVariable("u"));
+            var target_user = window.atob(getURLVariable("u2"));
+            var room = toolnum(getURLVariable("r"));
+
             var message_id=0;
+            var friend_show=0;
             detect_new_message();
 
 
@@ -25,17 +30,16 @@
             })
 
             function detect_new_message(){
-                const username = window.atob(getURLVariable("u"));
-                const room = toolnum(getURLVariable("r"));
-                const last = String(message_id);
+                console.log("room:"+room);
 
-                $.post("post_check",{"user":username,"room":room,"last":last},function(response){
+                $.post("post_check",{"user":current_user,"room":String(room),"last":String(message_id)},function(response){
                     // response > 0, let it get the new messages
                     //console.log("res:"+ response);
                     if(response !=="0" ) {
                         // run to get new messages
                         //console.log("run show message")
                         show_new_messages();
+
                     }
                     else {
                         //console.log("listening")
@@ -46,20 +50,15 @@
 
 
             function show_new_messages(){
-                console.log("id="+ message_id);
-                const username = window.atob(getURLVariable("u"));
-                const room =  toolnum(getURLVariable("r"));
-                const last = String(message_id);
-                $.get("get_check",{"user":username,"room":room,"last":message_id},function(response){
+                $.get("get_check",{"user":current_user,"room":room,"last":String(message_id)},function(response){
 
                     var data = JSON.parse(response)
-                    console.log(data);
                     var sender = data["sender"];
                     var receiver = data["receiver"]; // 加对方的名字
                     var message = data["message"];
 
                     for(let i = 0; i < sender.length; i++) {
-                        console.log("i="+i);
+
                         if(username===sender[i]){ //右边的消息框
                             const html_message = "<li class='message_send'>" + message[i] + "</li>";
                             $("#chat_message").append(html_message);
@@ -70,22 +69,48 @@
                             $("#chat_message").append(html_message2);
                         }
                     }
-                    message_id+= sender.length;
+                    //console.log("messege_id before ="+ message_id);
+                    message_id += sender.length;
+                    //console.log("messege_id after ="+ message_id);
                 },"text");
+            }
+
+
+            function detect_friend_list(){
+                $.post("detect_friend",{"user":current_user,"last":String(friend_show)},function(response){
+                    if(response !=="0" ) {
+                        show_new_friend();
+                    }
+                },"text");
+                setTimeout(detect_friend_list, 1000);
+            }
+
+            function show_new_friend() {
+                $.get("get_check",{"user":current_user,"last":String(friend_show)},function(response){
+                    var data = JSON.parse(response)
+                    var  friend= data["friend"];
+                    var  last_messsage = data["message"]
+                    for(let i = 0; i < friend.length; i++) {
+
+                        const html_message = "<li class='friend_list'>" + "<p class='friend_username'>" +friend[i]+ "</p>"+ "<p class='last_message'>"+ last_messsage+ "</p>" +"</li>";
+                        $("#friend_list").append(html_message);
+                    };
+
+                });
 
             }
+
+
         })
 
-        function word(){
-            return "dont refresh";
-        }
+
 
     </script>
 
 
 </head><!--这个chat_detector () 等friend——list做出后， 在那加载chat_detector ()-->
 
-<body class="bodybackgound"  onbeforeunload="return word()">
+<body class="bodybackgound" >
 <div class="divALL">
     <button onclick="window.location.href ='match.html'" class="logo"></button>
     <div class="div_Notice_Friend_Box">
@@ -95,12 +120,19 @@
 
     <input type="text" id="search_box" class="div_search_box" placeholder="Search...">
 
-    <div id= friend_list class="div_Friend_List">
-        <ul>
-            <li></li>
+    <div  class="div_Friend_List">
+        <tr id="friend_list">
+            <li class="friend_list">
+                <p class="friend_username">FRIEND1</p>
+                <p class="last_message"> Last message</p>
+            </li>
+            <li class="friend_list">
+                <p class="friend_username">FRIEND2</p>
+                <p class="last_message"> Last message</p></li>
+        </tr>
 
-        </ul>
     </div>
+
 
     <div class="div_button_three_dot">
         <button class="button_three_dot"> </button>
@@ -111,7 +143,7 @@
         <p class="text_CHATNAME_FriendUsername"> FRIEND_USERNAME </p>
     </div>
 
-    <div class="div_chat" onload="chat_detector ()">
+    <div class="div_chat">
         <div class="div_chat2">   <!-- message -->
             <ul id="chat_message">
 <!--                <li class="message_send ">hi</li>-->
