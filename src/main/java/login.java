@@ -38,35 +38,37 @@ public class login extends HttpServlet {
         String password = request.getParameter("password");
         PrintWriter check = response.getWriter();
 
+
         if (username.contains("@")) {
             if (serv.UserExist_email(username)) {
                 User user = serv.getUser_email(username);
-                System.out.print("key="+user.getPassKey());
+                //System.out.print("key="+user.getPassKey());
 
                 String de_password = serv.decode(user.getPassKey(), user.getPassword());//解密
-                System.out.print("decode="+de_password);
+                //System.out.print("decode="+de_password);
 
                 if (Objects.equals(de_password, password)) {
-                    check.write("1");
+                    System.out.println(user.getUsername());
+                    check.write(user.getUsername());
                 }
-
-            } else {
-                check.write("0");
             }
-        } else {
+        }
+
+        else {
             if (serv.UserExist_name(username)) {
                 if (serv.UserExist_name(username)) {
                     User user = serv.getUser_name(username);
                     String de_password = serv.decode(user.getPassKey(), user.getPassword());//解密
                     System.out.print(de_password);
                     if (Objects.equals(de_password, password)) {
-                        check.write("1");
+                        check.write(username);
                     }
-                } else {
-                    check.write("0");
                 }
             }
-            check.close();
+            else {
+                check.write("0");
+            }
         }
+        check.close();
     }
 }

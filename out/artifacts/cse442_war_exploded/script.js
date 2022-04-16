@@ -53,19 +53,17 @@ function login(){
                 "username":$("#username").val(),
                 "password":$("#password").val(),
             }, function (java_response){
-                if(java_response==='1'){
-                    location.href ="match.html" + "?u="+window.btoa(user_name)
-                }
-                // if(java_response==='2'){
-                //     location.href ="match.html" + "?e="+window.btoa(user_name)
-                // }
+                console.log(java_response);
                 if (user_name.length!==0 && pass_word.length!==0 ){
-                    if(java_response!=='1'){
+                    if(java_response ==='0'){
                         alert("Incorrect username/email or password")
-
                     }
-
+                    else {
+                        location.href ="match.html" + "?u="+window.btoa(java_response);
+                    }
                 }
+
+
             }
         )
     }
