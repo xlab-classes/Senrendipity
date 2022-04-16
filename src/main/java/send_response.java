@@ -28,7 +28,7 @@ public class send_response extends HttpServlet {
 
     public void sendR(HttpServletRequest request, HttpServletResponse response) throws Exception{
         String from = request.getParameter("from");
-        System.out.println(request.getParameter("room"));
+        //System.out.println(request.getParameter("room"));
         String to = request.getParameter("to");
         int roomId = Integer.parseInt(request.getParameter("room"));
         String msg = request.getParameter("message");

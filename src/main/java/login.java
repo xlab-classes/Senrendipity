@@ -58,7 +58,7 @@ public class login extends HttpServlet {
                 if (serv.UserExist_name(username)) {
                     User user = serv.getUser_name(username);
                     String de_password = serv.decode(user.getPassKey(), user.getPassword());//解密
-                    System.out.print(de_password);
+                    //System.out.print(de_password);
                     if (Objects.equals(de_password, password)) {
                         check.write(username);
                     }

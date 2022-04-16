@@ -55,7 +55,11 @@ public class match extends HttpServlet {
         ResultSet rs2 = psmt1.executeQuery();
         String friend = "";
         while(rs2.next()){
-            friend = rs2.getString("friend_list");
+            System.out.println(rs2.getString("friend_list"));
+            if (rs2.getString("friend_list")!= null){
+                friend = rs2.getString("friend_list");
+            }
+
         }
 
         /// int count =0;
@@ -64,7 +68,7 @@ public class match extends HttpServlet {
         List<Double> res = new ArrayList<Double>();
         List<Double> sec = new ArrayList<>();
         while (rs.next()){
-            if (rs.getInt("id") == id || friend.contains(Integer.toString(rs.getInt("id")))){
+            if (rs.getInt("id") == id || friend.contains(Integer.toString(rs.getInt("id")))  ){
                 continue;
             }else {
                 user_id.add(rs.getInt("id"));

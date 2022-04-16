@@ -15,6 +15,19 @@
 
 <body>
 <script>
+    function getURLVariable(x) {
+        var url_link = window.location.search.substring(1);
+        var s = url_link.split("&");
+        for (let i=0; i<s.length; i++) {
+            var pair = s[i].split("=");
+            if(pair[0] === x){
+                return pair[1];
+            }
+        }
+    }
+    function match_go_chat (){
+        window.location.href='chat.html'+ '?u='+ getURLVariable("u");
+    }
 
 
     function match_notice (user1,user2) {
@@ -60,7 +73,7 @@
             <button type="submit" value="submit" class="setting"></button>
         </div>
         <div class="go">
-            <button onclick="window.location.href= 'chat.html'" class="location"><p2>Go to chat with friends</p2> </button>
+            <button onclick = "match_go_chat()" class="location"><p2>Go to chat with friends</p2> </button>
         </div>
     </div>
     <div class="circle"></div>

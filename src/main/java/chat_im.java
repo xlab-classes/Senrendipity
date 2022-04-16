@@ -19,9 +19,9 @@ public class chat_im extends app_im{
         return room+1;
     }
 
-    public int mesID_Count() throws SQLException {
+    public int mesID_Count(int room) throws SQLException {
         Connection conn = DButil.getConnection();
-        String sql = ""+"SELECT * FROM chat_table where mesId = (select max(mesId) from chat_table)";
+        String sql = ""+"SELECT * FROM chat_table where room = " +room +  "  and mesId = (select max(mesId) from chat_table)";
         PreparedStatement psmt = conn.prepareStatement(sql);
         ResultSet rs = psmt.executeQuery(sql);
         int mesId = 0;
@@ -63,7 +63,7 @@ public class chat_im extends app_im{
         psmt.setInt(3,to);
         psmt.setString(4,msg);
         psmt.setString(5,time);
-        psmt.setInt(6,mesID_Count());
+        psmt.setInt(6,mesID_Count(room));
 
 
         psmt.execute();

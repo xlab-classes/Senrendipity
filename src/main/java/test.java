@@ -6,7 +6,7 @@ import java.util.*;
 
 public class test {
 
-    public static void delete(int room) throws SQLException {
+    public static void delete_room_table(int room) throws SQLException {
         Connection conn = DButil.getConnection();
         String sql = "" +
                 "delete from room_table where ROOM=?";
@@ -16,13 +16,17 @@ public class test {
         psmt.close();
     }
 
+
     public static void main(String[] args) throws Exception{
         //delete room_table by room number:
-        delete(2);
+        delete_room_table(3);
 
         // delete chat_table: by room number
-        chat_im serv = new chat_im();
-        serv.delete(0);
+        //chat_im serv = new chat_im();
+        //serv.delete(2);
+
+
+
 
 //        User b = new User();
 //        app_Design serv = new app_im();
