@@ -81,7 +81,7 @@ public class match extends HttpServlet {
 
         //System.out.print(top);
         //System.out.print(second);
-        if (top!=-1 && second!=-1){
+        if (top!=-1 && second!=-1 && top!=second){
             User matchPerson1 = serv.getUser_id(best1);
             User matchPerson2 = serv.getUser_id(best2);
 
@@ -102,6 +102,8 @@ public class match extends HttpServlet {
             check.write(re.toJSONString());
             check.close();
         }
+
+
 
 
 
