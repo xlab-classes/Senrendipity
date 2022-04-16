@@ -123,7 +123,7 @@ function register_verify(){
     var vcode = getURLVariable("v"); // vcode
     var password= getURLVariable("p"); // password
     var email= getURLVariable("e");  // emails
-    console.log(window.atob(email))
+    //console.log(window.atob(email))
 
     var vcheck = input_check("verifyNum","Please enter your verify code");
     vcheck;
@@ -306,21 +306,25 @@ function toolnum(s){
     var a = str.match(/\d+/g)[0];
     return parseInt(a);
 }
-
 function send_message(){
-    var from_username=  window.atob(getURLVariable("u"));
-    var to_username=  window.atob(getURLVariable("u2"));
-    var room =  toolnum(getURLVariable("r"));
+    // var from_username=  window.atob(getURLVariable("u"));
+    // var to_username=  window.atob(getURLVariable("u2"));
+    // var room =  toolnum(getURLVariable("r"));
+
+    var from_username = document.getElementById("current_user").innerHTML;
+    var to_username= document.getElementById("chat_friend_username").innerHTML;
+    var room =document.getElementById("room_num").value
     var message = $('#message_input').val()
-    console.log(message);
+    //console.log(message);
     var time = get_time(new Date());
-    $.get("send_response", {
+    $.post("send_response", {
             "from":from_username,
             "to": to_username,
             "room": room.toString(),
             "message":message,
             "time" : time
         }
+
     )
     $('#message_input').val('')
 }
@@ -382,7 +386,7 @@ function send_message(){
 function match_chat_create(user2){
     const user1 = window.atob(getURLVariable("u"));
     $.get("create_rooms",{"user1":user1,"user2":user2},function(response){
-        console.log(response);
+        //console.log(response);
         if(response!=="0") {
             //this is the room number
             window.location.href= 'chat.html'+"?u="+window.btoa(user1)+"&r="+response+"&u2="+window.btoa(user2);

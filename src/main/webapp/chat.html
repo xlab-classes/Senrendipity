@@ -10,27 +10,47 @@
     <title>Serendipity</title>
 
     <script>
-        $(function(){
-            var current_user = window.atob(getURLVariable("u"));
-            var target_user = window.atob(getURLVariable("u2"));
-            var room = toolnum(getURLVariable("r"));
 
-            var message_id=0;
-            var friend_show=0;
+
+        // var send_enter = document.getElementById("send_message_button");
+        // send_enter.onkeypress=function(event){
+        //     if(event.which === 13) {
+        //         send_message()
+        //     }
+        // }
+
+
+        function chat_room (target_user){
+
+            console.log("RUN CHAT ROOM");
+            $("#chat_message").empty();
+            document.getElementById("chat_friend_username").innerHTML = target_user;
+            document.getElementById("hobbies_friend_username").innerHTML = target_user;
+
+            const current_user = window.atob(getURLVariable("u"));
+            console.log(current_user);
+            console.log(target_user);
+
+            $.get("create_rooms",{"user1":current_user,"user2":target_user},function(response){
+                console.log("res="+ response);
+                console.log("chatroom"+ response);
+                //this is the room number
+                show_chat(response,current_user);
+                document.getElementById("room_num").value = response;
+
+            },);
+        }
+
+
+        function show_chat(room,current_user){
+
+            let message_id = 0;
+            console.log(message_id);
             detect_new_message();
 
 
-            $("#send_message_button").keypress(function(event) {
-                //用户按下回车键时，发送聊天消息
-                if (event.keyCode === 13) {
-                    //获取聊天消息的内容
-                    //发送到服务器端
-                    send_message()
-                }
-            })
-
             function detect_new_message(){
-                console.log("room:"+room);
+                //console.log("room:"+room);
 
                 $.post("post_check",{"user":current_user,"room":String(room),"last":String(message_id)},function(response){
                     // response > 0, let it get the new messages
@@ -38,20 +58,21 @@
                     if(response !=="0" ) {
                         // run to get new messages
                         //console.log("run show message")
-                        show_new_messages();
+                        show_new_messages(current_user);
+                    }
 
-                    }
-                    else {
-                        //console.log("listening")
-                    }
                 },"text");
                 setTimeout(detect_new_message, 1000);
             }
 
 
-            function show_new_messages(){
+            function show_new_messages(current_user){
+                var room  = document.getElementById("room_num").value;
+
                 $.get("get_check",{"user":current_user,"room":room,"last":String(message_id)},function(response){
 
+                    console.log("show_new_messages"+room);
+                    console.log(response);
                     var data = JSON.parse(response)
                     var sender = data["sender"];
                     var receiver = data["receiver"]; // 加对方的名字
@@ -59,7 +80,7 @@
 
                     for(let i = 0; i < sender.length; i++) {
 
-                        if(username===sender[i]){ //右边的消息框
+                        if(current_user===sender[i]){ //右边的消息框
                             const html_message = "<li class='message_send'>" + message[i] + "</li>";
                             $("#chat_message").append(html_message);
                         }
@@ -69,15 +90,40 @@
                             $("#chat_message").append(html_message2);
                         }
                     }
-                    //console.log("messege_id before ="+ message_id);
                     message_id += sender.length;
-                    //console.log("messege_id after ="+ message_id);
+                    console.log(message_id);
+                    //console.log("messege_id before ="+ message_id);
+
+                    //console.log("message_id after ="+ message_id);
                 },"text");
             }
+        }
 
+
+        function go_match_page(){
+            window.location.href='match.html'+ '?u='+ getURLVariable("u");
+        }
+
+        $(function (){
+            var current_user = window.atob(getURLVariable("u"));
+            document.getElementById("current_user").innerHTML = current_user;
+
+            //var room = null;
+
+            //var message_id=0;
+            var friend_show=0;
+
+
+
+            //detect_new_message();
+            detect_friend_list();
 
             function detect_friend_list(){
-                $.post("detect_friend",{"user":current_user,"last":String(friend_show)},function(response){
+
+
+                $.post("post_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
+                    //console.log("检测朋友列表成功")
+
                     if(response !=="0" ) {
                         show_new_friend();
                     }
@@ -85,22 +131,29 @@
                 setTimeout(detect_friend_list, 1000);
             }
 
+
             function show_new_friend() {
-                $.get("get_check",{"user":current_user,"last":String(friend_show)},function(response){
+                $.get("get_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
+                    //console.log("show_new_friend"+ response);
                     var data = JSON.parse(response)
                     var  friend= data["friend"];
-                    var  last_messsage = data["message"]
-                    for(let i = 0; i < friend.length; i++) {
 
-                        const html_message = "<li class='friend_list'>" + "<p class='friend_username'>" +friend[i]+ "</p>"+ "<p class='last_message'>"+ last_messsage+ "</p>" +"</li>";
-                        $("#friend_list").append(html_message);
+                    //var  friend_id= data["ID"];
+                    // var  last_messsage = data["message"]
+
+                    for(let i = 0; i < friend.length; i++) {
+                        //console.log(i)
+                         //+ "<p class='last_message'>"+ last_messsage+ "</p>"
+                        const str = "chat_room(" + "'" + friend[i]+ "'"+ ")"
+                        const html_message = "<li class='friend_list' onclick=" + str+" >" + "<p class='friend_username' id=" + friend[i] + ">" +friend[i]+ "</p>" +"</li>";
+                        console.log(html_message);
+                        $("#friend_list_show").append(html_message);
                     };
 
+                    friend_show+= friend.length;
                 });
 
             }
-
-
         })
 
 
@@ -108,11 +161,11 @@
     </script>
 
 
-</head><!--这个chat_detector () 等friend——list做出后， 在那加载chat_detector ()-->
+</head>
 
 <body class="bodybackgound" >
 <div class="divALL">
-    <button onclick="window.location.href ='match.html'" class="logo"></button>
+    <button onclick="go_match_page()" class="logo"></button>
     <div class="div_Notice_Friend_Box">
         <button class="button_addFriend"></button>
         <button class="button_newFriend">NEW</button>
@@ -121,15 +174,15 @@
     <input type="text" id="search_box" class="div_search_box" placeholder="Search...">
 
     <div  class="div_Friend_List">
-        <tr id="friend_list">
-            <li class="friend_list">
-                <p class="friend_username">FRIEND1</p>
-                <p class="last_message"> Last message</p>
-            </li>
-            <li class="friend_list">
-                <p class="friend_username">FRIEND2</p>
-                <p class="last_message"> Last message</p></li>
-        </tr>
+        <ul id="friend_list_show">
+<!--            <li class="friend_list">-->
+<!--                <p class="friend_username">FRIEND1</p>-->
+<!--                <p class="last_message"> Last message</p>-->
+<!--            </li>-->
+<!--            <li class="friend_list">-->
+<!--                <p class="friend_username">FRIEND2</p>-->
+<!--                <p class="last_message"> Last message</p></li>-->
+        </ul>
 
     </div>
 
@@ -139,8 +192,9 @@
     </div>
 
     <div class="div_Friend_Chat_Name">
-        <div class="div_CHATNAME_FriendPIC"></div>
-        <p class="text_CHATNAME_FriendUsername"> FRIEND_USERNAME </p>
+<!--        <div class="div_CHATNAME_FriendPIC"></div> 对话框头像-->
+        <p class="text_CHATNAME_FriendUsername" id="chat_friend_username">  </p>
+        <label hidden class="text_CHATNAME_FriendUsername" id="room_num" value="" >  </label>
     </div>
 
     <div class="div_chat">
@@ -156,21 +210,21 @@
 
             <button class="button_file"></button>
             <button class="button_emoji"></button>
-            <button id="send_message_button" onclick="send_message()" class="button_send"></button>
+            <button id="send_message_button" onclick="send_message()"  class="button_send"></button>
 
         </div>
     </div>
 
     <div class="div_selfInfo">
         <div class="div_selfPic"></div>
-        <p class="text_username">USERNAME</p>
+        <p class="text_username" id="current_user">USERNAME</p>
         <button class="button_setting"></button>
     </div>
 
     <div class="div_friend_Hobbies">
         <div class="div_friend_Hobbies_info">
             <div class="div_habitFriendPIC"> </div>
-            <div class="div_Text_FRIEND_USERNAME"> <p> FRIEND USERNAME </p></div>
+            <div class="div_Text_FRIEND_USERNAME"> <p id="hobbies_friend_username">  </p></div>
 
         </div>
         <H1 class="text_Habbies">Habbies</H1>

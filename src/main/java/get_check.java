@@ -32,7 +32,8 @@ public class get_check extends HttpServlet {
     }
 
     public void get_show(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        int room = Integer.parseInt(request.getParameter("room"));
+        String room = request.getParameter("room");
+
         String from = request.getParameter("username");
         String last = request.getParameter("last");
 
@@ -77,7 +78,7 @@ public class get_check extends HttpServlet {
         json.put("receiver",receiver_list);
         json.put("message",message_list);
 
-        System.out.println("show:"+ json.toJSONString());
+        //System.out.println("show:"+ json.toJSONString());
         check.write(json.toJSONString());
 
         psmt2.close();
