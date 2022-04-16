@@ -29,18 +29,17 @@
             ,resize: false
             ,btn: [user1, user2,"cancel"]
             ,btn1: function(){
+                console.log("btn1 run")
                 match_chat_create(user1);
             }
             ,btn2: function(){
+                console.log("btn2 run")
                 match_chat_create(user2);
             }
 
             ,btnAlign: 'c'
             ,moveType: 0 //拖拽模式，0或者1
-
-            ,success: function(response){
-
-            }
+            ,
         });
     }
 

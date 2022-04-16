@@ -366,6 +366,8 @@
 
 
 .message_receive{
+    padding-left:3%;
+    padding-right:3%;
     width: 50%;
     height: auto;
     float: left;
@@ -375,6 +377,10 @@
 
 }
 .message_send{
+
+    padding-left:3%;
+    padding-right:3%;
+
     width: 286px;
     height: auto;
     float: right;
@@ -386,15 +392,49 @@
 }
 
 li {
-    padding-left:3%;
-    padding-right:3%;
-    margin: 10px 0;
+
     line-height: 40px;
     list-style: none;
     WORD-BREAK: break-all;
     WORD-WRAP: break-word
 
 }
+
+
+
+
+.last_message {
+    padding-left: 10%;
+    margin: -8% 0%;
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    color: #808080;
+}
+.friend_username{
+    padding-left: 10%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+
+}
+.friend_list {
+    width: 100%;
+    height:15%;
+
+    border: 1px solid rgba(152, 152, 158, 0.3);
+    border-top:none;
+    border-left:none;
+    border-right:none;
+
+}
+
+
 ::-webkit-scrollbar {
     display: none; /* Chrome Safari */
 }

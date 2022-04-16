@@ -17,10 +17,12 @@ public class test {
     }
 
     public static void main(String[] args) throws Exception{
-        //delete(1);
+        //delete room_table by room number:
+        delete(2);
 
+        // delete chat_table: by room number
         chat_im serv = new chat_im();
-        serv.delete(1);
+        serv.delete(0);
 
 //        User b = new User();
 //        app_Design serv = new app_im();
