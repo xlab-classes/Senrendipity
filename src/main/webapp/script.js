@@ -389,7 +389,9 @@ function match_chat_create(user2){
         //console.log(response);
         if(response!=="0") {
             //this is the room number
-            window.location.href= 'chat.html'+"?u="+window.btoa(user1)+"&r="+response+"&u2="+window.btoa(user2);
+            window.location.href= 'chat.html'+"?u="+window.btoa(user1) + "&match=" + window.btoa(user2);
+
+
         }
     },);
 }
