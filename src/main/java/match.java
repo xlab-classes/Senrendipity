@@ -54,7 +54,7 @@ public class match extends HttpServlet {
         PreparedStatement psmt1 = conn.prepareStatement(sql2);
         ResultSet rs2 = psmt1.executeQuery();
         String friend = "";
-        while(rs2.next()){
+        while(rs2.next()){  // 获取当前好友列表
             System.out.println(rs2.getString("friend_list"));
             if (rs2.getString("friend_list")!= null){
                 friend = rs2.getString("friend_list");
@@ -74,57 +74,55 @@ public class match extends HttpServlet {
                 user_id.add(rs.getInt("id"));
                 String str2 =  rs.getString("label");
                 //list.add(str2);
-                double temp = serv.getSimilar(str1,str2);
+                double temp = serv.getSimilar(str1,str2); // 对比自己与对方的兴趣
                 res.add(temp);
                 sec.add(temp);
                 //System.out.println(user_id.get(count)+"="+res.get(count++));
             }
         }
-        Collections.sort(sec);
-        int top = res.indexOf(Collections.max(res));
 
+        int top = res.indexOf(Collections.max(res)); // 获取最大匹配的相似度数值 的用户ID
         int second = 0;
-        int best1 = user_id.get(top); // best match
+        int best1 = user_id.get(top); // best match   // 最好的匹配
         //System.out.println(best1);
         //System.out.println(best2);
         //System.out.print(top);
         //System.out.print(second);
-       for (int i = sec.size()-1; i>=0; i--){
-           if(sec.get(i) < Collections.max(res)){
-               second = res.indexOf(sec.get(i));
-               break;
+
+       if (sec.size() >1) {   // 如果sec数量大于1， 就运行循环寻找第二个最好匹配
+           Collections.sort(sec);
+           System.out.println("?????????????????");
+           for (int i = sec.size() - 1; i >= 0; i--) {
+               if (sec.get(i) < Collections.max(res)) {
+                   second = res.indexOf(sec.get(i));
+                   break;
+               }
+           }
+           int best2 = user_id.get(second);
+
+           if(Collections.max(res) != 0){
+               User matchPerson1 = serv.getUser_id(best1);
+               User matchPerson2 = serv.getUser_id(best2);
+
+               JSONObject re = new JSONObject();
+               re.put("user1", matchPerson1.getUsername());
+               re.put("user2", matchPerson2.getUsername());
+
+               //String info = matchPerson1.getUsername() + "###"+ matchPerson2.getUsername();
+               //System.out.println(info);
+               check.write(re.toJSONString());
+               check.close();
+
            }
        }
-       int best2 = user_id.get(second);
 
 
-        if(Collections.max(res) != 0){
-            User matchPerson1 = serv.getUser_id(best1);
-            User matchPerson2 = serv.getUser_id(best2);
-
-            JSONObject re = new JSONObject();
-            re.put("user1", matchPerson1.getUsername());
-            re.put("user2", matchPerson2.getUsername());
-
-           //String info = matchPerson1.getUsername() + "###"+ matchPerson2.getUsername();
-            //System.out.println(info);
-            check.write(re.toJSONString());
-            check.close();
-
-        }
-        else {
+       else{
             JSONObject re = new JSONObject();
             re.put("fail", 0);
 
             check.write(re.toJSONString());
             check.close();
-        }
-
-
-
-
-
-
+       }
     }
-
 }
