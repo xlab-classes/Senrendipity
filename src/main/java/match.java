@@ -82,13 +82,21 @@ public class match extends HttpServlet {
         }
         Collections.sort(sec);
         int top = res.indexOf(Collections.max(res));
-        int second = res.indexOf(sec.get(sec.size()-2));
+
+        int second = 0;
         int best1 = user_id.get(top); // best match
-        int best2 = user_id.get(second);
         //System.out.println(best1);
         //System.out.println(best2);
         //System.out.print(top);
         //System.out.print(second);
+       for (int i = sec.size()-1; i>=0; i--){
+           if(sec.get(i) < Collections.max(res)){
+               second = res.indexOf(sec.get(i));
+               break;
+           }
+       }
+       int best2 = user_id.get(second);
+
 
         if(Collections.max(res) != 0){
             User matchPerson1 = serv.getUser_id(best1);
