@@ -20,12 +20,16 @@
         // }
 
 
-        function chat_room (target_user){
 
+        function chat_room (target_user){
+            console.log("chat_room t_user= "+target_user );
             console.log("RUN CHAT ROOM");
+
             $("#chat_message").empty();
             document.getElementById("chat_friend_username").innerHTML = target_user;
             document.getElementById("hobbies_friend_username").innerHTML = target_user;
+
+            window.history.replaceState(null, "Serendipity","chat.html"+"?u="+ window.btoa(document.getElementById("current_user").innerHTML));
 
             const current_user = window.atob(getURLVariable("u"));
             console.log(current_user);
@@ -102,27 +106,30 @@
 
         function go_match_page(){
             window.location.href='match.html'+ '?u='+ getURLVariable("u");
+
+
         }
 
         $(function (){
             var current_user = window.atob(getURLVariable("u"));
             document.getElementById("current_user").innerHTML = current_user;
 
+            console.log("FINISH match_page------------")
+
             //var room = null;
 
             //var message_id=0;
             var friend_show=0;
-
-
-
             //detect_new_message();
+
             detect_friend_list();
+            const match_page_true = new URL(window.location);
+            console.log("match_page_true.searchParams =" + match_page_true.searchParams);
 
             function detect_friend_list(){
 
-
                 $.post("post_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
-                    //console.log("检测朋友列表成功")
+                    console.log("检测朋友列表成功")
 
                     if(response !=="0" ) {
                         show_new_friend();
@@ -154,6 +161,13 @@
                 });
 
             }
+
+            console.log("match_page_URL -> CHAT ="+ match_page_true)
+            if (match_page_true.searchParams.has("match")){
+                var user2 = window.atob(getURLVariable("match"));
+                console.log("USER2 ="+ user2);
+                chat_room(user2);
+            }
         })
 
 
@@ -174,6 +188,7 @@
     <input type="text" id="search_box" class="div_search_box" placeholder="Search...">
 
     <div  class="div_Friend_List">
+
         <ul id="friend_list_show">
 <!--            <li class="friend_list">-->
 <!--                <p class="friend_username">FRIEND1</p>-->
@@ -182,6 +197,7 @@
 <!--            <li class="friend_list">-->
 <!--                <p class="friend_username">FRIEND2</p>-->
 <!--                <p class="last_message"> Last message</p></li>-->
+
         </ul>
 
     </div>
@@ -202,6 +218,7 @@
             <ul id="chat_message">
 <!--                <li class="message_send ">hi</li>-->
 <!--                <li class="message_receive ">hello</li>-->
+
             </ul>
         </div>
 
