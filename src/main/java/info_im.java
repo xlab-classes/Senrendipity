@@ -40,13 +40,14 @@ public class info_im extends app_im implements app_Design {
         Connection conn = DButil.getConnection();
         String sql = "" +
                 "INSERT INTO user_info" +
-                "(id,label,online)" +
-                "values(?,?,?)";
+                "(id,label,online,friend_list)" +
+                "values(?,?,?,?)";
 
         PreparedStatement psmt = conn.prepareStatement(sql);
         psmt.setInt(1, user_id);
         psmt.setString(2, label);
         psmt.setInt(3, online);
+        psmt.setString(4,"");
         psmt.execute();
         psmt.close();
     }
