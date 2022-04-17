@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="cse442:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/cse442_war</output-path>
+    <root id="archive" name="cse442_war.war">
+      <element id="artifact" artifact-name="cse442:war exploded" />
+    </root>
+  </artifact>
+</component>
