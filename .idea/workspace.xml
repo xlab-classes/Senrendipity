@@ -3,14 +3,21 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="web:war exploded" />
-      <artifact name="web:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="#45 Sprint3 chat function" />
+    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="#45 Sprint3 chat function">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/web_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/web_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/chat-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/web.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +25,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -46,11 +61,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="16.14.2" />
+    <property name="javascript.nodejs.core.library.typings.version" value="16.11.27" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.59" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.59" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -138,6 +156,7 @@
         <option name="BuildArtifacts" enabled="true">
           <artifact name="web:war exploded" />
           <artifact name="web:war exploded" />
+          <artifact name="web:war exploded" />
         </option>
       </method>
     </configuration>
@@ -152,6 +171,8 @@
       <updated>1650172190904</updated>
       <workItem from="1650172193232" duration="11000" />
       <workItem from="1650172211637" duration="759000" />
+      <workItem from="1650315236960" duration="735000" />
+      <workItem from="1650315991322" duration="5040000" />
     </task>
     <task id="LOCAL-00001" summary="#45 Sprint3 chat function">
       <created>1650172886884</created>
@@ -169,5 +190,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#45 Sprint3 chat function" />
     <option name="LAST_COMMIT_MESSAGE" value="#45 Sprint3 chat function" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
