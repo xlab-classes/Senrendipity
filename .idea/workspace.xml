@@ -9,14 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="#45 Sprint3 chat function">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/web_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/web_war_exploded.xml" afterDir="false" />
+    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/chat_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/chat_im.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/chat-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat_im.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat_im.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chat_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chat_im.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/web/META-INF/MANIFEST.MF" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,12 +68,19 @@
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.27" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.59">
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="web" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.59" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.59" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -157,9 +167,15 @@
           <artifact name="web:war exploded" />
           <artifact name="web:war exploded" />
           <artifact name="web:war exploded" />
+          <artifact name="web:war exploded" />
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -172,7 +188,7 @@
       <workItem from="1650172193232" duration="11000" />
       <workItem from="1650172211637" duration="759000" />
       <workItem from="1650315236960" duration="735000" />
-      <workItem from="1650315991322" duration="5040000" />
+      <workItem from="1650315991322" duration="14307000" />
     </task>
     <task id="LOCAL-00001" summary="#45 Sprint3 chat function">
       <created>1650172886884</created>
@@ -181,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650172886884</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="#46 Implement Add Friends and Search Friend function">
+      <created>1650321190751</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650321190751</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +212,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#45 Sprint3 chat function" />
-    <option name="LAST_COMMIT_MESSAGE" value="#45 Sprint3 chat function" />
+    <MESSAGE value="#46 Implement Add Friends and Search Friend function" />
+    <option name="LAST_COMMIT_MESSAGE" value="#46 Implement Add Friends and Search Friend function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
