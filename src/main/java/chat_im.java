@@ -21,7 +21,7 @@ public class chat_im extends app_im{
 
     public int mesID_Count(int room) throws SQLException {
         Connection conn = DButil.getConnection();
-        String sql = ""+"SELECT * FROM chat_table where room = " +room +  "  and mesId = (select max(mesId) from chat_table)";
+        String sql = ""+"SELECT * FROM chat_table where room = " +room +  "  and mesId = (select max(mesId) from chat_table where room= "+ room+ ")";
         PreparedStatement psmt = conn.prepareStatement(sql);
         ResultSet rs = psmt.executeQuery(sql);
         int mesId = 0;
