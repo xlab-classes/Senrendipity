@@ -4,17 +4,92 @@
     <artifacts-to-build>
       <artifact name="web:war exploded" />
       <artifact name="web:war exploded" />
+      <artifact name="web:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="#45 Sprint3 chat function" />
+    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="#45 Sprint3 chat function">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/web_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/web_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/DButil.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/DButil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/add_interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/add_interest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/app_Design.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/app_Design.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/app_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/app_im.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/chat_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/chat_im.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/creat_room.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/creat_room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/delete_interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/delete_interest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/done_btn.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/done_btn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/forgot_password.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/forgot_password.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/forgot_verify.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/forgot_verify.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/get_check.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/get_check.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/get_friend_list.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/get_friend_list.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/googleMail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/googleMail$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/googleMail.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/googleMail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/info_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/info_im.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/match.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/match.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/more_tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/more_tag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/post_check.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/post_check.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/post_friend_list.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/post_friend_list.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/register.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/register_verify.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/register_verify.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/send_response.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/send_response.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/timeout.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/timeout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/users_interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/users_interest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/signUp-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/signUp-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/chat-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/signUp-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/signUp-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DButil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DButil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/add_interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/add_interest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app_Design.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app_Design.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app_im.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chat_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chat_im.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/creat_room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creat_room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/delete_interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/delete_interest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/done_btn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/done_btn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/forgot_password.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/forgot_password.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/forgot_verify.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/forgot_verify.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/get_check.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/get_check.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/get_friend_list.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/get_friend_list.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/googleMail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/googleMail$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/googleMail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/googleMail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/info_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/info_im.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/match.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/match.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/more_tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/more_tag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/post_check.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/post_check.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/post_friend_list.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/post_friend_list.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/register_verify.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/register_verify.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/send_response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/send_response.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/timeout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/timeout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/users_interest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/users_interest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/web.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,12 +104,8 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="27uZysAHPYWzDVTaS3r6At9gXsg" />
   <component name="ProjectViewState">
@@ -46,8 +117,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -138,11 +210,37 @@
         <option name="BuildArtifacts" enabled="true">
           <artifact name="web:war exploded" />
           <artifact name="web:war exploded" />
+          <artifact name="web:war exploded" />
         </option>
       </method>
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="" />
@@ -152,6 +250,8 @@
       <updated>1650172190904</updated>
       <workItem from="1650172193232" duration="11000" />
       <workItem from="1650172211637" duration="759000" />
+      <workItem from="1650262034710" duration="142000" />
+      <workItem from="1650262180667" duration="14447000" />
     </task>
     <task id="LOCAL-00001" summary="#45 Sprint3 chat function">
       <created>1650172886884</created>
@@ -164,10 +264,92 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#45 Sprint3 chat function" />
     <option name="LAST_COMMIT_MESSAGE" value="#45 Sprint3 chat function" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="103" key="#Project_Structure" timestamp="1650262096433">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="320" y="103" key="#Project_Structure/0.23.1440.829@0.23.1440.829" timestamp="1650262096433" />
+    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1650262149650">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.829@0.23.1440.829" timestamp="1650262149650" />
+    <state width="958" height="214" key="GridCell.Tab.0.bottom" timestamp="1650338743820">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1650338743820" />
+    <state width="958" height="214" key="GridCell.Tab.0.center" timestamp="1650338743818">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1650338743818" />
+    <state width="958" height="214" key="GridCell.Tab.0.left" timestamp="1650338743818">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1650338743818" />
+    <state width="958" height="214" key="GridCell.Tab.0.right" timestamp="1650338743819">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1650338743819" />
+    <state width="958" height="214" key="GridCell.Tab.1.bottom" timestamp="1650338743821">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.1.bottom/0.23.1440.829@0.23.1440.829" timestamp="1650338743821" />
+    <state width="958" height="214" key="GridCell.Tab.1.center" timestamp="1650338743821">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.1.center/0.23.1440.829@0.23.1440.829" timestamp="1650338743821" />
+    <state width="958" height="214" key="GridCell.Tab.1.left" timestamp="1650338743820">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.1.left/0.23.1440.829@0.23.1440.829" timestamp="1650338743820" />
+    <state width="958" height="214" key="GridCell.Tab.1.right" timestamp="1650338743821">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.1.right/0.23.1440.829@0.23.1440.829" timestamp="1650338743821" />
+    <state width="958" height="214" key="GridCell.Tab.2.bottom" timestamp="1650338743822">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.2.bottom/0.23.1440.829@0.23.1440.829" timestamp="1650338743822" />
+    <state width="958" height="214" key="GridCell.Tab.2.center" timestamp="1650338743822">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.2.center/0.23.1440.829@0.23.1440.829" timestamp="1650338743822" />
+    <state width="958" height="214" key="GridCell.Tab.2.left" timestamp="1650338743821">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.2.left/0.23.1440.829@0.23.1440.829" timestamp="1650338743821" />
+    <state width="958" height="214" key="GridCell.Tab.2.right" timestamp="1650338743822">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.2.right/0.23.1440.829@0.23.1440.829" timestamp="1650338743822" />
+    <state width="958" height="214" key="GridCell.Tab.3.bottom" timestamp="1650262177859">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.3.bottom/0.23.1440.829@0.23.1440.829" timestamp="1650262177859" />
+    <state width="958" height="214" key="GridCell.Tab.3.center" timestamp="1650262177858">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.3.center/0.23.1440.829@0.23.1440.829" timestamp="1650262177858" />
+    <state width="958" height="214" key="GridCell.Tab.3.left" timestamp="1650262177858">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.3.left/0.23.1440.829@0.23.1440.829" timestamp="1650262177858" />
+    <state width="958" height="214" key="GridCell.Tab.3.right" timestamp="1650262177858">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state width="958" height="214" key="GridCell.Tab.3.right/0.23.1440.829@0.23.1440.829" timestamp="1650262177858" />
+    <state x="208" y="23" width="1024" height="829" key="SettingsEditor" timestamp="1650262130139">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="208" y="23" width="1024" height="829" key="SettingsEditor/0.23.1440.829@0.23.1440.829" timestamp="1650262130139" />
+    <state x="363" y="242" key="git4idea.merge.GitPullDialog" timestamp="1650338777145">
+      <screen x="0" y="23" width="1440" height="829" />
+    </state>
+    <state x="363" y="242" key="git4idea.merge.GitPullDialog/0.23.1440.829@0.23.1440.829" timestamp="1650338777145" />
   </component>
 </project>

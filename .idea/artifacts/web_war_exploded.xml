@@ -7,8 +7,8 @@
           <element id="module-output" name="web" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.47" />
           <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.47" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="web/web/Web" />

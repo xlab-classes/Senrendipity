@@ -6,21 +6,12 @@
     <meta charset="UTF-8">
     <link href="chat-style.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
     <script src="script.js"> </script>
     <title>Serendipity</title>
 
     <script>
-
-
-        // var send_enter = document.getElementById("send_message_button");
-        // send_enter.onkeypress=function(event){
-        //     if(event.which === 13) {
-        //         send_message()
-        //     }
-        // }
-
-
-
+        // ** Click the target -> then detect_new_message and show all message between current user and target user.
         function chat_room (target_user){
             console.log("chat_room t_user= "+target_user );
             console.log("RUN CHAT ROOM");
@@ -44,7 +35,6 @@
 
             },);
         }
-
 
         function show_chat(room,current_user){
 
@@ -103,34 +93,76 @@
             }
         }
 
-
-        function go_match_page(){
-            window.location.href='match.html'+ '?u='+ getURLVariable("u");
-
+        function search_clear(){
+            $("#search_box").val('');
+            $("#search_clear_button").css("display","none")
+            $("#search_box").dispatchEvent(new KeyboardEvent('keydown', {
+                code: 'Enter',
+                key: 'Enter',
+                charKode: 13,
+                keyCode: 13,
+                view: window
+            }));
 
         }
 
+
+
+        //---------------------------------------------------------------------------------------------
+        function go_match_page(){ // click the logo -> then go back to match.html
+            window.location.href='match.html'+ '?u='+ getURLVariable("u");
+        }
+        //---------------------------------------------------------------------------------------------
+
+        //when chat.html onload/ run:
         $(function (){
-            var current_user = window.atob(getURLVariable("u"));
+
+            //get URL_variable to get current_user
+            const current_user = window.atob(getURLVariable("u"));
             document.getElementById("current_user").innerHTML = current_user;
-
-            console.log("FINISH match_page------------")
-
-            //var room = null;
-
-            //var message_id=0;
-            var friend_show=0;
-            //detect_new_message();
-
+            let friend_show = 0;
             detect_friend_list();
+
+            // press "enter" in chat, then send_message.
+            $("#message_input").on("keydown", function (e) {
+                if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+                    send_message()
+                }
+            });
+
+            if($("#search_box").val()===""){
+                $("#search_clear_button").css("display","none")
+            }
+
+            $("#search_box").on("keydown", function (e) {
+                if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+                    $("#search_clear_button").css("display","block")
+
+                    const friend = document.getElementById('friend_list_show').getElementsByTagName('p');
+                    if($("#search_box").val()!==''){
+                        for(let i=0 ; i < friend.length;i++){
+                            if(friend[i].innerHTML.includes($("#search_box").val())=== false){
+                                document.getElementById('li_'+friend[i].innerHTML).style.display="none" ;
+                            }
+                        }
+                    }
+                    else{
+                        for(let i=0 ; i < friend.length;i++){
+                            document.getElementById('li_'+friend[i].innerHTML).style.display="block" ;
+                        }
+                    }
+                }
+            });
+
+
+
             const match_page_true = new URL(window.location);
-            console.log("match_page_true.searchParams =" + match_page_true.searchParams);
+            //console.log("match_page_true.searchParams =" + match_page_true.searchParams);
 
             function detect_friend_list(){
 
                 $.post("post_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
-                    console.log("检测朋友列表成功")
-
+                    //console.log("检测朋友列表成功")
                     if(response !=="0" ) {
                         show_new_friend();
                     }
@@ -150,9 +182,10 @@
 
                     for(let i = 0; i < friend.length; i++) {
                         //console.log(i)
-                         //+ "<p class='last_message'>"+ last_messsage+ "</p>"
+                        //+ "<p class='last_message'>"+ last_messsage+ "</p>"
                         const str = "chat_room(" + "'" + friend[i]+ "'"+ ")"
-                        const html_message = "<li class='friend_list' onclick=" + str+" >" + "<p class='friend_username' id=" + friend[i] + ">" +friend[i]+ "</p>" +"</li>";
+                        const str_li =  "'" + "li_"+friend[i]+ "' "
+                        const html_message = "<li class='friend_list' id="+ str_li + "onclick=" + str+" >" + "<p class='friend_username' id=" + friend[i] + ">" +friend[i]+ "</p>" +"</li>";
                         console.log(html_message);
                         $("#friend_list_show").append(html_message);
                     };
@@ -162,7 +195,7 @@
 
             }
 
-            console.log("match_page_URL -> CHAT ="+ match_page_true)
+            //console.log("match_page_URL -> CHAT ="+ match_page_true)
             if (match_page_true.searchParams.has("match")){
                 var user2 = window.atob(getURLVariable("match"));
                 console.log("USER2 ="+ user2);
@@ -185,21 +218,27 @@
         <button class="button_newFriend">NEW</button>
     </div>
 
-    <input type="text" id="search_box" class="div_search_box" placeholder="Search...">
+    <div class="div_search">
+        <input type="text" id="search_box" class="div_search_box" placeholder="Search...">
+        <div class="search_clear">
+            <button type="button" class="search_clear" id="search_clear_button" onclick="search_clear()">x</button>
+        </div>
+    </div>
+
 
     <div  class="div_Friend_List">
-
+        <div class="div_Friend_List2">
         <ul id="friend_list_show">
-<!--            <li class="friend_list">-->
-<!--                <p class="friend_username">FRIEND1</p>-->
-<!--                <p class="last_message"> Last message</p>-->
-<!--            </li>-->
-<!--            <li class="friend_list">-->
-<!--                <p class="friend_username">FRIEND2</p>-->
-<!--                <p class="last_message"> Last message</p></li>-->
+            <!--            <li class="friend_list">-->
+            <!--                <p class="friend_username">FRIEND1</p>-->
+            <!--                <p class="last_message"> Last message</p>-->
+            <!--            </li>-->
+            <!--            <li class="friend_list">-->
+            <!--                <p class="friend_username">FRIEND2</p>-->
+            <!--                <p class="last_message"> Last message</p></li>-->
 
         </ul>
-
+        </div>
     </div>
 
 
@@ -208,7 +247,7 @@
     </div>
 
     <div class="div_Friend_Chat_Name">
-<!--        <div class="div_CHATNAME_FriendPIC"></div> 对话框头像-->
+        <!--        <div class="div_CHATNAME_FriendPIC"></div> 对话框头像-->
         <p class="text_CHATNAME_FriendUsername" id="chat_friend_username">  </p>
         <label hidden class="text_CHATNAME_FriendUsername" id="room_num" value="" >  </label>
     </div>
@@ -216,8 +255,8 @@
     <div class="div_chat">
         <div class="div_chat2">   <!-- message -->
             <ul id="chat_message">
-<!--                <li class="message_send ">hi</li>-->
-<!--                <li class="message_receive ">hello</li>-->
+                <!--                <li class="message_send ">hi</li>-->
+                <!--                <li class="message_receive ">hello</li>-->
 
             </ul>
         </div>
