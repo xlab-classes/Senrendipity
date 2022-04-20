@@ -11,8 +11,8 @@ import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.List;
 
-@WebServlet(name = "post_friend_list", urlPatterns =  "/post_friend_list")
-public class post_friend_list extends HttpServlet {
+@WebServlet(name = "post_friend_request", urlPatterns =  "/post_friend_request")
+public class post_friend_request extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
@@ -33,15 +33,10 @@ public class post_friend_list extends HttpServlet {
     public void postC(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
         String username = request.getParameter("username");
-        int friend_show = Integer.parseInt(request.getParameter("friend_show"));
-
-
         PrintWriter check = response.getWriter();
         Connection conn = DButil.getConnection();
-
         info_im serv = new info_im();
         User user = serv.getUser_name(username);
-
 
         String sql = "" + "select * from user_info where id = " + user.getId() ;
         PreparedStatement psmt = conn.prepareStatement(sql);
@@ -50,15 +45,9 @@ public class post_friend_list extends HttpServlet {
         String ret = "0";
 
         while (rs.next()){
-            String friend_list = rs.getString("friend_list");
-            if(friend_list.isEmpty()){
-                check.write(ret);
-            }
-            else {
-                List<String> friends = Arrays.asList(friend_list.split(" "));
-                if (friends.size() > friend_show){ // get new friend!
-                    ret = "1";
-                }
+            String friend_request = rs.getString("friend_request");
+            if(!friend_request.isEmpty()){
+                ret = "1";
             }
         }
         check.write(ret);

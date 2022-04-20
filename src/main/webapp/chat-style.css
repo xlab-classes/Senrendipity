@@ -38,7 +38,6 @@
     height: 5%;
     left:3%;
     top: 12%;
-
     background: #FFFFFF;
     border: 1px solid rgba(152, 152, 158, 0.3);
     box-sizing: border-box;
@@ -59,7 +58,6 @@
     margin: 0% 2%;
     width:25%;
     border: none;
-
     font-family: 'Inter', sans-serif;
     padding-left:10%;
     font-size: 8px;
@@ -107,12 +105,12 @@
     top: 20%;
     border-radius: 50%;
     border:none;
-    background: rgb(204 204 204 / 30%);
+    background: rgba(255, 255, 255, 0.45);
     cursor:pointer;
 }
 
 .search_clear:hover{
-    background: rgb(134 134 134 / 30%);
+    background: rgba(152, 152, 158, 0.3);
 }
 
 .div_Friend_List{
@@ -496,4 +494,25 @@ ul {
     box-sizing: border-box;
     border-radius: 20px;
 }
+
+.friend_request_yes{
+    width: 20px;
+    height: 20px;
+}
+
+.friend_request_no{
+    width: 20px;
+    height: 20px;
+
+}
+
+th, td {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+table{
+    overflow: auto;
+}
+
+
 

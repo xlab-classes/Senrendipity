@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="layui/layui.js"> </script>
+
 
     <script src="script.js"> </script>
     <title>Serendipity</title>
@@ -121,6 +123,54 @@
         }
 
 
+
+        function show_friend_request(){
+            const username = document.getElementById("current_user").innerHTML;
+            $.get("get_friend_request",{"username":username},function(response){
+                console.log(response);
+                const data = JSON.parse(response);
+                const friend = data["friend"];
+                console.log(friend);
+                var str = '<table style="width:80%;margin: auto;">';
+                const yes = '<td><img onclick="friend_request_yes(';
+                const yes2 = ')" alt="" src="image/ICON_yes.png" class="friend_request_yes"></td>';
+                const no = '<td><img onclick="friend_request_no(';
+                const no2 =  ')" alt="" src="image/ICON_cancel.png" class="friend_request_no"></td>';
+                for(let i=0; i < friend.length;i++){
+                    const target ="'" + friend[i]+"'";
+                    //console.log(target);
+                    const html_message = '<tr><td style="width:80%" id="request_'+friend[i]+'">' + friend[i] + '</td>'+yes+ target +yes2+no+target+no2 + '</tr>';
+                    str+=html_message;
+                }
+                str+='</table>';
+                layer.open({
+                    type: 1,
+                    title: "Friend Request",
+                    skin: 'layui-layer-rim', //加上边框
+                    area: ['500px', '300px'], //宽高
+                    content: str
+                });
+
+            });
+
+        }
+
+        function friend_request_yes(target_friend_request){
+            const username = document.getElementById("current_user").innerHTML;
+            $.post("add_friend_response",{"username":username,"target_user":target_friend_request,"button":"1"},function(response){
+
+            });
+            alert("You have been successfully added "+ target_friend_request+ " as a friend");
+        }
+        function friend_request_no(target_friend_request){
+            const username = document.getElementById("current_user").innerHTML;
+            $.post("add_friend_response",{"username":username,"target_user":target_friend_request,"button":"0"},function(response){
+            });
+            alert("You have reject "+ target_friend_request+ " as a friend");
+        }
+
+
+
         //---------------------------------------------------------------------------------------------
         function go_info_page(){
             window.location.href='info.html'+ '?u='+ getURLVariable("u");
@@ -140,6 +190,7 @@
             document.getElementById("current_user").innerHTML = current_user;
             let friend_show = 0;
             detect_friend_list();
+            detect_friend_request()
 
             // press "enter" in chat, then send_message.
             $("#message_input").on("keydown", function (e) {
@@ -192,6 +243,15 @@
                 }
             });
 
+            function detect_friend_request(){
+                $.post("post_friend_request",{"username":current_user},function(response){
+                    //console.log("检测朋友列表成功")
+                    if(response !=="0" ) {
+                        $("#new_friend_request").style.css(background,"url('image/ICON_addFriend_red.png')no-repeat")
+                    }
+                },"text");
+                setTimeout(detect_friend_list, 1000);
+            }
 
             function detect_friend_list(){
                 $.post("post_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
@@ -205,13 +265,14 @@
 
 
             function show_new_friend() {
+                console.log(current_user);
                 $.get("get_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
                     //console.log("show_new_friend"+ response);
-                    var data = JSON.parse(response)
+                    var data = JSON.parse(response);
                     var  friend= data["friend"];
 
                     //var  friend_id= data["ID"];
-                    // var  last_messsage = data["message"]
+
 
                     for(let i = 0; i < friend.length; i++) {
                         //console.log(i)
@@ -248,7 +309,7 @@
     <button onclick="go_match_page()" class="logo"></button>
     <div class="div_Notice_Friend_Box">
         <button class="button_addFriend"></button>
-        <button class="button_newFriend">NEW</button>
+        <button class="button_newFriend" id="new_friend_request" onclick="show_friend_request()">NEW</button>
     </div>
 
     <div class="div_search">
