@@ -1,13 +1,14 @@
 import com.alibaba.fastjson.JSONObject;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
+@WebServlet(name = "add_friend_request", urlPatterns =  "/add_friend_request")
 public class frequest extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,7 +53,7 @@ public class frequest extends HttpServlet {
 
         //判断input用户是否是好友关系，是return fail，"this user is already ur friend"，
         if (serv.friendExist(user_id,target_id) && serv.friendExist(target_id,user_id)){
-            re.put("fail","This user is already your friend");
+            re.put("fail","This user already is your friend");
             check.write(re.toJSONString());
 
         }else {

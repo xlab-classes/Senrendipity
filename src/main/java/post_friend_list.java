@@ -51,10 +51,7 @@ public class post_friend_list extends HttpServlet {
 
         while (rs.next()){
             String friend_list = rs.getString("friend_list");
-            if(friend_list.isEmpty()){
-                check.write(ret);
-            }
-            else {
+            if(!friend_list.isEmpty()){
                 List<String> friends = Arrays.asList(friend_list.split(" "));
                 if (friends.size() > friend_show){ // get new friend!
                     ret = "1";

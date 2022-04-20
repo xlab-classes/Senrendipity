@@ -123,52 +123,43 @@
         }
 
 
-
-        function show_friend_request(){
-            const username = document.getElementById("current_user").innerHTML;
-            $.get("get_friend_request",{"username":username},function(response){
-                console.log(response);
-                const data = JSON.parse(response);
-                const friend = data["friend"];
-                console.log(friend);
-                var str = '<table style="width:80%;margin: auto;">';
-                const yes = '<td><img onclick="friend_request_yes(';
-                const yes2 = ')" alt="" src="image/ICON_yes.png" class="friend_request_yes"></td>';
-                const no = '<td><img onclick="friend_request_no(';
-                const no2 =  ')" alt="" src="image/ICON_cancel.png" class="friend_request_no"></td>';
-                for(let i=0; i < friend.length;i++){
-                    const target ="'" + friend[i]+"'";
-                    //console.log(target);
-                    const html_message = '<tr><td style="width:80%" id="request_'+friend[i]+'">' + friend[i] + '</td>'+yes+ target +yes2+no+target+no2 + '</tr>';
-                    str+=html_message;
-                }
-                str+='</table>';
-                layer.open({
-                    type: 1,
-                    title: "Friend Request",
-                    skin: 'layui-layer-rim', //加上边框
-                    area: ['500px', '300px'], //宽高
-                    content: str
-                });
-
-            });
-
-        }
-
         function friend_request_yes(target_friend_request){
+
             const username = document.getElementById("current_user").innerHTML;
             $.post("add_friend_response",{"username":username,"target_user":target_friend_request,"button":"1"},function(response){
-
+                const row = document.getElementById('row_'+target_friend_request);
+                row.parentNode.removeChild(row);
             });
+
             alert("You have been successfully added "+ target_friend_request+ " as a friend");
         }
         function friend_request_no(target_friend_request){
             const username = document.getElementById("current_user").innerHTML;
             $.post("add_friend_response",{"username":username,"target_user":target_friend_request,"button":"0"},function(response){
+                const row = document.getElementById('row_'+target_friend_request);
+                row.parentNode.removeChild(row);
             });
             alert("You have reject "+ target_friend_request+ " as a friend");
         }
 
+        function add_friend(){
+            layer.prompt({
+                formType: 0,
+                title: 'Add Friend',
+            }, function(value){
+                const username = document.getElementById("current_user").innerHTML;
+                $.get("add_friend_request",{"username":username,"input":String(value)},function(response){
+                    const data = JSON.parse(response);
+                    if(Object.keys(data).includes("success")){
+                        layer.msg(data["success"]);
+                    }
+                    else {
+                        layer.msg(data["fail"]);
+                    }
+                });
+            });
+
+        }
 
 
         //---------------------------------------------------------------------------------------------
@@ -243,51 +234,110 @@
                 }
             });
 
+            let tmp_detect_friend_request_check = false;
+
+
+            document.getElementById('new_friend_request_button').addEventListener('click',function (){
+                if(tmp_detect_friend_request_check){
+                    show_friend_request();
+                }
+                else {
+                    layer.msg('Empty friend request...');
+                }
+            });
+
             function detect_friend_request(){
                 $.post("post_friend_request",{"username":current_user},function(response){
                     //console.log("检测朋友列表成功")
                     if(response !=="0" ) {
-                        $("#new_friend_request").style.css(background,"url('image/ICON_addFriend_red.png')no-repeat")
+                        $("#new_friend_request_button").css("background","url('image/ICON_newFriend_red.png')no-repeat");
+                        $("#new_friend_request_button").css("background-position","50% 50%");
+                        $("#new_friend_request_button").css("background-size","100%");
+                        tmp_detect_friend_request_check = true;
+
+                    }
+                    else {
+                        $("#new_friend_request_button").css("background","url('image/ICON_newFriend.png')no-repeat");
+                        $("#new_friend_request_button").css("background-position","50% 50%");
+                        $("#new_friend_request_button").css("background-size","100%");
+                        tmp_detect_friend_request_check = false;
                     }
                 },"text");
-                setTimeout(detect_friend_list, 1000);
+                setTimeout(detect_friend_request, 2000);
             }
 
-            function detect_friend_list(){
-                $.post("post_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
-                    //console.log("检测朋友列表成功")
-                    if(response !=="0" ) {
-                        show_new_friend();
+            function show_friend_request(){
+                const username = document.getElementById("current_user").innerHTML;
+                $.get("get_friend_request",{"username":username},function(response){
+                    console.log(response);
+                    const data = JSON.parse(response);
+                    const friend = data["friend"];
+                    console.log(friend);
+                    var str = '<table id="friend_request_table" style="width:80%;margin: auto;">';
+                    const yes = '<td><img onclick="friend_request_yes(';
+                    const yes2 = ')" alt="" src="image/ICON_yes.png" class="friend_request_yes"></td>';
+                    const no = '<td><img onclick="friend_request_no(';
+                    const no2 =  ')" alt="" src="image/ICON_cancel.png" class="friend_request_no"></td>';
+                    for(let i=0; i < friend.length;i++){
+                        const target ="'" + friend[i]+"'";
+                        //console.log(target);
+                        const html_message = '<tr id="row_'+friend[i]+'"><td style="width:80%" >' + friend[i] + '</td>'+yes+ target +yes2+no+target+no2 + '</tr>';
+                        str+=html_message;
                     }
-                },"text");
-                setTimeout(detect_friend_list, 1000);
-            }
+                    str+='</table>';
+                    layer.open({
+                        type: 1,
+                        title: "Friend Request",
+                        skin: 'layui-layer-rim', //加上边框
+                        area: ['500px', '300px'], //宽高
+                        content: str
+                    });
 
-
-            function show_new_friend() {
-                console.log(current_user);
-                $.get("get_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
-                    //console.log("show_new_friend"+ response);
-                    var data = JSON.parse(response);
-                    var  friend= data["friend"];
-
-                    //var  friend_id= data["ID"];
-
-
-                    for(let i = 0; i < friend.length; i++) {
-                        //console.log(i)
-                        //+ "<p class='last_message'>"+ last_messsage+ "</p>"
-                        const str = "chat_room(" + "'" + friend[i]+ "'"+ ")"
-                        const str_li =  "'" + "li_"+friend[i]+ "' "
-                        const html_message = "<li class='friend_list' id="+ str_li + "onclick=" + str+" >" + "<p class='friend_username' id=" + friend[i] + ">" +friend[i]+ "</p>" +"</li>";
-                        console.log(html_message);
-                        $("#friend_list_show").append(html_message);
-                    };
-
-                    friend_show+= friend.length;
                 });
 
             }
+
+
+
+            function detect_friend_list(){
+                console.log("detect_friend_list_response="+ friend_show);
+                $.post("post_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
+                    //console.log("检测朋友列表成功")
+                    if(response !=="0" ) {
+                        console.log("detect_friend_list_response="+ response);
+                        show_new_friend();
+                    }
+                },"text");
+                setTimeout(detect_friend_list, 2000);
+            }
+
+            function show_new_friend() {
+                //console.log(current_user);
+                console.log("friend_show="+friend_show);
+                const friend_list_show_li = document.getElementById('friend_list_show').getElementsByTagName('p').length;
+                console.log("f_LI="+friend_list_show_li);
+
+                if(friend_list_show_li === friend_show){
+                    $.get("get_friend_list",{"username":current_user,"friend_show":String(friend_show)},function(response){
+                        //console.log("show_new_friend"+ response);
+                        var data = JSON.parse(response);
+                        var  friend= data["friend"];
+                        //var  friend_id= data["ID"];
+                        friend_show += friend.length;
+                        for(let i = 0; i < friend.length; i++) {
+                            //console.log(i)
+                            //+ "<p class='last_message'>"+ last_messsage+ "</p>"
+                            const str = "chat_room(" + "'" + friend[i]+ "'"+ ")"
+                            const str_li =  "'" + "li_"+friend[i]+ "' "
+                            const html_message = "<li class='friend_list' id="+ str_li + "onclick=" + str+" >" + "<p class='friend_username' id=" + friend[i] + ">" +friend[i]+ "</p>" +"</li>";
+                            console.log(html_message);
+                            $("#friend_list_show").append(html_message);
+                        };
+
+                    });
+                }
+            }
+
 
             //当用户是从match页面匹配到最佳人选后转跳来聊天的； 进入chat页面时候，对URL进行判断。然后直接开启聊天窗口。
             const match_page_true = new URL(window.location);
@@ -308,8 +358,8 @@
 <div class="divALL">
     <button onclick="go_match_page()" class="logo"></button>
     <div class="div_Notice_Friend_Box">
-        <button class="button_addFriend"></button>
-        <button class="button_newFriend" id="new_friend_request" onclick="show_friend_request()">NEW</button>
+        <button class="button_addFriend" onclick="add_friend()"></button>
+        <button class="button_newFriend" id="new_friend_request_button" >NEW</button>
     </div>
 
     <div class="div_search">
