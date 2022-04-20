@@ -9,17 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="">
+    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="#46 Implement Add Friends and Search Friend function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/chat_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/chat_im.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat_im.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat_im.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chat_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chat_im.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/web/META-INF/MANIFEST.MF" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +180,9 @@
       <workItem from="1650172193232" duration="11000" />
       <workItem from="1650172211637" duration="759000" />
       <workItem from="1650315236960" duration="735000" />
-      <workItem from="1650315991322" duration="14307000" />
+      <workItem from="1650315991322" duration="15318000" />
+      <workItem from="1650413535803" duration="1905000" />
+      <workItem from="1650478725439" duration="405000" />
     </task>
     <task id="LOCAL-00001" summary="#45 Sprint3 chat function">
       <created>1650172886884</created>
@@ -204,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650321190751</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="#46 Implement Add Friends and Search Friend function">
+      <created>1650333686987</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650333686987</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
