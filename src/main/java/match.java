@@ -88,7 +88,6 @@ public class match extends HttpServlet {
         //System.out.println(best2);
         //System.out.print(top);
         //System.out.print(second);
-
        if (sec.size() >1) {   // 如果sec数量大于1， 就运行循环寻找第二个最好匹配
            Collections.sort(sec);
            System.out.println("?????????????????");
@@ -115,8 +114,6 @@ public class match extends HttpServlet {
 
            }
        }
-
-
        else{
             JSONObject re = new JSONObject();
             re.put("fail", 0);
