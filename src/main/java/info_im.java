@@ -214,9 +214,65 @@ public class info_im extends app_im implements app_Design {
     }
 
 
+    public boolean friendExist(int user_id,int target_id) throws Exception{
+        Connection conn = DButil.getConnection();
+        String sql = "" + "select * from user_info where id = " + user_id;
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        ResultSet rs = psmt.executeQuery();
+        boolean temp = false;
+        while (rs.next()){
+            if(rs.getString("friend_list").contains(Integer.toString(target_id))){
+                temp = true;
+            }
+        }
+        psmt.close();
+        rs.close();
+        return temp;
+    }
 
+    public boolean friendRequest(int user_id, int target_id) throws  Exception{
+        Connection conn = DButil.getConnection();
+        String sql = "" + "select * from user_info where id ="+ user_id;
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        ResultSet rs = psmt.executeQuery();
+        boolean temp = false;
+        while (rs.next()){
+            if(rs.getString("friend_request").contains(Integer.toString(target_id))){
+                temp = true;
+            }
+        }
+        psmt.close();
+        rs.close();
+        return temp;
+    }
 
-    public void online(int id) throws SQLException {
+    public String getRequest(int id) throws Exception{
+        Connection conn = DButil.getConnection();
+        String sql = "" + "select * from user_info where id=" + id;
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        ResultSet rs = psmt.executeQuery();
+        String re = "";
+        while (rs.next()){
+            re = rs.getString("friend_request");
+        }
+        psmt.close();
+        rs.close();
+        return re;
+    }
+
+    public void addToRequest(int user_id, String request) throws Exception{
+        Connection conn = DButil.getConnection();
+        String sql = "" + "update user_info set friend_request = " + "'" + request+"'"+ " where id =" +user_id;
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        psmt.executeUpdate(sql);
+        psmt.close();
 
     }
+
+
+
+
+
+
+
 }

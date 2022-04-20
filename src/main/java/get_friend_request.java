@@ -15,8 +15,8 @@ import java.util.Arrays;
 import java.util.List;
 
 
-@WebServlet(name = "get_friend_list", urlPatterns =  "/get_friend_list")
-public class get_friend_list extends HttpServlet {
+@WebServlet(name = "get_friend_request", urlPatterns =  "/get_friend_request")
+public class get_friend_request extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }
@@ -35,17 +35,13 @@ public class get_friend_list extends HttpServlet {
 
     public void get_show(HttpServletRequest request, HttpServletResponse response) throws Exception{
         String username = request.getParameter("username");
-        int friend_show = Integer.parseInt(request.getParameter("friend_show"));
 
         PrintWriter check = response.getWriter();
         info_im serv = new info_im();
         User user = serv.getUser_name(username);
 
         JSONObject json = new JSONObject();
-//        List<String> last_message_list= new ArrayList<String>();
 
-
-        // get new friend:
         Connection conn = DButil.getConnection();
         String sql1 = "" + "select * from user_info where id = " + user.getId() ;
         PreparedStatement psmt1 = conn.prepareStatement(sql1);
@@ -54,25 +50,22 @@ public class get_friend_list extends HttpServlet {
         List<String> new_friend= new ArrayList<String>();
 
         while (rs1.next()){
-            String friend_list = rs1.getString("friend_list");
-            List<String> friends = Arrays.asList(friend_list.split(" "));
-            List<String> new_friend_ID = friends.subList(friend_show, friends.size());
-            for (int id = 0; id < new_friend_ID.size(); id++) {
-                User new_friend_user = serv.getUser_id(Integer.parseInt(new_friend_ID.get(id)));
+            String friend_request = rs1.getString("friend_request");
+            List<String> friends = Arrays.asList(friend_request.split(" "));
+            for (int id = 0; id < friends.size(); id++) {
+                User new_friend_user = serv.getUser_id(Integer.parseInt(friends.get(id)));
                 new_friend.add(new_friend_user.getUsername());
             }
 
         }
-
         //System.out.println(new_friend);
         json.put("friend",new_friend);
         psmt1.close();
         rs1.close();
-
-        //System.out.println(json.toJSONString());
+        System.out.println(json.toJSONString());
         check.write(json.toJSONString());
-
         check.close();
+
     }
 
 }
