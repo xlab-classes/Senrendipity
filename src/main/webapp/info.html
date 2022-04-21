@@ -9,6 +9,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="script.js"> </script>
 </head>
+
+
 <body window.onload=interest_list()>
   <div class = "title">
     <p>Edit Your Interests</p>
@@ -63,6 +65,9 @@
   //     }
   //   };
   // }
+
+
+
   function users_interest() {
     const ui_btn = document.getElementById("earth")
     const username = window.atob(getURLVariable("u"));
@@ -80,6 +85,8 @@
     }
   }
 
+
+
   function more_tag() {
     const more_btn = document.getElementById("more")
     more_btn.onclick = function(){
@@ -92,6 +99,8 @@
       })
     }
   }
+
+
 
   function add_interest(id) {
     const username = window.atob(getURLVariable("u"));
