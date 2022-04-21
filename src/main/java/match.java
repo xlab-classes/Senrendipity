@@ -66,7 +66,7 @@ public class match extends HttpServlet {
         //List<String> list = new ArrayList<String>();
         List<Integer> user_id = new ArrayList<Integer>();
         List<Double> res = new ArrayList<Double>();
-        List<Double> sec = new ArrayList<>();
+        List<Double> sec = new ArrayList<>();     // 匹配值
         while (rs.next()){
             if (rs.getInt("id") == id || friend.contains(Integer.toString(rs.getInt("id")))  ){
                 continue;
@@ -89,6 +89,7 @@ public class match extends HttpServlet {
         //System.out.println(best2);
         //System.out.print(top);
         //System.out.print(second);
+
        for (int i = sec.size()-1; i>=0; i--){
            if(sec.get(i) < Collections.max(res)){
                second = res.indexOf(sec.get(i));

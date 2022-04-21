@@ -312,6 +312,15 @@ public class app_im implements app_Design {
         return null;
     }
 
+    public void truncateTable(String table_name) throws Exception {  // chat_table, label_table, room_table, user_info, user_table
+        Connection conn = DButil.getConnection();
+        String sql = ""+"truncate table_name=?";
+        PreparedStatement psmt = conn.prepareStatement(sql);
+        psmt.setString(1, table_name);
+        psmt.close();
+        conn.close();
+    }
+
 
 
 }
