@@ -358,88 +358,44 @@
     height: 45%;
     left:10%;
     top: 50%;
-    border-radius:55%;
+
+    /* border-radius:55%;
     background: #FFFEFE;
     border: 1px solid rgba(152, 152, 158, 0.3);
-    box-sizing: border-box;
+    box-sizing: border-box; */
 }
 
 
 .message_receive{
-    padding-left:3%;
-    padding-right:3%;
     width: 50%;
     height: auto;
     float: left;
-    clear: both;
+    clear: right;
     background: rgba(255, 49, 234, 0.3);
     border-radius: 20px;
-    margin: 1% 7%;
-
-
 
 }
 .message_send{
-
-    padding-left:3%;
-    padding-right:3%;
-
-    width: 50%;
+    width: 286px;
     height: auto;
     float: right;
     clear:both;
     border-radius: 20px;
     border: 1px solid #98989E;
-    margin: 1% 7%;
+    margin: 3% 7%;
 
 }
 
 li {
-
+    padding-left:3%;
+    padding-right:3%;
+    margin: 10px 0;
     line-height: 40px;
     list-style: none;
     WORD-BREAK: break-all;
-    WORD-WRAP: break-word;
-
-
-}
-
-ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-
-
-.last_message {
-    padding-left: 10%;
-    margin: -10% 0%;
-    font-size: 12px;
-    overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
-    color: #808080;
-}
-.friend_username{
-    padding-left: 10%;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    color: #000000;
+    WORD-WRAP: break-word
 
 }
-.friend_list {
-    width: 100%;
-    height:15%;
-    border-bottom: 1px solid rgba(152, 152, 158, 0.3);
-
-}
-
-
-
 ::-webkit-scrollbar {
     display: none; /* Chrome Safari */
 }
@@ -451,6 +407,23 @@ ul {
     height: 85%;
     border: none;
     background: #FFFFFF;
-    display: flex;
-    flex-direction: column-reverse;
+}
+
+#show_profile {
+    justify-content: center;
+    position: absolute;
+    padding-left: 8%;
+    top: 0%;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    align-items: center;
+    white-space:nowrap;
+
+}
+
+#show_profile li {
+    list-style: circle;
+    line-height: 15px;
 }
