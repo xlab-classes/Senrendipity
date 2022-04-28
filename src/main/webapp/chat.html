@@ -145,6 +145,7 @@
         function add_friend(){
             layer.prompt({
                 formType: 0,
+                btn:["add","cancel"],
                 title: 'Add Friend',
             }, function(value){
                 const username = document.getElementById("current_user").innerHTML;
