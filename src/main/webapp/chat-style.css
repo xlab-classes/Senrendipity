@@ -427,3 +427,56 @@ li {
     list-style: circle;
     line-height: 15px;
 }
+
+#modal {
+    width: 100%;
+    height: 100%;
+    /* 默认隐藏 */
+    display: none; 
+    /* 固定定位 */
+    position: fixed;
+    /* 设置在顶层 */
+    z-index: 1000;
+    /* 设置位置 */
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  /* 弹窗内容 */
+  #modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 10% auto;
+    border: 1px solid #888;
+    width: 1000px;
+    height: 580px;
+    z-index: 1001;
+  }
+  /* 返回*/
+  #return_back{
+    position: relative;
+    background-color: #ffffff;
+    border: #ffffff;
+    width: 70px;
+    height: 50px;
+    top:86%;
+    left:80%;
+    background: url("image/arrow.png")no-repeat;background-position:50% 50%;background-size:60%;
+  }
+  /* 关闭按钮 */
+  #close {
+    position: absolute;
+    right: 20px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+/* 设置关闭按钮的鼠标指针 */
+  #close:hover,
+  #close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

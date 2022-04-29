@@ -151,7 +151,15 @@
     <div class="div_selfInfo">
         <div class="div_selfPic"></div>
         <p class="text_username">USERNAME</p>
-        <button class="button_setting"></button>
+        <button class="button_setting" id = "button"></button>
+        <div id="modal">
+            <!-- 弹窗 -->
+            <div id="modal-content">
+                这是一个弹窗
+                <span id="close">&times;</span>
+                <button onclick="window.location.href ='info.html'" id="return_back"></button>
+            </div>
+        </div>
     </div>
 
     <div class="div_friend_Hobbies">
@@ -171,6 +179,23 @@
 
 
 </div>
+<script>
+        var button = document.getElementById("button");
+        var modal = document.getElementById("modal")
+        button.onclick = function () {
+            modal.style.display = "block";
+        };
+        //   关闭按钮
+        document.getElementById("close").onclick = function () {
+            modal.style.display = "none";
+        };
+        //   点击其他领域(即弹窗背景)
+        window.onclick = function(event){
+            if(event.target ==modal){
+                modal.style.display = "none"
+            }
+        }
+</script>
 
 </body>
 </html>
