@@ -10,9 +10,11 @@
     <title>Serendipity</title>
 
     <script>
-
+        var u1 = "";
+        var u2 = "";
         function profile() {
             const username =  window.atob(getURLVariable("u2"))
+            u2 = getURLVariable("u2");
             $.get({
                 method: "get",
                 url: "profile",
@@ -20,7 +22,7 @@
                     "username": username
                 },
                 success: function(java_response) {
-                    const interest = java_response.split(" ");
+                    const interest = java_response.split(",");
                     for(var i = 0; i < interest.length - 1; i++) {
                         const listed_interest = "<li>" + interest[i] + "</li>"
                         $("#show_profile").append(listed_interest);
@@ -28,6 +30,27 @@
                 }
             })
         }
+
+        function myInfo() {
+            const username =  window.atob(getURLVariable("u"))
+            u1 = getURLVariable("u");
+            $.get({
+                method: "get",
+                url: "profile",
+                data: {
+                    "username": username
+                },
+                success: function(java_response) {
+                    const interest = java_response.split(",");
+                    $("#profile_username").append(username);
+                    for(var i = 0; i < interest.length - 1; i++) {
+                        const listed_interest = "<li>" + interest[i] + "</li>"
+                        $("#my_info").append(listed_interest);
+                    }
+                }
+            })
+        }
+
 
         $(function(){
             var message_id=0;
@@ -98,6 +121,7 @@
             return "dont refresh";
         }
         profile()
+        myInfo()
 
     </script>
 
@@ -155,9 +179,13 @@
         <div id="modal">
             <!-- 弹窗 -->
             <div id="modal-content">
-                这是一个弹窗
+                <p id="profile_username">Username: </p>
+                <p id="prifile_interests">Your interests are: </p><br>
+                <ul id="my_info">
+
+                </ul>
                 <span id="close">&times;</span>
-                <button onclick="window.location.href ='info.html'" id="return_back"></button>
+                <button onclick="window.location.href ='info.html' + '?u=' + u1 + '='" id="return_back"><p> Edit Your Interest </p></button>
             </div>
         </div>
     </div>
@@ -183,6 +211,7 @@
         var button = document.getElementById("button");
         var modal = document.getElementById("modal")
         button.onclick = function () {
+            window.onbeforeunload = null;
             modal.style.display = "block";
         };
         //   关闭按钮
@@ -191,7 +220,7 @@
         };
         //   点击其他领域(即弹窗背景)
         window.onclick = function(event){
-            if(event.target ==modal){
+            if(event.target == modal){
                 modal.style.display = "none"
             }
         }
