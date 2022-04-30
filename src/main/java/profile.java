@@ -50,7 +50,7 @@ public class profile extends HttpServlet {
         String[] interests =  label_ids.split(",");
 
         for(String interest : interests) {
-            retInterests = retInterests + info.search_label(Integer.parseInt(interest)) + " ";
+            retInterests = retInterests + info.search_label(Integer.parseInt(interest)) + ",";
         }
 
         check.write(retInterests);
@@ -60,7 +60,7 @@ public class profile extends HttpServlet {
     public static void main(String[] args) throws SQLException {
         app_im serv = new app_im();
         info_im info = new info_im();
-        int user_id = serv.getId("ada");
+        int user_id = serv.getId("hx");
 
         String label_ids = info.getLabel(user_id); // label id
         String retInterests = "";
@@ -68,7 +68,7 @@ public class profile extends HttpServlet {
         String[] interests =  label_ids.split(",");
 
         for(String interest : interests) {
-            retInterests = retInterests + info.search_label(Integer.parseInt(interest)) + " ";
+            retInterests = retInterests + info.search_label(Integer.parseInt(interest)) + ",";
         }
 
         System.out.println(retInterests);
