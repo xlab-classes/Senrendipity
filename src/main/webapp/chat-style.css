@@ -289,6 +289,11 @@
     border: none;
 }
 
+.logo:hover,.logo:focus{
+    background: url("image/ICON_Setting.png")no-repeat;background-position:50% 50%;background-size:70%;
+
+}
+
 .div_friend_Hobbies{
     position: absolute;
     width: 20%;
@@ -373,10 +378,10 @@
     height: 45%;
     left:10%;
     top: 50%;
-    border-radius:55%;
+    /* border-radius:55%;
     background: #FFFEFE;
     border: 1px solid rgba(152, 152, 158, 0.3);
-    box-sizing: border-box;
+    box-sizing: border-box; */
 }
 
 
@@ -390,7 +395,6 @@
     background: rgba(255, 49, 234, 0.3);
     border-radius: 20px;
     margin: 1% 7%;
-
 
 
 }
@@ -415,7 +419,6 @@ li {
     list-style: none;
     WORD-BREAK: break-all;
     WORD-WRAP: break-word;
-
 
 }
 
@@ -514,5 +517,147 @@ table{
     overflow: auto;
 }
 
+#show_profile {
+    justify-content: center;
+    position: absolute;
+    padding-left: 8%;
+    top: 0%;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    align-items: center;
+    white-space:nowrap;
+
+}
+
+#show_profile li {
+    padding-bottom: 16%;
+    list-style: circle;
+    line-height: 15px;
+}
+
+#modal {
+    width: 100%;
+    height: 100%;
+    /* 默认隐藏 */
+    display: none;
+    /* 固定定位 */
+    position: fixed;
+    /* 设置在顶层 */
+    z-index: 1000;
+    /* 设置位置 */
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+/* 弹窗内容 */
+#modal-content {
+    position: absolute;
+    background-color: #fff;
+    margin: 10% auto;
+    border: 1px solid #888;
+    width: 1000px;
+    height: 580px;
+    /* z-index: 1001; */
+    left: 18%;
+}
+/* 返回*/
+#return_back{
+    position: absolute;
+    background-color:rgba(255, 49, 234, 0.2);
+    border: #ffffff;
+    width: 270px;
+    height: 55px;
+    top:86%;
+    left:37%;
+    border: 1px solid #98989E;
+    box-sizing: border-box;
+    border-radius: 18px;
+
+    padding-left: 7%;
+    font-family: Futura;
+    font-style: normal;
+    font-weight: 500;
+    font-size:120%;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    outline: none
+}
+
+#return_back:hover,
+#return_back:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#return_back:active {
+    box-shadow: 0px 0px 5px 5px rgba(255, 49, 234, 0.2);
+}
+
+/* 关闭按钮 */
+#close {
+    position: absolute;
+    right: 4.3%;
+    top: 2%;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+/* 设置关闭按钮的鼠标指针 */
+#close:hover,
+#close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#profile_username {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+
+    font-family: Gabriola;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    align-items: center;
+    white-space:nowrap;
+}
+
+#prifile_interests {
+    position: absolute;
+    left: 5%;
+    top: 17%;
+
+    font-family: Gabriola;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    align-items: center;
+    white-space:nowrap;
+}
+
+#my_info {
+    justify-content: center;
+    position: absolute;
+    padding-left: 48%;
+    top: 20%;
+    font-family: Gabriola;
+    font-size: 20px;
+    font-style: normal;
+    /* font-weight: bold; */
+    align-items: center;
+    white-space:nowrap;
+}
+
+#my_info li {
+    padding-bottom: 16%;
+    list-style: decimal;
+    line-height: 20px;
+}
 
 

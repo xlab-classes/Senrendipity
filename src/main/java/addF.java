@@ -40,7 +40,6 @@ public class addF extends HttpServlet {
         //0：直接从friend_request把target_user移除
         String friend_re= serv.getRequest(serv.getId(username));
         String temp = serv.getId(target_user) + " ";
-        friend_re.replace(temp,"");
         serv.addToRequest(serv.getId(username),friend_re.replace(temp,""));
         if (button.equals("1")){
             s.addfriend(username,target_user);

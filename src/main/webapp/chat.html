@@ -44,12 +44,30 @@
                     //this is the room number
 
                     show_chat(response,current_user);
+
+                    function profile() {
+                        $("#show_profile").empty();
+                        const username = document.getElementById("hobbies_friend_username").innerHTML;
+                        $.get({
+                            method: "get",
+                            url: "profile",
+                            data: {
+                                "username": username
+                            },
+                            success: function(java_response) {
+                                const interest = java_response.split(",");
+                                for(var i = 0; i < interest.length - 1; i++) {
+                                    const listed_interest = "<li>" + interest[i] + "</li>"
+                                    $("#show_profile").append(listed_interest);
+                                }
+                            }
+                        })
+                    }
+                    profile();
                     document.getElementById("room_num").value = response;
 
                 },);
             }
-
-
 
         }
 
@@ -348,7 +366,32 @@
                 console.log("USER2 ="+ user2);
                 chat_room(user2);
             }
+
+
+
+            function myInfo() {
+                const username =  document.getElementById("current_user").innerHTML;
+                $.get({
+                    method: "get",
+                    url: "profile",
+                    data: {
+                        "username": username
+                    },
+                    success: function(java_response) {
+                        const interest = java_response.split(",");
+                        $("#profile_username").append(username);
+                        for(var i = 0; i < interest.length - 1; i++) {
+                            const listed_interest = "<li>" + interest[i] + "</li>"
+                            $("#my_info").append(listed_interest);
+                        }
+                    }
+                })
+            }
+
+            myInfo();
         })
+
+
 
     </script>
 
@@ -418,7 +461,19 @@
     <div class="div_selfInfo">
         <div class="div_selfPic"></div>
         <p class="text_username" id="current_user">USERNAME</p>
-        <button class="button_setting" onclick="go_info_page()"></button>
+        <button class="button_setting" id="button"></button>
+        <div id="modal">
+            <!-- 弹窗 -->
+            <div id="modal-content">
+                <p id="profile_username">Username: </p>
+                <p id="prifile_interests">Your interests are: </p><br>
+                <ul id="my_info">
+
+                </ul>
+                <span id="close">&times;</span>
+                <button onclick="go_info_page()" id="return_back"><p> Edit Your Interest </p></button>
+            </div>
+        </div>
     </div>
 
     <div class="div_friend_Hobbies">
@@ -427,11 +482,36 @@
             <div class="div_Text_FRIEND_USERNAME"> <p id="hobbies_friend_username">  </p></div>
         </div>
         <H1 class="text_Habbies">Habbies</H1>
-        <div class="div_Habbies_Friend_label"></div>
+        <div class="div_Habbies_Friend_label">
+            <ul id="show_profile">
+
+            </ul>
+        </div>
     </div>
 
 
 </div>
+
+<script>
+    // my info window
+    var button = document.getElementById("button");
+    var modal = document.getElementById("modal")
+    button.onclick = function () {
+        window.onbeforeunload = null;
+        modal.style.display = "block";
+    };
+    //   关闭按钮
+    document.getElementById("close").onclick = function () {
+        modal.style.display = "none";
+    };
+    //   点击其他领域(即弹窗背景)
+    window.onclick = function(event){
+        if(event.target == modal){
+            modal.style.display = "none"
+        }
+    }
+
+</script>
 
 </body>
 </html>

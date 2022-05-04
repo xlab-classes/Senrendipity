@@ -50,12 +50,10 @@ public class frequest extends HttpServlet {
             check.close();
             return;
         }
-
         //判断input用户是否是好友关系，是return fail，"this user is already ur friend"，
         if (serv.friendExist(user_id,target_id) && serv.friendExist(target_id,user_id)){
             re.put("fail","This user already is your friend");
             check.write(re.toJSONString());
-
         }else {
             // 不是好友就把input的id放到friend_request，不准有重复的id
             if (serv.friendRequest(user_id,target_id) && serv.friendRequest(target_id,user_id)){
@@ -63,9 +61,9 @@ public class frequest extends HttpServlet {
                 check.write(re.toJSONString());
             }else {
                 // "success: this user has been added."
-                String temp = serv.getRequest(user_id);
-                temp += target_id + " ";
-                serv.addToRequest(user_id,temp);
+                String temp = serv.getRequest(target_id);
+                temp += user_id + " ";
+                serv.addToRequest(target_id,temp);
                 re.put("success", "Your request has been sent");
                 check.write(re.toJSONString());
             }

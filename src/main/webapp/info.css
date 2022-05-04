@@ -74,7 +74,7 @@
     background: url("image/earth.png")no-repeat;background-position:10% 70%;background-size:73%;
 }
 
-. leftarrow{
+.leftarrow{
     position: absolute;
     width: 10%;
     height: 10%;
