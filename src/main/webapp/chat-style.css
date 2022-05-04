@@ -289,7 +289,7 @@
     border: none;
 }
 
-.logo:hover,.logo:focus{
+.button_setting:hover,.button_setting:focus{
     background: url("image/ICON_Setting.png")no-repeat;background-position:50% 50%;background-size:70%;
 
 }

@@ -80,46 +80,55 @@ public class match extends HttpServlet {
                 //System.out.println(user_id.get(count)+"="+res.get(count++));
             }
         }
-
-        int top = res.indexOf(Collections.max(res)); // 获取最大匹配的相似度数值 的用户ID
-        int second = 0;
-        int best1 = user_id.get(top); // best match   // 最好的匹配
-        //System.out.println(best1);
-        //System.out.println(best2);
-        //System.out.print(top);
-        //System.out.print(second);
-       if (sec.size() >1) {   // 如果sec数量大于1， 就运行循环寻找第二个最好匹配
-           Collections.sort(sec);
-           System.out.println("?????????????????");
-           for (int i = sec.size() - 1; i >= 0; i--) {
-               if (sec.get(i) < Collections.max(res)) {
-                   second = res.indexOf(sec.get(i));
-                   break;
-               }
-           }
-           int best2 = user_id.get(second);
-
-           if(Collections.max(res) != 0){
-               User matchPerson1 = serv.getUser_id(best1);
-               User matchPerson2 = serv.getUser_id(best2);
-
-               JSONObject re = new JSONObject();
-               re.put("user1", matchPerson1.getUsername());
-               re.put("user2", matchPerson2.getUsername());
-
-               //String info = matchPerson1.getUsername() + "###"+ matchPerson2.getUsername();
-               //System.out.println(info);
-               check.write(re.toJSONString());
-               check.close();
-
-           }
-       }
-       else{
+        if(res.isEmpty()){
             JSONObject re = new JSONObject();
             re.put("fail", 0);
 
             check.write(re.toJSONString());
             check.close();
-       }
+            return;
+        }
+
+        if (sec.size() >1) {   // 如果sec数量大于1， 就运行循环寻找第二个最好匹配
+            int top = res.indexOf(Collections.max(res)); // 获取最大匹配的相似度数值 的用户ID
+            int second = 0;
+            int best1 = user_id.get(top); // best match   // 最好的匹配
+            //System.out.println(best1);
+            //System.out.println(best2);
+            //System.out.print(top);
+            //System.out.print(second);
+
+            Collections.sort(sec);
+            System.out.println("?????????????????");
+            for (int i = sec.size() - 1; i >= 0; i--) {
+                if (sec.get(i) < Collections.max(res)) {
+                    second = res.indexOf(sec.get(i));
+                    break;
+                }
+            }
+            int best2 = user_id.get(second);
+
+            if(Collections.max(res) != 0){
+                User matchPerson1 = serv.getUser_id(best1);
+                User matchPerson2 = serv.getUser_id(best2);
+
+                JSONObject re = new JSONObject();
+                re.put("user1", matchPerson1.getUsername());
+                re.put("user2", matchPerson2.getUsername());
+
+                //String info = matchPerson1.getUsername() + "###"+ matchPerson2.getUsername();
+                //System.out.println(info);
+                check.write(re.toJSONString());
+                check.close();
+
+            }
+        }
+        else{
+            JSONObject re = new JSONObject();
+            re.put("fail", 0);
+
+            check.write(re.toJSONString());
+            check.close();
+        }
     }
 }

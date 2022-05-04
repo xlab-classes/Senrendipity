@@ -274,7 +274,7 @@ function matchs(){
             const data = JSON.parse(java_response);
             //console.log(data);
 
-            if ( Object.keys(data).length===1){
+            if (Object.keys(data).length===1){
                 alert("No one can match right now");
             }
             else{

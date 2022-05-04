@@ -37,6 +37,7 @@ public class login extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         PrintWriter check = response.getWriter();
+        String ret = "0";
 
 
         if (username.contains("@")) {
@@ -48,9 +49,10 @@ public class login extends HttpServlet {
                 //System.out.print("decode="+de_password);
 
                 if (Objects.equals(de_password, password)) {
-                    check.write(user.getUsername());
+                    ret = user.getUsername();
                 }
             }
+            check.write(ret);
         }
 
         else {
@@ -60,13 +62,12 @@ public class login extends HttpServlet {
                     String de_password = serv.decode(user.getPassKey(), user.getPassword());//解密
                     //System.out.print(de_password);
                     if (Objects.equals(de_password, password)) {
-                        check.write(username);
+                        ret = username;
                     }
                 }
             }
-            else {
-                check.write("0");
-            }
+            check.write(ret);
+
         }
         check.close();
     }
