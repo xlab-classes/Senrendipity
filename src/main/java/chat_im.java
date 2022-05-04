@@ -71,7 +71,6 @@ public class chat_im extends app_im{
     }
 
     public void addfriend(String user1, String user2) throws Exception{
-
         Connection conn = DButil.getConnection();
         chat_im serv = new chat_im();
         int id1 = serv.getId(user1);

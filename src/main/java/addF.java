@@ -45,7 +45,5 @@ public class addF extends HttpServlet {
         if (button.equals("1")){
             s.addfriend(username,target_user);
         }
-
-
     }
 }

@@ -3,9 +3,6 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="web:war exploded" />
-      <artifact name="web:war exploded" />
-      <artifact name="web:war exploded" />
-      <artifact name="web:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -13,228 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="#46 Implement Add Friends and Search Friend function">
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/ForgotPass_verification.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/Forgot_verification.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/SignIn.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/SignIn_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/SignUP_verification.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/SignUp_verification.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/DButil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/add_interest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/app_Design.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/app_im.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/chat_im.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/creat_room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/delete_interest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/done_btn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/forgot_password.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/forgot_verify.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/get_check.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/get_friend_list.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/googleMail$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/googleMail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/info_im.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/login.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/match.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/more_tag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/post_check.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/post_friend_list.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/register.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/register_verify.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/send_response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/timeout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/classes/users_interest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/activation.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/commons-codec-1.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/fastjson-1.2.47.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/fastjson-1.2.80.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.annotation.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.ejb.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.jms.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.mail.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.persistence.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.resource.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.servlet.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.servlet.jsp.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.servlet.jsp.jstl.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/javax.transaction.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/json-simple-1.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/lib/mysql-connector-java-8.0.28.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/chat.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/forgot_password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICON_Emoji.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICON_Setting.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICON_ThreeDot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICON_addFriend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICON_back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICON_files.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICON_newFriend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICON_send.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICONcomfirm-password.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICONemail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICONemail_or_username.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICONpassword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICONsearch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICONusername.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/ICONvertify.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/LOGO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/arrowleft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/check_mark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/circle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/earth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/rocket.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/image/trash_can.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/info.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/info.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/css/layui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/css/modules/code.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/css/modules/laydate/default/laydate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/css/modules/layer/default/icon-ext.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/css/modules/layer/default/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/css/modules/layer/default/layer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/css/modules/layer/default/loading-0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/css/modules/layer/default/loading-1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/css/modules/layer/default/loading-2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/font/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/font/iconfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/font/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/font/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/font/iconfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/layui/layui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/match.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/match.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/reset_password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/signUp-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/signUp.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/web_war_exploded/verification.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war/cse442_war.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/ForgotPass_verification.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/Forgot_verification.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/SignIn.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/SignIn_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/SignUP_verification.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/SignUp_verification.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/DButil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/__unpkg.com_layui@2.6.8_dist_css_layui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/__unpkg.com_layui@2.6.8_dist_layui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/add_interest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/app_Design.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/app_im.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/chat_im.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/creat_room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/delete_interest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/done_btn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/forgot_password.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/forgot_verify.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/get_check.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/get_friend_list.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/googleMail$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/googleMail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/http_cdn.bootcss.com_blueimp-md5_2.10.0_js_md5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/http_code.jquery.com_jquery-3.4.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/http_layui.itze.cn_layui-v2.6.8_layui_css_layui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/http_layui.itze.cn_layui-v2.6.8_layui_layui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/info_im.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/login.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/match.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/more_tag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/post_check.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/post_friend_list.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/register.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/register_verify.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/send_response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/timeout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/classes/users_interest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/activation.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/commons-codec-1.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/fastjson-1.2.47.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/fastjson-1.2.80.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.annotation.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.ejb.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.jms.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.mail.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.persistence.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.resource.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.servlet.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.servlet.jsp.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.servlet.jsp.jstl.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/javax.transaction.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/json-simple-1.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/lib/mysql-connector-java-8.0.28.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/chat-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/chat.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/forgot_password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICON_Emoji.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICON_Setting.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICON_ThreeDot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICON_addFriend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICON_back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICON_files.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICON_newFriend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICON_send.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICONcomfirm-password.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICONemail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICONemail_or_username.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICONpassword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICONsearch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICONusername.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/ICONvertify.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/LOGO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/arrowleft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/check_mark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/circle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/earth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/rocket.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/image/trash_can.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/info.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/info.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/css/layui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/css/modules/code.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/css/modules/laydate/default/laydate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/css/modules/layer/default/icon-ext.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/css/modules/layer/default/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/css/modules/layer/default/layer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/css/modules/layer/default/loading-0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/css/modules/layer/default/loading-1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/css/modules/layer/default/loading-2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/font/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/font/iconfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/font/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/font/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/font/iconfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/layui/layui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/match.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/match.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/reset_password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/signUp-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/signUp.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/cse442_war_exploded/verification.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/addF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/addF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat_im.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat_im.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app_im.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/Sprint4#47Implement-profile-functions" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -301,7 +90,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="ba91e69e-79d9-4a84-99dc-1cc0d0c96edd" />
+        <option name="BASE_DIRECTORY_NAME" value="0f211475-1d00-4f9a-8753-39bd589ecb31" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -309,7 +98,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="59328" />
+        <option name="DEBUG_PORT" value="60810" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -375,13 +164,13 @@
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="web:war exploded" />
-          <artifact name="web:war exploded" />
-          <artifact name="web:war exploded" />
-          <artifact name="web:war exploded" />
-          <artifact name="web:war exploded" />
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.test" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.59" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.test" />
@@ -404,6 +193,7 @@
       <workItem from="1650413535803" duration="1905000" />
       <workItem from="1650478725439" duration="405000" />
       <workItem from="1651188865232" duration="79000" />
+      <workItem from="1651626267614" duration="2761000" />
     </task>
     <task id="LOCAL-00001" summary="#45 Sprint3 chat function">
       <created>1650172886884</created>
