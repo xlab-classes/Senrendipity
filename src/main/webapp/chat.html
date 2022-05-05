@@ -183,7 +183,7 @@
 
         //---------------------------------------------------------------------------------------------
         function go_info_page(){
-            window.location.href='info.html'+ '?u='+ getURLVariable("u");
+            window.location.href='info.html'+ '?u='+ getURLVariable("u")+ "&chat="+ getURLVariable("u");
         }
 
         //---------------------------------------------------------------------------------------------
@@ -342,7 +342,6 @@
                         var data = JSON.parse(response);
                         var  friend= data["friend"];
                         //var  friend_id= data["ID"];
-                        friend_show += friend.length;
                         for(let i = 0; i < friend.length; i++) {
                             //console.log(i)
                             //+ "<p class='last_message'>"+ last_messsage+ "</p>"
@@ -350,6 +349,7 @@
                             const str_li =  "'" + "li_"+friend[i]+ "' "
                             const html_message = "<li class='friend_list' id="+ str_li + "onclick=" + str+" >" + "<p class='friend_username' id=" + friend[i] + ">" +friend[i]+ "</p>" +"</li>";
                             console.log(html_message);
+                            friend_show += 1;
                             $("#friend_list_show").append(html_message);
                         };
 

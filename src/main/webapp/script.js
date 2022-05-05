@@ -314,18 +314,22 @@ function send_message(){
     var to_username= document.getElementById("chat_friend_username").innerHTML;
     var room =document.getElementById("room_num").value
     var message = $('#message_input').val()
-    //console.log(message);
-    var time = get_time(new Date());
-    $.post("send_response", {
-            "from":from_username,
-            "to": to_username,
-            "room": room.toString(),
-            "message":message,
-            "time" : time
-        }
+    //console.log("send message = "+message);
+    if(message!==''){
 
-    )
-    $('#message_input').val('')
+        var time = get_time(new Date());
+        $.post("send_response", {
+                "from":from_username,
+                "to": to_username,
+                "room": room.toString(),
+                "message":message,
+                "time" : time
+            }
+
+        )
+        $('#message_input').val('')
+    }
+
 }
 
 
@@ -393,4 +397,15 @@ function match_chat_create(user2){
 
         }
     },);
+}
+
+function left_arrow(){
+    const current_link = new URL(window.location);
+    const user1 = window.atob(getURLVariable("u"));
+    if (current_link.searchParams.has("chat")){
+        window.location.href= 'chat.html'+"?u="+window.btoa(user1)
+    }
+    else{
+        window.location.href= 'SignIn.html'
+    }
 }

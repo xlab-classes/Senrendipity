@@ -23,7 +23,7 @@ public class test {
         //delete_room_table(13);
         // delete chat_table: by room number
         chat_im serv = new chat_im();
-        serv.delete(1);
+        serv.delete(2);
 
 
 
