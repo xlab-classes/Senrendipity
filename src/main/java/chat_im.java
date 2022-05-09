@@ -71,30 +71,36 @@ public class chat_im extends app_im{
     }
 
     public void addfriend(String user1, String user2) throws Exception{
-
+        System.out.println("add test");
         Connection conn = DButil.getConnection();
         chat_im serv = new chat_im();
         int id1 = serv.getId(user1);
         int id2 = serv.getId(user2);
-        String sql = "" + "select*from user_info  where id=" + id1;
-        String sql2 = "" + "select*from user_info  where id=" + id2;
+        String sql = "" + "select*from user_info  where id in (" + id1 +","+id2 +")";
         PreparedStatement psmt = conn.prepareStatement(sql);
-        PreparedStatement psmt2 = conn.prepareStatement(sql2);
         ResultSet rs1= psmt.executeQuery();
-        ResultSet rs2 = psmt2.executeQuery();
-        while(rs1.next() && rs2.next()) {
+        while(rs1.next()) {
+            System.out.println(rs1.getString("id"));
             String friend_list1 = rs1.getString("friend_list");
-            String friend_list2 = rs2.getString("friend_list");
             String newFriend1 = Integer.toString(id1);
             String newFriend2 = Integer.toString(id2);
-                friend_list1 += newFriend2 + " ";
-                friend_list2 += newFriend1 + " ";
-                sql = "" + "update user_info set friend_list = " + "'" + friend_list1 + "'" + "where id =" + id1;
-                psmt = conn.prepareStatement(sql);
-                psmt.executeUpdate(sql);
-                sql2 = "" + "update user_info set friend_list = " + "'" + friend_list2 + "'" + "where id =" + id2;
-                psmt2 = conn.prepareStatement(sql2);
-                psmt2.executeUpdate(sql2);
+
+            if(rs1.getInt("id")== id1) {
+                if(!rs1.getString("friend_list").contains(newFriend2)) {
+                    friend_list1 += newFriend2 + " ";
+                    sql = "" + "update user_info set friend_list = " + "'" + friend_list1 + "'" + "where id =" + id1;
+                    psmt = conn.prepareStatement(sql);
+                    psmt.executeUpdate(sql);
+                }
+            }
+            if(rs1.getInt("id")== id2){
+                if(!rs1.getString("friend_list").contains(newFriend1)) {
+                    friend_list1 += newFriend1 + " ";
+                    sql = "" + "update user_info set friend_list = " + "'" + friend_list1 + "'" + "where id =" + id2;
+                    psmt = conn.prepareStatement(sql);
+                    psmt.executeUpdate(sql);
+                }
+            }
 
         }
 

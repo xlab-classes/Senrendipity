@@ -41,6 +41,8 @@ public class addF extends HttpServlet {
         String friend_re= serv.getRequest(serv.getId(username));
         String temp = serv.getId(target_user) + " ";
         serv.addToRequest(serv.getId(username),friend_re.replace(temp,""));
+
+
         if (button.equals("1")){
             s.addfriend(username,target_user);
         }
