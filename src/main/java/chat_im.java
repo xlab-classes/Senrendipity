@@ -2,6 +2,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 
 public class chat_im extends app_im{
 
@@ -71,7 +73,6 @@ public class chat_im extends app_im{
     }
 
     public void addfriend(String user1, String user2) throws Exception{
-        System.out.println("add test");
         Connection conn = DButil.getConnection();
         chat_im serv = new chat_im();
         int id1 = serv.getId(user1);
@@ -101,9 +102,7 @@ public class chat_im extends app_im{
                     psmt.executeUpdate(sql);
                 }
             }
-
         }
-
     }
 
 //    public void updateShow1(int room, int from, int to) throws Exception {
@@ -137,6 +136,8 @@ public class chat_im extends app_im{
         psmt.executeUpdate();
         psmt.close();
     }
+
+
 
 
 }

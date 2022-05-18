@@ -3,7 +3,7 @@ function input_check(id,text){
     if (input==null || input.length===0||input==""){
         $("#"+id). css("box-shadow","0 0px 4px 0 red");
         $("#"+id). css("border-color","white");
-        alert(text);
+        layer.msg(text);
         return false;
     }
     $("#"+id). css("box-shadow","none");
@@ -19,7 +19,7 @@ function password_same_check(id1,id2){
         $("#"+id1). css("border-color","white");
         $("#"+id2). css("box-shadow","0 0px 4px 0 red");
         $("#"+id2). css("border-color","white");
-        alert("Password need to be same");
+        layer.msg("Password need to be same");
         return false;
     }
     $("#"+id1). css("box-shadow","none");
@@ -56,7 +56,8 @@ function login(){
                 console.log(java_response);
                 if (user_name.length!==0 && pass_word.length!==0 ){
                     if(java_response ==='0'){
-                        alert("Incorrect username/email or password")
+                        layer.msg("Incorrect username/email or password");
+
                     }
                     else {
                         location.href ="match.html" + "?u="+window.btoa(java_response);
@@ -71,6 +72,31 @@ function login(){
 }
 
 
+function  password_enhance_len (password,word){
+    if (password.length < 8){
+        return '- A minimum of 8 characters in length <br> ';
+    }
+    else {
+        return ''
+    }
+}
+function  password_enhance_num (password){
+    if (password.search(/\d/)===-1){
+        return '- A minimum of 1 numeric character [0-9] <br>'
+    }
+    else {
+        return ''
+    }
+}
+
+function  password_enhance_str (password){
+    if (password.search(/[a-zA-Z]/)===-1){
+        return '-A minimum of 1 lower case [a-z] or upper case letter[A-Z] <br>'
+    }
+    else {
+        return ''
+    }
+}
 
 function register (){
     var user_name = $('#username').val();
@@ -83,7 +109,16 @@ function register (){
     var pcheck = input_check("password","Please enter your password");
     var p2check = input_check("password2","Please enter your confirm password");
 
-    if(ucheck && echeck && pcheck && p2check){
+    var enhance_message = password_enhance_len(pass_word) + password_enhance_num(pass_word) + password_enhance_str(pass_word);
+    if(enhance_message!==''){
+        layer.msg('Password need : <br>' + enhance_message , {
+            time: 20000, //20s后自动关闭
+            btn: ['OK'],btnAlign: 'c'
+        });
+    }
+
+
+    if(ucheck && echeck && pcheck && p2check && password_enhance_len(pass_word)==='' && password_enhance_num(pass_word)==='' && password_enhance_str(pass_word)==='' ){
         if(pass_word2===pass_word){
             $.ajax({
                 url: "register",  // **back-end files name
@@ -97,7 +132,7 @@ function register (){
                     console.log(java_response);
                     if(java_response[0]==="e"){
                         //console.log(java_response);
-                        alert(java_response);
+                        layer.msg(java_response);
                     }
                     else {
                         location.href ="SignUP_verification.html"+ "?u="+window.btoa(user_name)+"&p="+window.btoa(pass_word)+"&e="+window.btoa(email)+"&v="+window.btoa(java_response);
@@ -106,7 +141,7 @@ function register (){
                 }
             })
         }
-        else {alert("password need to be same")}
+        else {layer.msg("password need to be same");}
 
     }
 
@@ -142,7 +177,7 @@ function register_verify(){
             )
         }
         else {
-            alert("incorrect verify number")
+            layer.msg("incorrect verify number");
         }
     }
 
@@ -150,27 +185,27 @@ function register_verify(){
 }
 
 
-
-function verify_fail(){
-    var username = getURLVariable("u");  //user
-    var vcode = getURLVariable("v"); // vcode
-    var password= getURLVariable("p"); // password
-    var email= getURLVariable("e");  // emails
-    $.get("timeout", {
-            "username": username,
-        }, function (java_response){
-            if(java_response==="1"){
-                location.href ="SignIn.html";
-                alert("timeout verify Fail :(")
-            }
-
-        }
-    )
-}
-
-function timeout_jump (){
-    setTimeout('verify_fail()',3*60*1000); //3 min
-}
+//
+// function verify_fail(){
+//     var username = getURLVariable("u");  //user
+//     var vcode = getURLVariable("v"); // vcode
+//     var password= getURLVariable("p"); // password
+//     var email= getURLVariable("e");  // emails
+//     $.get("timeout", {
+//             "username": username,
+//         }, function (java_response){
+//             if(java_response==="1"){
+//                 location.href ="SignIn.html";
+//                 alert("timeout verify Fail :(")
+//             }
+//
+//         }
+//     )
+// }
+//
+// function timeout_jump (){
+//     setTimeout('verify_fail()',3*60*1000); //3 min
+// }
 
 function resend_code(){
     var username = getURLVariable("u");  //user
@@ -182,7 +217,7 @@ function resend_code(){
             "email": window.atob(email),
             "resend" : "1"
         }, function (java_response){
-            alert("Resend code successful")
+            layer.msg("Resend code successful");
             history.replaceState("","",location.href ="SignUP_verification.html"+ "?u="+username+"&p="+password+"&e="+email+"&v="+window.btoa(java_response))
         }
     )
@@ -202,7 +237,7 @@ function forgot_password(){
                     location.href ="ForgotPass_verification.html"+"?e="+window.btoa(email)
                 }
                 else{
-                    alert("Emails does not exist ")
+                    layer.msg("Emails does not exist ");
                 }
             }
         )
@@ -230,17 +265,18 @@ function forgot_verity(){
                     "resend":"0"
                 }, function (java_response){
                     if(java_response==="1"){
-                        alert("Your password has been changed successfully")
+                        layer.msg("Your password has been changed successfully");
                         location.href ="SignIn.html"
                     }
                     else {
-                        alert("incorrect ")
+                        layer.msg("incorrect ");
                     }
                 }
             )
         }
         else {
-            alert("password need to be same")
+            layer.msg("password need to be same");
+
         }
 
     }
@@ -256,10 +292,11 @@ function forgot_resend_code() {
             "resend":"1"
         }, function (java_response){
             if(java_response==="1"){
-                alert("Resend code successful")
+                layer.msg("Resend code successful");
+
             }
             else{
-                alert("Resend code fail")
+                layer.msg("Resend code fail");
             }
         }
     )
@@ -275,7 +312,7 @@ function matchs(){
             //console.log(data);
 
             if (Object.keys(data).length===1){
-                alert("No one can match right now");
+                layer.msg("No one can match right now");
             }
             else{
                 // var spli = java_response.split('###');

@@ -20,10 +20,10 @@ public class test {
     public static void main(String[] args) throws Exception{
         //delete room_table by room number:
 
-        //delete_room_table(13);
+        delete_room_table(2);
         // delete chat_table: by room number
-        chat_im serv = new chat_im();
-        serv.delete(2);
+//        chat_im serv = new chat_im();
+//        serv.delete(1);
 
 
 

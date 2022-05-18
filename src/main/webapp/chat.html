@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="layui/layui.js"> </script>
-
-
     <script src="script.js"> </script>
     <title>Serendipity</title>
 
@@ -192,9 +190,38 @@
         }
         //---------------------------------------------------------------------------------------------
 
+        function delete_friend() {
+            console.log("unfriend ")
+            const target_user = document.getElementById("chat_friend_username").innerHTML
+            const current_user = document.getElementById("current_user").innerHTML;
+            const room = document.getElementById("room_num").value;
+
+            if (target_user !==''){
+                var index = layer.confirm('Are you sure you want to delete  <b> ' + target_user + " </b> ? ", {
+                    title: "Unfriend " + target_user,
+                    btn: ['Unfriend','Cancel'], //按钮
+                    btn1: function(){
+                        layer.close(index);
+                        $.get("unfriend",{"current_user":current_user,"target_user":target_user,"room": room},function(response){
+                            document.getElementById("chat_friend_username").innerHTML = ''; // chat name empty
+                            const list = document.getElementById("friend_list_show"); // friend list delete the user
+                            list.removeChild(document.getElementById('li_'+target_user));
+                            $("#show_profile").empty(); // empty profile
+                            document.getElementById("hobbies_friend_username").innerHTML = ''; //empty profile friend's username
+                            $("#chat_message").empty(); // empty chat message
+                        })
+                    }
+                })
+            }
+
+
+        }
+
+
+
         //when chat.html onload/ run:
         $(function (){
-
+            let target_user = '';
             //get URL_variable to get current_user
             const current_user = window.atob(getURLVariable("u"));
             document.getElementById("current_user").innerHTML = current_user;
@@ -203,15 +230,25 @@
             detect_friend_request()
 
             // press "enter" in chat, then send_message.
-            $("#message_input").on("keydown", function (e) {
-                if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
-                    send_message()
+            document.getElementById("message_input").addEventListener("click", function(){
+                if(document.getElementById("chat_friend_username").innerHTML.length!==0) {
+                    //console.log('TARGRT NULL!!!!');
+                    $("#message_input").on("keydown", function (e) {
+                        if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+                            send_message()
+                        }
+                    });
                 }
             });
 
+            document.getElementById('send_message_button').addEventListener('click',function (){
+                if(document.getElementById("chat_friend_username").innerHTML.length!==0) {
+                    send_message();
+                }
+            });
 
             // 点击朋友，旁边出现粉框
-            let target_user = '';
+
             document.getElementById("friend_list_show").addEventListener("click", function(){
                 var t_u= document.getElementById("chat_friend_username").innerHTML;
                 if(target_user===''){ //第一次运行
@@ -264,6 +301,7 @@
                     layer.msg('Empty friend request...');
                 }
             });
+
 
             function detect_friend_request(){
                 $.post("post_friend_request",{"username":current_user},function(response){
@@ -393,6 +431,9 @@
 
 
 
+
+
+
     </script>
 
 
@@ -430,12 +471,12 @@
 
 
     <div class="div_button_three_dot">
-        <button class="button_three_dot"> </button>
+            <button class="button_three_dot" id="unfriend_button" onclick="delete_friend()"> </button>
     </div>
 
     <div class="div_Friend_Chat_Name">
         <!--        <div class="div_CHATNAME_FriendPIC"></div> 对话框头像-->
-        <p class="text_CHATNAME_FriendUsername" id="chat_friend_username">  </p>
+        <p class="text_CHATNAME_FriendUsername" id="chat_friend_username"></p>
         <label hidden class="text_CHATNAME_FriendUsername" id="room_num" value="" >  </label>
     </div>
 
@@ -451,9 +492,9 @@
         <div class="div_chatinput">
             <input id= "message_input" type="text" placeholder="Write a message"  class="chat_input">
 
-            <button class="button_file"></button>
-            <button class="button_emoji"></button>
-            <button id="send_message_button" onclick="send_message()"  class="button_send"></button>
+<!--            <button class="button_file"></button>-->
+<!--            <button class="button_emoji"></button>-->
+            <button id="send_message_button"  class="button_send"></button>
 
         </div>
     </div>

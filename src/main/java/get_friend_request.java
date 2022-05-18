@@ -40,6 +40,7 @@ public class get_friend_request extends HttpServlet {
         info_im serv = new info_im();
         User user = serv.getUser_name(username);
 
+
         JSONObject json = new JSONObject();
 
         Connection conn = DButil.getConnection();
