@@ -9,27 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="#48 Fix friend List Bug">
-      <change afterPath="$PROJECT_DIR$/src/main/java/unfriend.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/image/delect_friend.png" afterDir="false" />
+    <list default="true" id="d1376a3e-7cb6-46b2-b1a0-f7fbfeb86262" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat_im.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat_im.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/get_friend_request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/get_friend_request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ForgotPass_verification.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ForgotPass_verification.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SignIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SignIn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SignUP_verification.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SignUP_verification.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/chat-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/forgot_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/forgot_password.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/match.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/match.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/signUp.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/signUp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chat_im.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chat_im.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/web.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +48,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Sprint4#48" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -102,9 +87,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.14.2" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.33" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
@@ -223,6 +208,7 @@
           <artifact name="web:war exploded" />
           <artifact name="web:war exploded" />
           <artifact name="web:war exploded" />
+          <artifact name="web:war exploded" />
         </option>
       </method>
     </configuration>
@@ -286,7 +272,9 @@
       <workItem from="1651724267358" duration="5677000" />
       <workItem from="1652062218240" duration="2665000" />
       <workItem from="1652564223475" duration="26892000" />
-      <workItem from="1652853376208" duration="17741000" />
+      <workItem from="1652853376208" duration="18042000" />
+      <workItem from="1652872210463" duration="21000" />
+      <workItem from="1652872282759" duration="2108000" />
     </task>
     <task id="LOCAL-00001" summary="#45 Sprint3 chat function">
       <created>1650172886884</created>
@@ -323,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652064034241</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Implement delete friend / unfriend function">
+      <created>1652871518871</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652871518871</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +328,8 @@
     <MESSAGE value="#45 Sprint3 chat function" />
     <MESSAGE value="#46 Implement Add Friends and Search Friend function" />
     <MESSAGE value="#48 Fix friend List Bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="#48 Fix friend List Bug" />
+    <MESSAGE value="Implement delete friend / unfriend function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement delete friend / unfriend function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

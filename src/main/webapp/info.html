@@ -80,8 +80,14 @@
         },
         method: "get",
         success: function(java_response) {
+          layer.open({
+            type: 1,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['420px', '240px'], //宽高
+            title:'Your interests are:',
+            content: '<p5 style="font-size:12px">' + java_response + '<p5>'
+          });
 
-          alert("Your interests are: " + java_response)
         }
       })
     }
@@ -96,7 +102,14 @@
         url: "more_tag",
         method: "get",
         success: function(java_response) {
-          alert("Interests: " + java_response)
+          layer.open({
+            type: 1,
+            skin: 'layui-layer-rim', //加上边框
+            fixed: false,
+            area: ['420px', '240px'], //宽高
+            title:'Interests:',
+            content: '<p5 style="font-size:12px">' + java_response + '<p5>'
+          });
         }
       })
     }
@@ -114,13 +127,14 @@
         "interest":id
       },success: function (java_response) {
         if(java_response === "0") {
-          alert("The label is already existed in your label list!")
+          layer.msg('The label is already existed in your label list!');
         }
         else if(java_response === "-1") {
-          alert("Your label size is reached the maximum amount!")
+          layer.msg("Your label size is reached the maximum amount!");
+
        }
         else if(java_response === "2") {
-          alert("The label is already existed in database!")
+          layer.msg("The label is already existed in database!");
         }
       }
     })
@@ -136,13 +150,14 @@
         "interest":id
       },success: function (java_response) {
         if(java_response === "1") {
-          alert("The label is already deleted in your label list!")
+          layer.msg("The label is already deleted in your label list!");
+
         }
         else if(java_response === "0") {
-          alert("This interest is not in your interest list!")
+          layer.msg("This interest is not in your interest list!");
         }
         else if(java_response === "-1") {
-          alert("Please enter a valid interest!")
+          layer.msg("Please enter a valid interest!");
         }
       }
     })
@@ -158,10 +173,18 @@
         "username":username,
       },success: function (java_response) {
         if(java_response === "1") {
-          window.location.href='match.html'+ '?u='+ window.btoa(username)
+          const info_link = new URL(window.location);
+
+          if (info_link.searchParams.has("chat")){
+            window.location.href='chat.html'+ '?u='+ window.btoa(username)
+          }
+          else {
+            window.location.href='match.html'+ '?u='+ window.btoa(username)
+          }
         }
         else if(java_response === "0") {
-          alert("Please choose your interest!")
+          layer.msg("Please choose your interest!");
+
         }
       }
     })
