@@ -256,7 +256,16 @@ function forgot_verity(){
     var pcheck = input_check("Fpassword1","Please enter your password");
     var pcheck2 = input_check("Fpassword2","Please enter your confirm password");
 
-    if(vcheck && pcheck && pcheck2 ){
+    var enhance_message = password_enhance_len(pass_word) + password_enhance_num(pass_word) + password_enhance_str(pass_word);
+    if(enhance_message!==''){
+        layer.msg('Password need : <br>' + enhance_message , {
+            time: 20000, //20s后自动关闭
+            btn: ['OK'],btnAlign: 'c'
+        });
+    }
+
+
+    if(vcheck && pcheck && pcheck2 && password_enhance_len(pass_word)==='' && password_enhance_num(pass_word)==='' && password_enhance_str(pass_word)===''){
         if (pass_word2===pass_word){
             $.get("forgot_verify", {
                     "email":email,
