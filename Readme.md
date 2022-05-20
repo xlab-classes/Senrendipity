@@ -1,6 +1,9 @@
 # Serendipity
 An instant web chat room that matches users based on their interests
 
+### Demo Link (UB VPN required)
+- [http://cheshire.cse.buffalo.edu:5038/web_war/SignIn.html](http://cheshire.cse.buffalo.edu:5038/web_war/SignIn.html) 
+
 ### Web chat room based on AJAX
 This project is an online chat room based on AJAX polling technology, which has realized basic functions such as user registration, login, and private chat based on interest matching.
 ![](https://github.com/Chuanlong21/442-group/blob/main/signIn.png?raw=true)![](https://github.com/Chuanlong21/442-group/blob/main/SignUp.jpg?raw=true)![](https://github.com/Chuanlong21/442-group/blob/main/match.jpg?raw=true)![](https://github.com/Chuanlong21/442-group/blob/main/chat.png?raw=true)
@@ -8,6 +11,7 @@ This project is an online chat room based on AJAX polling technology, which has 
 
 # Getting Started
 ## Prerequisites
+- Login UB VPN (Database connection required)
 - Download the tomcat apache: (we are using "Tomcat 9.0.63 Released") <br/>
  [ https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
   
@@ -17,7 +21,7 @@ This project is an online chat room based on AJAX polling technology, which has 
   -Download and Implement SDK 11, more information: <br/>
   [https://www.jetbrains.com/help/idea/sdk.html#change-module-sdk](https://www.jetbrains.com/help/idea/sdk.html#change-module-sdk)
 
-## Installation
+## Run & Installation
 
 ### git clone our project: 
 ```bash
