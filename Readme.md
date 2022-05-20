@@ -8,20 +8,14 @@ This project is an online chat room based on AJAX polling technology, which has 
 
 # Getting Started
 ## Prerequisites
-- Download the tomcat apache: (we are using "Tomcat 9.0.63 Released")
-  ```
-  https://tomcat.apache.org/ 
-  ```
+- Download the tomcat apache: (we are using "Tomcat 9.0.63 Released") <br/>
+ [ https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
   
-- Download IntelliJ IDEA
-  ```
-  https://www.jetbrains.com/idea/
-  ```
+- Download IntelliJ IDEA <br/>
+  [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
 
-  -Download and Implement SDK 11, more information: 
-  ```
-  https://www.jetbrains.com/help/idea/sdk.html#change-module-sdk
-  ```
+  -Download and Implement SDK 11, more information: <br/>
+  [https://www.jetbrains.com/help/idea/sdk.html#change-module-sdk](https://www.jetbrains.com/help/idea/sdk.html#change-module-sdk)
 
 ## Installation
 
@@ -84,11 +78,9 @@ check that `Deployment` has a file, and press ok:<br />
 - Users can change their password if they forgot the password
 
 ## Tech
-- JavaWeb
-- AJAX
-- Json data
-- MySQL database
-- Tomacat
+- **Front End:** HTML, CSS, JAVASCRIPT(Use AJAX), Figma
+- **Back End:** JAVA, MySQL Database
+- **Server:** Tomcat
 
 ## Contributor
 [Chuanlong21](https://github.com/Chuanlong21), [HaifengXiao-29](https://github.com/HaifengXiao-29), [Haoxiang](https://github.com/Haoxiang-56), [Jingjing Weng](https://github.com/jweng6)
